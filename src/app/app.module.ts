@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { PlaylistPage } from '../pages/playlist/playlist';
 import { MorePage } from '../pages/more/more';
 import { StatusPage } from '../pages/status/status';
@@ -14,8 +15,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { YoutubeProvider } from '../providers/youtube/youtube';
-import { HttpModule } from '@angular/http';
+
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { HomeProvider } from '../providers/home/home';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -49,8 +51,9 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     PlaylistPage,
+    YoutubeVideoPlayer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    YoutubeProvider
+    HomeProvider
   ]
 })
 export class AppModule {}

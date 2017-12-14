@@ -1,0 +1,20 @@
+{
+    "ads":{
+        "title":"Ads",
+        "items":[{
+            "_id":"1",
+            "image":"http://i257.photobucket.com/albums/hh201/meena_007/Coffee%20Cake%20Rolls/Coffee%20Cake%20Roll%2021_zps5mpka1yk.jpg",
+            "youtubeid":"IF09XbGfOu8"
+        },
+        {
+            "_id":"2",
+            "image":"https://magazine.orami.co.th/static/media/thumbnail_images/patch-cafe-5.jpg",
+            "youtubeid":""
+        },
+        {
+            "_id":"3",
+            "image":"https://f.ptcdn.info/413/020/000/1403449914-open-o.jpg",
+            "youtubeid":"7yXtzhqT1uk"
+        }]
+    }
+}

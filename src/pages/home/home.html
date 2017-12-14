@@ -13,13 +13,34 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background">
+
+
+  <!-- <ion-slides pager >
+    <ion-slide *ngFor="let data of datas">
+    <img src="{{data.snippet.thumbnails.medium.url}}" (click)="openPlaylist(data.id)" />
+    <h3>{{data.snippet.title}}</h3>
+    </ion-slide>
+    
+  </ion-slides> -->
 
   <ion-slides pager>
+
     <ion-slide>
-      xxxxxxx
+      <div style="position:relative;overflow:hidden;padding-bottom:56.25%;height:0;" id="page-video1">
+        <iframe src="https://www.youtube.com/embed/7aCLDkLBhng?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560"
+          height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div style="position:relative;overflow:hidden;padding-bottom:56.25%;height:0;" id="page-video1">
+        <iframe src="https://www.youtube.com/embed/IG8V6GKFGtE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560"
+          height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
     </ion-slide>
 
   </ion-slides>
+
 
 </ion-content>

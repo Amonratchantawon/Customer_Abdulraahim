@@ -1,10 +1,10 @@
+import { PlaylistPage } from '../pages/playlist/playlist';
 import { MorePage } from '../pages/more/more';
 import { StatusPage } from '../pages/status/status';
 import { RewardPage } from '../pages/reward/reward';
 import { RecommentedPage } from '../pages/recommented/recommented';
 
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { NavtabsPage } from '../pages/navtabs/navtabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -14,6 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { YoutubeProvider } from '../providers/youtube/youtube';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { HomePage } from '../pages/home/home';
     RewardPage,
     StatusPage,
     MorePage,
-    NavtabsPage
+    NavtabsPage,
+    PlaylistPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -38,12 +42,15 @@ import { HomePage } from '../pages/home/home';
     RecommentedPage,
     RewardPage,
     StatusPage,
-    MorePage
+    MorePage,
+    PlaylistPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    PlaylistPage,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    YoutubeProvider
   ]
 })
 export class AppModule {}

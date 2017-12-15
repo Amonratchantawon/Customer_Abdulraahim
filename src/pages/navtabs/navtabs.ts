@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, Tabs } from 'ionic-angular';
 
 /**
  * Generated class for the NavtabsPage tabs.
@@ -14,7 +14,7 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'navtabs.html'
 })
 export class NavtabsPage {
-
+  @ViewChild('tabs') tabs: Tabs
   homeRoot = 'HomePage';
   recommentedRoot = 'RecommentedPage';
   rewardRoot = 'RewardPage';
@@ -22,6 +22,9 @@ export class NavtabsPage {
   moreRoot = 'MorePage';
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) { }
 
+  onReword() {
+    this.tabs.select(2);
+  }
 }

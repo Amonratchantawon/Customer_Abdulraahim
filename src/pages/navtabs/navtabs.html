@@ -1,7 +1,12 @@
-<ion-tabs>
-    <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="home"></ion-tab>
-    <ion-tab [root]="recommentedRoot" tabTitle="Recommented" tabIcon="md-thumbs-up"></ion-tab>
-    <ion-tab [root]="rewardRoot" tabTitle="Reward" tabIcon="md-trophy"></ion-tab>
-    <ion-tab [root]="statusRoot" tabTitle="Status" tabIcon="md-pin"></ion-tab>
-    <ion-tab [root]="moreRoot" tabTitle="More" tabIcon="md-more"></ion-tab>
+<ion-tabs color="bite" #tabs>
+    <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="icon-tab-home"></ion-tab>
+    <ion-tab [root]="recommentedRoot" tabTitle="Recommented" tabIcon="icon-tab-recommented"></ion-tab>
+    <ion-tab [root]="rewardRoot" tabTitle="Reward" tabIcon="icon-tab-reword"></ion-tab>
+    <ion-fab bottom center>
+        <button ion-fab class="fab-bite" (click)="onReword()">
+          <ion-icon name="icon-tab-reword"></ion-icon>
+        </button>
+      </ion-fab>
+    <ion-tab [root]="statusRoot" tabTitle="Status" tabIcon="icon-tab-status"></ion-tab>
+    <ion-tab [root]="moreRoot" tabTitle="More" tabIcon="icon-tab-more"></ion-tab>
 </ion-tabs>

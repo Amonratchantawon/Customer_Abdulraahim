@@ -39,43 +39,43 @@
         "items1": [
             {
                 "_id": "ht0001",
-                "image": "./assets/imgs/hotprice1.png"
+                "image": "./assets/imgs/hot_price/hotprice1.png"
             },{
                 "_id": "ht0002",
-                "image": "./assets/imgs/hotprice2.png"
+                "image": "./assets/imgs/hot_price/hotprice2.png"
             },{
                 "_id": "ht0003",
-                "image": "./assets/imgs/hotprice3.png"
+                "image": "./assets/imgs/hot_price/hotprice3.png"
             },{
                 "_id": "ht0004",
-                "image": "./assets/imgs/hotprice4.png"
+                "image": "./assets/imgs/hot_price/hotprice4.png"
             },{
                 "_id": "ht0005",
-                "image": "./assets/imgs/hotprice5.png"
+                "image": "./assets/imgs/hot_price/hotprice5.png"
             },{
                 "_id": "ht0006",
-                "image": "./assets/imgs/hotprice6.png"
+                "image": "./assets/imgs/hot_price/hotprice6.png"
             }
         ],
         "items2": [
             {
                 "_id": "ht0007",
-                "image": "./assets/imgs/hotprice7.png"
+                "image": "./assets/imgs/hot_price/hotprice7.png"
             },{
                 "_id": "ht0008",
-                "image": "./assets/imgs/hotprice8.png"
+                "image": "./assets/imgs/hot_price/hotprice8.png"
             },{
                 "_id": "ht0009",
-                "image": "./assets/imgs/hotprice9.png"
+                "image": "./assets/imgs/hot_price/hotprice9.png"
             },{
                 "_id": "ht0010",
-                "image": "./assets/imgs/hotprice10.png"
+                "image": "./assets/imgs/hot_price/hotprice10.png"
             },{
                 "_id": "ht0011",
-                "image": "./assets/imgs/hotprice11.png"
+                "image": "./assets/imgs/hot_price/hotprice11.png"
             },{
                 "_id": "ht0012",
-                "image": "./assets/imgs/hotprice12.png"
+                "image": "./assets/imgs/hot_price/hotprice12.png"
             }
         ]
     },
@@ -84,47 +84,47 @@
         "items": [
             {
                 "_id": "cat0001",
-                "image": "./assets/imgs/bakery-cake.png"
+                "image": "./assets/imgs/Catagory/bakery-cake.png"
             },
             {
                 "_id": "cat0002",
-                "image": "./assets/imgs/cocktail-juice.png"
+                "image": "./assets/imgs/Catagory/cocktail-juice.png"
             },
             {
                 "_id": "cat0003",
-                "image": "./assets/imgs/Coffee.png"
+                "image": "./assets/imgs/Catagory/Coffee.png"
             },
             {
                 "_id": "cat0004",
-                "image": "./assets/imgs/Fast-food.png"
+                "image": "./assets/imgs/Catagory/Fast-food.png"
             },
             {
                 "_id": "cat0005",
-                "image": "./assets/imgs/grill.png"
+                "image": "./assets/imgs/Catagory/grill.png"
             },
             {
                 "_id": "cat0006",
-                "image": "./assets/imgs/noodles.png"
+                "image": "./assets/imgs/Catagory/noodles.png"
             },
             {
                 "_id": "cat0007",
-                "image": "./assets/imgs/salad.png"
+                "image": "./assets/imgs/Catagory/salad.png"
             },
             {
                 "_id": "cat0008",
-                "image": "./assets/imgs/Seafood.png"
+                "image": "./assets/imgs/Catagory/Seafood.png"
             },
             {
                 "_id": "cat0009",
-                "image": "./assets/imgs/steak.png"
+                "image": "./assets/imgs/Catagory/steak.png"
             },
             {
                 "_id": "cat00010",
-                "image": "./assets/imgs/street-food.png"
+                "image": "./assets/imgs/Catagory/street-food.png"
             },
             {
                 "_id": "cat00011",
-                "image": "./assets/imgs/sushi.png"
+                "image": "./assets/imgs/Catagory/sushi.png"
             }
         ]
     },
@@ -136,31 +136,31 @@
                     "_id": "pro0001",
                     "name": "ข้าวหมูแดงอาก๋ง",
                     "reviews": 5,
-                    "image": "./assets/imgs/akong.png"
+                    "image": "./assets/imgs/shop/akong.png"
                 },
                 {
                     "_id": "pro0002",
                     "name": "Bottle Kitchen",
                     "reviews": 4,
-                    "image": "./assets/imgs/bottlekitchen.png"
+                    "image": "./assets/imgs/shop/bottlekitchen.png"
                 },
                 {
                     "_id": "pro0003",
                     "name": "Steak House",
                     "reviews": 3,
-                    "image": "./assets/imgs/fondue.png"
+                    "image": "./assets/imgs/shop/fondue.png"
                 },
                 {
                     "_id": "pro0004",
                     "name": "KFC",
                     "reviews": 5,
-                    "image": "./assets/imgs/kfc.png"
+                    "image": "./assets/imgs/shop/kfc.png"
                 },
                 {
                     "_id": "pro0005",
                     "name": "Poppen",
                     "reviews": 4,
-                    "image": "./assets/imgs/poppen.png"
+                    "image": "./assets/imgs/shop/poppen.png"
                 }
             ]
         },
@@ -171,25 +171,25 @@
                     "_id": "nb0001",
                     "name": "Pizza Hut",
                     "reviews": 5,
-                    "image": "./assets/imgs/pizza.png"
+                    "image": "./assets/imgs/shop/pizza.png"
                 },
                 {
                     "_id": "nb0002",
                     "name": "Wee Wee",
                     "reviews": 3,
-                    "image": "./assets/imgs/wee.png"
+                    "image": "./assets/imgs/shop/wee.png"
                 },
                 {
                     "_id": "nb0003",
                     "name": "แซ่บแน่",
                     "reviews": 4,
-                    "image": "./assets/imgs/zabna.png"
+                    "image": "./assets/imgs/shop/zabna.png"
                 },
                 {
                     "_id": "nb0004",
                     "name": "Sushi Den",
                     "reviews": 4,
-                    "image": "./assets/imgs/susiden.png"
+                    "image": "./assets/imgs/shop/susiden.png"
                 }
             ]
         },
@@ -200,19 +200,19 @@
                     "_id": "pop0001",
                     "name": "Pizza Hut",
                     "reviews": 5,
-                    "image": "./assets/imgs/pizza.png"
+                    "image": "./assets/imgs/shop/pizza.png"
                 },
                 {
                     "_id": "pop0002",
                     "name": "ข้าวหมูแดงอาก๋ง",
                     "reviews": 5,
-                    "image": "./assets/imgs/akong.png"
+                    "image": "./assets/imgs/shop/akong.png"
                 },
                 {
                     "_id": "pop0003",
                     "name": "Starbuck",
                     "reviews": 4,
-                    "image": "./assets/imgs/starbuck.png"
+                    "image": "./assets/imgs/shop/starbuck.png"
                 }
             ]
         },
@@ -223,25 +223,25 @@
                     "_id": "fav0001",
                     "name": "แซ่บแน่",
                     "reviews": 4,
-                    "image": "./assets/imgs/zabna.png"
+                    "image": "./assets/imgs/shop/zabna.png"
                 },
                 {
                     "_id": "fav0002",
                     "name": "KFC",
                     "reviews": 5,
-                    "image": "./assets/imgs/kfc.png"
+                    "image": "./assets/imgs/shop/kfc.png"
                 },
                 {
                     "_id": "fav0003",
                     "name": "Poppen",
                     "reviews": 4,
-                    "image": "./assets/imgs/poppen.png"
+                    "image": "./assets/imgs/shop/poppen.png"
                 },
                 {
                     "_id": "fav0004",
                     "name": "Wee Wee",
                     "reviews": 3,
-                    "image": "./assets/imgs/wee.png"
+                    "image": "./assets/imgs/shop/wee.png"
                 }
             ]
         }

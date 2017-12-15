@@ -28,7 +28,6 @@ export class HomePage {
   getdata() {
     this.home.getAds().then(data => {
       this.homeData = data;
-      this.ads.startAutoplay();
     }, (error) => {
 
     })

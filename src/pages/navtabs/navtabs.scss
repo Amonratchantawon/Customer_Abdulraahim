@@ -10,6 +10,12 @@ page-navtabs {
     .tab-button-icon {
         color: $white !important;
     }
+    .ion-ios-icon-tab-reword {
+        color: transparent !important;
+    }
+    .ion-md-icon-tab-reword {
+        color: transparent !important;
+    }
     ion-fab[bottom] {
         bottom: 18px !important;
     }
@@ -31,10 +37,10 @@ page-navtabs {
         box-shadow: none;
         height: 65px;
         width: 65px;
-        ion-icon {
-            font-size: 70px !important;
-            position: absolute!important;
-            margin: auto;
+        margin-left: -4px;
+        img {
+            border: 3px solid #ffffff;
+            border-radius: 100%;
         }
     }
 }
@@ -99,7 +105,7 @@ $val) {
 .icon-tab-recommented:before {
     content: "\e902";
     color: white;
-    font-size: 130px;
+    font-size: 30px;
     font-weight: bold;
 }
 

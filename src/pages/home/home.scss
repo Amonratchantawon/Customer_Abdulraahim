@@ -8,6 +8,11 @@ page-home {
         height: 100%;
         text-align: center;
     }
+    ion-avatar{
+        img{
+            border-radius: 100%;
+        }
+    }
     .avatar-profile {
         width: 50px;
     }

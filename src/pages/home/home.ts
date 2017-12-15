@@ -1,7 +1,7 @@
+import { HomeProvider } from '../../providers/home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { HomeModel } from '../../assets/model/homeModel';
 
 @IonicPage()
 @Component({
@@ -10,16 +10,26 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 })
 export class HomePage {
 
+  homeData:HomeModel = new HomeModel();
+
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public home: HomeProvider
   ) {
-    
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad HomePage');
+    this.getdata();
+  }
+
+  getdata() {
+    this.home.getAds().then(data => {
+      this.homeData = data;
+      console.log(this.homeData);
+    })
   }
 
 }

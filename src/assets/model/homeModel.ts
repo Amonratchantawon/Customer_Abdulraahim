@@ -51,7 +51,7 @@ export class ShopModel {
 export class ItemShopModel {
     _id: string;
     name: string
-    review: number;
+    reviews: number;
     image: string;
 }
 

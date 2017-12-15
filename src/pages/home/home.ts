@@ -1,15 +1,14 @@
-import { HomeProvider } from '../../providers/home/home';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { HomeModel } from '../../assets/model/homeModel';
-
+import { HomeProvider } from '../../providers/home/home';
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  @ViewChild('ads') ads: Slides;
   homeData: HomeModel = new HomeModel();
   pages: any = 0;
 
@@ -29,8 +28,9 @@ export class HomePage {
   getdata() {
     this.home.getAds().then(data => {
       this.homeData = data;
-    },(error)=>{
-      
+      this.ads.startAutoplay();
+    }, (error) => {
+
     })
   }
 

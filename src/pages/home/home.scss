@@ -16,6 +16,9 @@ page-home {
     .avatar-profile {
         width: 50px;
     }
+    ion-content {
+        margin-top: 6px;
+    }
     ion-slides {
         height: auto !important;
     }
@@ -29,6 +32,7 @@ page-home {
     }
     .searchbar-ios {
         background: white !important;
+        text-align: center;
     }
     .categories {
         ion-scroll {
@@ -52,7 +56,7 @@ page-home {
     }
     .shops {
         ion-scroll {
-            height: 44vw;
+            height: 23vh;
         }
         .row-custom {
             flex-wrap: inherit !important;
@@ -60,21 +64,73 @@ page-home {
         ion-col {
             padding: 1px;
         }
+        img {
+            object-fit: cover;
+        }
+        .shop-desc {
+            padding-top: 4px;
+            position: absolute;
+            top: 50%;
+        }
+        .product-name {
+            text-align: left;
+            font-weight: 600;
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .text-hover-product {
+            text-align: left;
+            position: absolute;
+            margin-top: -70px;
+            background: linear-gradient(to top, #ffffff 0%, #ffffff 20%, transparent 100%);
+            width: 100%;
+            color: #2e2e2e;
+            height: 68px;
+            padding-top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 600 !important;
+            font-size: 130%;
+        }
+        .distance {
+            padding: 0px;
+            position: absolute;
+            margin-top: 20px;
+            left: 0px;
+            font-size: 70%;
+        }
+        ul {
+            padding: 0px;
+            position: absolute;
+            margin-top: -8px;
+            margin-right: -3px;
+            right: 10px;
+            &.rating li {
+                padding: 0px !important;
+                background: none;
+                color: #ff5566;
+                ion-icon {
+                    margin-right: -2px;
+                    font-size: 60%;
+                }
+            }
+        }
     }
     /* segment*/
     ion-segment {
         display: block;
         white-space: nowrap !important;
-        overflow-x: scroll !important;        
+        overflow-x: scroll !important;
         background-color: #ffffff !important;
-        height: 45px !important;
-        // margin-top: -4px !important;
+        height: 45px !important; // margin-top: -4px !important;
         .segment-button {
             display: inline-block !important;
             min-width: auto !important;
-            padding: 0px !important;
-            width: 100px !important;
-            // margin-top: 4px;
+            padding-left: 8px !important;
+            width: auto !important;
             border: 0 !important;
             color: #607D8B !important;
             font-size: 14px !important;

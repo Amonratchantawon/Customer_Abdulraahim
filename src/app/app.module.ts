@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+
 import { HomeProvider } from '../providers/home/home';
 
 @NgModule({
@@ -17,7 +18,7 @@ import { HomeProvider } from '../providers/home/home';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

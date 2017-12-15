@@ -2,7 +2,7 @@ export class HomeModel {
     ads: AdsModel = new AdsModel();
     hotprices: HotpricesModel = new HotpricesModel();
     categories: CategoriesModel = new CategoriesModel();
-    shop: shopModel = new shopModel();
+    shop: Array<shopModel>;
 }
 
 export class HotpricesModel {

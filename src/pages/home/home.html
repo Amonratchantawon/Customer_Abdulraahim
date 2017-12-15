@@ -23,4 +23,36 @@
       <img src="{{item.image}}" alt="imgErr">
     </ion-slide>
   </ion-slides>
+
+  <div class="hotprices">
+    <p padding-left>
+      <b>{{homeData.hotprices.title}}</b>
+    </p>
+    <ion-scroll scrollX="true">
+      <ion-row class="row-custom">
+        <ion-col col-6 *ngFor="let item of homeData.hotprices.items1">
+          <img src="{{item.image}}" alt="imgErr">
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-custom">
+        <ion-col col-6 *ngFor="let item of homeData.hotprices.items2">
+          <img src="{{item.image}}" alt="imgErr">
+        </ion-col>
+      </ion-row>
+    </ion-scroll>
+  </div>
+
+  <div class="categories">
+    <p padding-left>
+      <b>{{homeData.categories.title}}</b>
+    </p>
+    <ion-scroll scrollX="true">
+      <ion-row class="row-custom">
+        <ion-col col-3 *ngFor="let item of homeData.categories.items">
+          <img src="{{item.image}}" alt="">
+        </ion-col>
+      </ion-row>
+    </ion-scroll>
+  </div>
+
 </ion-content>

@@ -8,23 +8,60 @@ page-home {
         height: 100%;
         text-align: center;
     }
-    ion-avatar{
-        img{
+    ion-avatar {
+        img {
             border-radius: 100%;
         }
     }
     .avatar-profile {
         width: 50px;
     }
-    ion-slides{
-        height:auto !important ;
+    ion-slides {
+        height: auto !important;
     }
-    .searchbar-ios .searchbar-input{
+    .swiper-pagination-bullet-active {
+        background: $bite-color;
+        opacity: 1;
+    }
+    .searchbar-ios .searchbar-input {
         background-color: #eeeded !important;
         border-radius: 15px !important;
     }
-    
-    .searchbar-ios{
-        background:white !important;
+    .searchbar-ios {
+        background: white !important;
+    }
+    .categories {
+        ion-scroll {
+            height: 800px;
+        }
+        .row-custom {
+            flex-wrap: inherit !important;
+        }
+    }
+    .hotprices {
+        ion-scroll {
+            height: 28vh;
+        }
+        .row-custom {
+            flex-wrap: inherit !important;
+            margin-top: -4px;
+        }
+        ion-col {
+            padding: 1px;
+        }
+    }
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+        .hotprices {
+            ion-scroll {
+                height: 28vh;
+            }
+            .row-custom {
+                flex-wrap: inherit !important;
+                margin-top: -4px;
+            }
+            ion-col {
+                padding: 1px;
+            }
+        }
     }
 }

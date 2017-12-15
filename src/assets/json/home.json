@@ -4,34 +4,246 @@
         "items": [
             {
                 "_id": "ads001",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads1.png",
                 "isvideo": true,
                 "videoid": "###"
             },
             {
                 "_id": "ads002",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads2.png",
                 "isvideo": false,
                 "videoid": ""
             },
             {
                 "_id": "ads003",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads3.png",
                 "isvideo": true,
                 "videoid": "###"
             },
             {
                 "_id": "ads004",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads4.png",
                 "isvideo": false,
                 "videoid": ""
             },
             {
                 "_id": "ads005",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads5.png",
                 "isvideo": false,
                 "videoid": ""
             }
         ]
-    }
+    },
+    "hotprices": {
+        "title": "Hot Price",
+        "items1": [
+            {
+                "_id": "ht0001",
+                "image": "./assets/imgs/hot_price/hotprice1.png"
+            },{
+                "_id": "ht0002",
+                "image": "./assets/imgs/hot_price/hotprice2.png"
+            },{
+                "_id": "ht0003",
+                "image": "./assets/imgs/hot_price/hotprice3.png"
+            },{
+                "_id": "ht0004",
+                "image": "./assets/imgs/hot_price/hotprice4.png"
+            },{
+                "_id": "ht0005",
+                "image": "./assets/imgs/hot_price/hotprice5.png"
+            },{
+                "_id": "ht0006",
+                "image": "./assets/imgs/hot_price/hotprice6.png"
+            }
+        ],
+        "items2": [
+            {
+                "_id": "ht0007",
+                "image": "./assets/imgs/hot_price/hotprice7.png"
+            },{
+                "_id": "ht0008",
+                "image": "./assets/imgs/hot_price/hotprice8.png"
+            },{
+                "_id": "ht0009",
+                "image": "./assets/imgs/hot_price/hotprice9.png"
+            },{
+                "_id": "ht0010",
+                "image": "./assets/imgs/hot_price/hotprice10.png"
+            },{
+                "_id": "ht0011",
+                "image": "./assets/imgs/hot_price/hotprice11.png"
+            },{
+                "_id": "ht0012",
+                "image": "./assets/imgs/hot_price/hotprice12.png"
+            }
+        ]
+    },
+    "categories": {
+        "title": "Category",
+        "items": [
+            {
+                "_id": "cat0001",
+                "image": "./assets/imgs/Catagory/bakery-cake.png"
+            },
+            {
+                "_id": "cat0002",
+                "image": "./assets/imgs/Catagory/cocktail-juice.png"
+            },
+            {
+                "_id": "cat0003",
+                "image": "./assets/imgs/Catagory/Coffee.png"
+            },
+            {
+                "_id": "cat0004",
+                "image": "./assets/imgs/Catagory/Fast-food.png"
+            },
+            {
+                "_id": "cat0005",
+                "image": "./assets/imgs/Catagory/grill.png"
+            },
+            {
+                "_id": "cat0006",
+                "image": "./assets/imgs/Catagory/noodles.png"
+            },
+            {
+                "_id": "cat0007",
+                "image": "./assets/imgs/Catagory/salad.png"
+            },
+            {
+                "_id": "cat0008",
+                "image": "./assets/imgs/Catagory/Seafood.png"
+            },
+            {
+                "_id": "cat0009",
+                "image": "./assets/imgs/Catagory/steak.png"
+            },
+            {
+                "_id": "cat00010",
+                "image": "./assets/imgs/Catagory/street-food.png"
+            },
+            {
+                "_id": "cat00011",
+                "image": "./assets/imgs/Catagory/sushi.png"
+            }
+        ]
+    },
+    "shops": [
+        {
+            "title": "Promotion",
+            "items": [
+                {
+                    "_id": "pro0001",
+                    "name": "ข้าวหมูแดงอาก๋ง",
+                    "reviews": 5,
+                    "image": "./assets/imgs/shop/akong.png"
+                },
+                {
+                    "_id": "pro0002",
+                    "name": "Bottle Kitchen",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/bottlekitchen.png"
+                },
+                {
+                    "_id": "pro0003",
+                    "name": "Steak House",
+                    "reviews": 3,
+                    "image": "./assets/imgs/shop/fondue.png"
+                },
+                {
+                    "_id": "pro0004",
+                    "name": "KFC",
+                    "reviews": 5,
+                    "image": "./assets/imgs/shop/kfc.png"
+                },
+                {
+                    "_id": "pro0005",
+                    "name": "Poppen",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/poppen.png"
+                }
+            ]
+        },
+        {
+            "title": "Near by",
+            "items": [
+                {
+                    "_id": "nb0001",
+                    "name": "Pizza Hut",
+                    "reviews": 5,
+                    "image": "./assets/imgs/shop/pizza.png"
+                },
+                {
+                    "_id": "nb0002",
+                    "name": "Wee Wee",
+                    "reviews": 3,
+                    "image": "./assets/imgs/shop/wee.png"
+                },
+                {
+                    "_id": "nb0003",
+                    "name": "แซ่บแน่",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/zabna.png"
+                },
+                {
+                    "_id": "nb0004",
+                    "name": "Sushi Den",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/susiden.png"
+                }
+            ]
+        },
+        {
+            "title": "Popular",
+            "items": [
+                {
+                    "_id": "pop0001",
+                    "name": "Pizza Hut",
+                    "reviews": 5,
+                    "image": "./assets/imgs/shop/pizza.png"
+                },
+                {
+                    "_id": "pop0002",
+                    "name": "ข้าวหมูแดงอาก๋ง",
+                    "reviews": 5,
+                    "image": "./assets/imgs/shop/akong.png"
+                },
+                {
+                    "_id": "pop0003",
+                    "name": "Starbuck",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/starbuck.png"
+                }
+            ]
+        },
+        {
+            "title": "Favorite",
+            "items": [
+                {
+                    "_id": "fav0001",
+                    "name": "แซ่บแน่",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/zabna.png"
+                },
+                {
+                    "_id": "fav0002",
+                    "name": "KFC",
+                    "reviews": 5,
+                    "image": "./assets/imgs/shop/kfc.png"
+                },
+                {
+                    "_id": "fav0003",
+                    "name": "Poppen",
+                    "reviews": 4,
+                    "image": "./assets/imgs/shop/poppen.png"
+                },
+                {
+                    "_id": "fav0004",
+                    "name": "Wee Wee",
+                    "reviews": 3,
+                    "image": "./assets/imgs/shop/wee.png"
+                }
+            ]
+        }
+    ]
 }

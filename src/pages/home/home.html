@@ -15,4 +15,11 @@
 
 <ion-content>
 
+  <ion-slides pager>
+    <ion-slide *ngFor="let item of homeData.items">
+      {{item.image}}
+    </ion-slide>
+    
+  </ion-slides>
+
 </ion-content>

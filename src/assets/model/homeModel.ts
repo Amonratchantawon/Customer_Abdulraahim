@@ -2,13 +2,13 @@ export class HomeModel {
     ads: AdsModel = new AdsModel();
     hotprices: HotpricesModel = new HotpricesModel();
     categories: CategoriesModel = new CategoriesModel();
-    shop: Array<shopModel>;
+    shops: Array<ShopModel> = [];
 }
 
 export class HotpricesModel {
-    title:string;
+    title: string;
     items1: Array<HotpriceModel>;
-    items2: Array<HotpriceModel>;;
+    items2: Array<HotpriceModel>;
 }
 
 export class AdsModel {
@@ -43,9 +43,9 @@ export class ItemCategoriesModel {
     image: string;
 }
 
-export class shopModel {
+export class ShopModel {
     title: string;
-    items: Array<ItemShopModel>;
+    items: Array<ItemShopModel> = [];
 }
 
 export class ItemShopModel {

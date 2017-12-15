@@ -10,7 +10,8 @@ import { HomeModel } from '../../assets/model/homeModel';
 })
 export class HomePage {
 
-  homeData:HomeModel = new HomeModel();
+  homeData: HomeModel = new HomeModel();
+  pages: any = 0;
 
   constructor(
     public navCtrl: NavController,
@@ -28,8 +29,13 @@ export class HomePage {
   getdata() {
     this.home.getAds().then(data => {
       this.homeData = data;
-      console.log(this.homeData);
+    },(error)=>{
+      
     })
+  }
+
+  onSelectedPage(index) { // selected category
+    this.pages = index;
   }
 
 }

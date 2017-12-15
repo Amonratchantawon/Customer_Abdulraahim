@@ -18,6 +18,7 @@
 
 <ion-content>
   <ion-searchbar mode="ios" placeholder="ค้าหาร้าน/รายการอาหาร"></ion-searchbar>
+
   <ion-slides pager>
     <ion-slide *ngFor="let item of homeData.ads.items">
       <img src="{{item.image}}" alt="imgErr">
@@ -48,8 +49,26 @@
     </p>
     <ion-scroll scrollX="true">
       <ion-row class="row-custom">
-        <ion-col col-3 *ngFor="let item of homeData.categories.items">
+        <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeData.categories.items">
           <img src="{{item.image}}" alt="">
+        </ion-col>
+      </ion-row>
+    </ion-scroll>
+  </div>
+
+  <div class="shops">
+    <div no-padding>
+      <ion-segment mode="md" [(ngModel)]="pages">
+        <ion-segment-button *ngFor="let segment of homeData.shops; let i = index;" [ngClass]="{'active-page' : i == pages}" (click)="onSelectedPage(i)">
+          {{ segment.title }}
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <ion-scroll scrollX="true">
+      <ion-row class="row-custom" *ngIf="homeData.shops && homeData.shops.length > 0">
+        <ion-col col-4 *ngFor="let item of homeData.shops[pages].items">
+          <img src="{{item.image}}" alt="imgErr">
+          <span>{{item.name}}</span>
         </ion-col>
       </ion-row>
     </ion-scroll>

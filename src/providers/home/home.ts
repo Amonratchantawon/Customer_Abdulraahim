@@ -17,9 +17,9 @@ export class HomeProvider {
 
   getAds(): Promise<HomeModel> {
     return this.http.get('./assets/json/home.json')
-     .toPromise()
-     .then(response => response as HomeModel)
-     .catch(this.handleError);
+      .toPromise()
+      .then(response => response as HomeModel)
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

@@ -1,8 +1,3 @@
-import { MorePage } from '../more/more';
-import { StatusPage } from '../status/status';
-import { RewardPage } from '../reward/reward';
-import { RecommentedPage } from '../recommented/recommented';
-import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
@@ -20,11 +15,11 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class NavtabsPage {
 
-  homeRoot = HomePage
-  recommentedRoot = RecommentedPage
-  rewardRoot = RewardPage
-  statusRoot = StatusPage
-  moreRoot = MorePage
+  homeRoot = 'HomePage';
+  recommentedRoot = 'RecommentedPage';
+  rewardRoot = 'RewardPage';
+  statusRoot = 'StatusPage';
+  moreRoot = 'MorePage';
 
 
   constructor(public navCtrl: NavController) {}

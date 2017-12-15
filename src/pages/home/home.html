@@ -7,12 +7,20 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>home</ion-title>
+    <ion-avatar class="avatar-profile">
+      <img src="http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png">
+    </ion-avatar>
+    <ion-title>HOME</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-
+  <ion-searchbar mode="ios" placeholder="ค้าหาร้าน/รายการอาหาร"></ion-searchbar>
+  <ion-slides pager>
+    <ion-slide *ngFor="let item of homeData.ads.items">
+      <img src="{{item.image}}" alt="imgErr">
+    </ion-slide>
+  </ion-slides>
 </ion-content>

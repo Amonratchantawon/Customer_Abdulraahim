@@ -1,6 +1,6 @@
 $white:#ffffff;
 page-navtabs {
-    .tab-button[aria-selected=true]{
+    .tab-button[aria-selected=true] {
         background-color: #dc3636;
     }
     .tab-button-icon {
@@ -31,9 +31,10 @@ page-navtabs {
         box-shadow: none;
         height: 65px;
         width: 65px;
-        margin-left: -5px !important;
         ion-icon {
-            font-size: 7rem !important;
+            font-size: 70px !important;
+            position: absolute!important;
+            margin: auto;
         }
     }
 }
@@ -98,7 +99,7 @@ $val) {
 .icon-tab-recommented:before {
     content: "\e902";
     color: white;
-    font-size: 30px;
+    font-size: 130px;
     font-weight: bold;
 }
 

@@ -4,31 +4,31 @@
         "items": [
             {
                 "_id": "ads001",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads1.png",
                 "isvideo": true,
                 "videoid": "###"
             },
             {
                 "_id": "ads002",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads2.png",
                 "isvideo": false,
                 "videoid": ""
             },
             {
                 "_id": "ads003",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads3.png",
                 "isvideo": true,
                 "videoid": "###"
             },
             {
                 "_id": "ads004",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads4.png",
                 "isvideo": false,
                 "videoid": ""
             },
             {
                 "_id": "ads005",
-                "image": "./assets/imgs/ads.png",
+                "image": "./assets/imgs/ads/ads5.png",
                 "isvideo": false,
                 "videoid": ""
             }

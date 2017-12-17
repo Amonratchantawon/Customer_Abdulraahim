@@ -47,7 +47,7 @@ export class RecommentedPage {
 
   doRefresh(refresher) {
     setTimeout(() => {
-      console.log('Refresh');
+      this.getReview();
       refresher.complete();
     }, 2000);
   }

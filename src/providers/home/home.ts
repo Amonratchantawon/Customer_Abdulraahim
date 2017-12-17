@@ -15,7 +15,7 @@ export class HomeProvider {
     console.log('Hello HomeProvider Provider');
   }
 
-  getAds(): Promise<HomeModel> {
+  getHomeData(): Promise<HomeModel> {
     return this.http.get('./assets/json/home.json')
       .toPromise()
       .then(response => response as HomeModel)

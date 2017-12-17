@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 import { HomeProvider } from '../providers/home/home';
+import { ReviewProvider } from '../providers/review/review';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeProvider } from '../providers/home/home';
     SplashScreen,
     YoutubeVideoPlayer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HomeProvider
+    HomeProvider,
+    ReviewProvider
   ]
 })
 export class AppModule {}

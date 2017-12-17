@@ -17,9 +17,6 @@ page-home {
     .avatar-profile {
         width: 50px;
     }
-    ion-content {
-        margin-top: 6px;
-    }
     ion-slides {
         height: auto !important;
     }
@@ -34,6 +31,9 @@ page-home {
     .searchbar-ios {
         background: white !important;
         text-align: center;
+    }
+    .searchbar-input-container {
+        margin-top: 6px;
     }
     .categories {
         ion-scroll {
@@ -143,10 +143,8 @@ page-home {
         }
     }
     /* segment*/
-
-    .cate-seeall{
+    .cate-seeall {
         color: rgb(73, 67, 67);
-        font-family: 'Kanit', sans-serif;
-        // margin-bottom: 40px;
+        font-family: 'Kanit', sans-serif; // margin-bottom: 40px;
     }
 }

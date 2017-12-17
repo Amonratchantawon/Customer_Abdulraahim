@@ -26,16 +26,23 @@ export class HomePage {
     this.getdata();
   }
 
+  onSelectedPage(index) { // selected category
+    this.pages = index;
+  }
+
   getdata() {
-    this.home.getAds().then(data => {
+    this.home.getHomeData().then(data => {
       this.homeData = data;
     }, (error) => {
 
     })
   }
 
-  onSelectedPage(index) { // selected category
-    this.pages = index;
+  doRefresh(refresher) {
+    setTimeout(() => {
+      this.getdata();
+      refresher.complete();
+    }, 2000);
   }
 
   getItems(e) {

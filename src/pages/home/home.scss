@@ -83,11 +83,11 @@ page-home {
         .text-hover-product {
             text-align: left;
             position: absolute;
-            margin-top: -70px;
-            background: linear-gradient(to top, #ffffff 0%, #ffffff 20%, transparent 100%);
+            margin-top: -59px;
+            background-color: rgba(255, 255, 255, 0.73);
             width: 100%;
             color: #2e2e2e;
-            height: 68px;
+            height: 55px;
             padding-top: 10px;
             white-space: nowrap;
             overflow: hidden;
@@ -142,4 +142,10 @@ page-home {
         }
     }
     /* segment*/
+
+    .cate-seeall{
+        color: rgb(73, 67, 67);
+        font-family: 'Raleway', sans-serif;
+        // margin-bottom: 40px;
+    }
 }

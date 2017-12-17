@@ -38,4 +38,11 @@ export class RecommentedPage {
     console.log('like');
   }
 
+  doRefresh(refresher){
+    setTimeout(() => {
+      console.log('Refresh');
+      refresher.complete();
+    }, 2000);
+  }
+
 }

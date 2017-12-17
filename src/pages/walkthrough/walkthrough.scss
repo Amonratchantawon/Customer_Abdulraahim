@@ -1,18 +1,58 @@
+$bg-shadow-tran: rgba(255, 255, 255, 0);
+$bg-shadow: #ffffff;
+$text: #4E342E;
+
 page-walkthrough {
     .swiper-pagination-bullet-active {
         background: $bite-color;
         opacity: 1;
     }
     .bg-slide-1 {
-        background-image: url("https://i.pinimg.com/236x/7f/ee/7d/7fee7de26cabcd73cb4a40082778a9d3--phone-backgrounds-mobile-phones.jpg");
+        background-image: url("../assets/imgs/grit1.jpg");
         background-size: cover;
     }
     .bg-slide-2 {
-        background-image: url("https://i.pinimg.com/236x/7f/ee/7d/7fee7de26cabcd73cb4a40082778a9d3--phone-backgrounds-mobile-phones.jpg");
+        background-image: url("../assets/imgs/grit2.jpg");
         background-size: cover;
     }
     .bg-slide-3 {
-        background-image: url("https://i.pinimg.com/236x/7f/ee/7d/7fee7de26cabcd73cb4a40082778a9d3--phone-backgrounds-mobile-phones.jpg");
+        background-image: url("../assets/imgs/grit3.jpg");
         background-size: cover;
+    }
+    .scroll-content {
+        padding-bottom: 0px !important;
+    }
+    .content {
+        background: -moz-linear-gradient(top, $bg-shadow-tran 0%, $bg-shadow 50%, $bg-shadow 100%);
+        background: -webkit-linear-gradient(top, $bg-shadow-tran 0%, $bg-shadow 50%, $bg-shadow 100%);
+        background: linear-gradient(to bottom, $bg-shadow-tran 0%, $bg-shadow 110%, $bg-shadow 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+        background-position: center !important;
+        background-size: cover !important;
+    }
+    .no-scroll .scroll-content {
+        overflow: hidden;
+    }
+    .login {
+        top: 60vw !important;
+        position: absolute;
+    }
+    .app-name {
+        color: $text;
+        font-size: 3.6rem !important;
+        font-weight: 900 !important;
+    }
+    .item {
+        color: $text;
+        background-color: rgba(255, 255, 255, 0.42);
+        .label {
+            color: $text;
+        }
+    }
+    .button {
+        box-shadow: none !important;
+    }
+    .col{
+        padding-right: 40px !important;
     }
 }

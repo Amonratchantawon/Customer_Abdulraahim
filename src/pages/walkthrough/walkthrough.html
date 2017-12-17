@@ -9,13 +9,37 @@
 <ion-content>
   <ion-slides pager>
     <ion-slide class="bg-slide-1">
-      <h1>Slide 1</h1>
+      <!-- <h1>Slide 1</h1> -->
     </ion-slide>
     <ion-slide class="bg-slide-2">
-      <h1>Slide 2</h1>
+      <!-- <h1>Slide 2</h1> -->
     </ion-slide>
-    <ion-slide class="bg-slide-3">
-      <h1>Slide 3</h1>
+    <ion-slide class="bg-slide-3" padding>
+      <!-- <h1>Slide 3</h1> -->
+      <ion-grid class="login">
+        <ion-row>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 padding>
+            <ion-list>
+
+              <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password"></ion-input>
+              </ion-item>
+
+            </ion-list>
+            <button ion-button no-shadow block color="hunger" (click)="onLogin()">Login</button>
+            <br>
+            <button ion-button no-shadow block clear color="hunger" (click)="goRegister()">Register</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-slide>
   </ion-slides>
 </ion-content>

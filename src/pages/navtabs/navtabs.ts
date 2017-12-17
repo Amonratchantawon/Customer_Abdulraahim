@@ -23,11 +23,19 @@ export class NavtabsPage {
   moreRoot = 'MorePage';
 
   icon: string = './assets/icon/reward.svg';
-
+  color: string = '#EB3841';
   constructor(public navCtrl: NavController) {
   }
 
   onReword() {
     this.tabs.select(2);
+  }
+
+  onSelectChange(e) {
+    if (e.id === 't0-2') {
+      this.color = '#b3222f';
+    } else {
+      this.color = '#EB3841';
+    }
   }
 }

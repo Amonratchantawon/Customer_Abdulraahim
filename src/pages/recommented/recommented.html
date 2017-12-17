@@ -14,7 +14,7 @@
     <ion-title>Review</ion-title>
     <ion-buttons end>
       <button ion-button icon-only clear end color="light">
-        <ion-icon name="camera" ></ion-icon>
+        <ion-icon name="camera"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -22,6 +22,9 @@
 
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing...">></ion-refresher-content>
+  </ion-refresher>
   <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
 
   <ion-card *ngFor="let item of dataReview">
@@ -39,11 +42,11 @@
     <ion-card-content>
       <img src="{{item.image}}">
       <div class="card-description">
-          <p>
-            <b>{{item.shop}}</b>
-          </p>
-          <p>{{item.caption}}</p>
-        </div>
+        <p>
+          <b>{{item.shop}}</b>
+        </p>
+        <p>{{item.caption}}</p>
+      </div>
     </ion-card-content>
 
     <ion-row>

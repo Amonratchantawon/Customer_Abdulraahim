@@ -4,15 +4,64 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>recommented</ion-title>
+  <ion-navbar color="bite">
+    <ion-avatar class="avatar-profile">
+      <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
+    </ion-avatar>
+    <ion-title>HOME</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear end>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
+
+  <ion-card *ngFor="let item of dataReview">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{item.user.profileImageURL}}">
+      </ion-avatar>
+      <p><b>{{item.user.displayName}}</b></p>
+      <p>November 5, 1955</p>
+    </ion-item>
+
+    <img src="{{item.image}}">
+
+    <ion-card-content>
+      <p><b>{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}</b></p>
+      <p>{{item.caption}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col col-6 text-left>
+        <button ion-button icon-left clear>
+          <ion-icon name="heart" color="danger"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-6 text-right align-self-center>
+        <p>
+          <b>3000 likes</b>
+        </p>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+  <!-- <ion-list >
+    <ion-item *ngFor="let item of dataReview" >
+      {{item.user.displayname}}
+      <img src="{{item.user.image}}" alt="">
+    </ion-item>
+  </ion-list> -->
 
 </ion-content>

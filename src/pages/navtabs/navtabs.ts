@@ -15,14 +15,20 @@ import { IonicPage, NavController, Tabs } from 'ionic-angular';
 })
 export class NavtabsPage {
   @ViewChild('tabs') tabs: Tabs
+
   homeRoot = 'HomePage';
   recommentedRoot = 'RecommentedPage';
   rewardRoot = 'RewardPage';
   statusRoot = 'StatusPage';
   moreRoot = 'MorePage';
 
+  isShow: Boolean;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController) {
+    setTimeout(() => {
+      this.isShow = true;
+    }, 0);
+  }
 
   onReword() {
     this.tabs.select(2);

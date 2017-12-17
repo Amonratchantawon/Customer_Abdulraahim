@@ -18,7 +18,7 @@
 
 <ion-content>
   <div *ngIf="homeData.ads.items">
-    <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
+    <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร" (window:keydown)="getItems($event)"></ion-searchbar>
     <ion-slides pager autoplay="3000" loop="true" speed="1500">
       <ion-slide *ngFor="let item of homeData.ads.items">
         <img src="{{item.image}}" alt="imgErr" (click)="openAds()">

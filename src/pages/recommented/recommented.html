@@ -17,7 +17,7 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
-  <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
+  <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร" (window:keydown)="getItems($event)"></ion-searchbar>
 
   <ion-card *ngFor="let item of dataReview">
 

@@ -25,6 +25,13 @@ export class RecommentedPage {
     this.getReview();
   }
 
+  getItems(e) {
+    if (e.keyCode == 13) {
+      let activeElement = <HTMLElement>document.activeElement;
+      activeElement && activeElement.blur && activeElement.blur();
+    }
+  }
+
   getReview() {
     this.reviewProvider.getReviews().then(res => {
       console.log(res);
@@ -34,11 +41,11 @@ export class RecommentedPage {
     });
   }
 
-  onLike(){
+  onLike() {
     console.log('like');
   }
 
-  doRefresh(refresher){
+  doRefresh(refresher) {
     setTimeout(() => {
       console.log('Refresh');
       refresher.complete();

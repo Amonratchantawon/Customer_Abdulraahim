@@ -38,6 +38,13 @@ export class HomePage {
     this.pages = index;
   }
 
+  getItems(e) {
+    if (e.keyCode == 13) {
+      let activeElement = <HTMLElement>document.activeElement;
+      activeElement && activeElement.blur && activeElement.blur();
+    }
+  }
+
   openAds() {
     // let profileModal = this.modalCtrl.create('VideoContentPage', { userId: 8675309 });
     // profileModal.present();

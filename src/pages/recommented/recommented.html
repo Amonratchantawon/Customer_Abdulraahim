@@ -30,38 +30,36 @@
       <ion-avatar item-start>
         <img src="{{item.user.profileImageURL}}">
       </ion-avatar>
-      <p><b>{{item.user.displayName}}</b></p>
+      <p>
+        <b>{{item.user.displayName}}</b>
+      </p>
       <p>November 5, 1955</p>
     </ion-item>
 
-    <img src="{{item.image}}">
-
     <ion-card-content>
-      <p><b>{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}<{{item.shop}}</b></p>
-      <p>{{item.caption}}</p>
+      <img src="{{item.image}}">
+      <div class="card-description">
+          <p>
+            <b>{{item.shop}}</b>
+          </p>
+          <p>{{item.caption}}</p>
+        </div>
     </ion-card-content>
 
     <ion-row>
       <ion-col col-6 text-left>
-        <button ion-button icon-left clear>
-          <ion-icon name="heart" color="danger"></ion-icon>
+        <button ion-button icon-left clear large (click)="onLike()">
+          <ion-icon name="heart" color="danger" *ngIf="item.islike"></ion-icon>
+          <ion-icon name="heart-outline" *ngIf="!item.islike"></ion-icon>
         </button>
       </ion-col>
       <ion-col col-6 text-right align-self-center>
         <p>
-          <b>3000 likes</b>
+          <b>{{item.likes | number:x}} likes</b>
         </p>
       </ion-col>
     </ion-row>
 
   </ion-card>
-
-
-  <!-- <ion-list >
-    <ion-item *ngFor="let item of dataReview" >
-      {{item.user.displayname}}
-      <img src="{{item.user.image}}" alt="">
-    </ion-item>
-  </ion-list> -->
 
 </ion-content>

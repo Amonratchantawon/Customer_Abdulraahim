@@ -1,0 +1,18 @@
+page-walkthrough {
+    .swiper-pagination-bullet-active {
+        background: $bite-color;
+        opacity: 1;
+    }
+    .bg-slide-1 {
+        background-image: url("https://i.pinimg.com/236x/7f/ee/7d/7fee7de26cabcd73cb4a40082778a9d3--phone-backgrounds-mobile-phones.jpg");
+        background-size: cover;
+    }
+    .bg-slide-2 {
+        background-image: url("https://i.pinimg.com/236x/7f/ee/7d/7fee7de26cabcd73cb4a40082778a9d3--phone-backgrounds-mobile-phones.jpg");
+        background-size: cover;
+    }
+    .bg-slide-3 {
+        background-image: url("https://i.pinimg.com/236x/7f/ee/7d/7fee7de26cabcd73cb4a40082778a9d3--phone-backgrounds-mobile-phones.jpg");
+        background-size: cover;
+    }
+}

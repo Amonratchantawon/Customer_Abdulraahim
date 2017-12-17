@@ -21,5 +21,8 @@ export class WalkthroughPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WalkthroughPage');
   }
+  onLogin(){
+    this.navCtrl.push('NavtabsPage');
+  }
 
 }

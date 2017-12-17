@@ -1,7 +1,6 @@
 $bg-shadow-tran: rgba(255, 255, 255, 0);
 $bg-shadow: #ffffff;
 $text: #4E342E;
-
 page-walkthrough {
     .swiper-pagination-bullet-active {
         background: $bite-color;
@@ -18,6 +17,7 @@ page-walkthrough {
     .bg-slide-3 {
         background-image: url("../assets/imgs/grit3.jpg");
         background-size: cover;
+        overflow-y: auto;
     }
     .scroll-content {
         padding-bottom: 0px !important;
@@ -36,6 +36,8 @@ page-walkthrough {
     .login {
         top: 60vw !important;
         position: absolute;
+        height: 70%;
+        justify-content: center;
     }
     .app-name {
         color: $text;
@@ -52,7 +54,7 @@ page-walkthrough {
     .button {
         box-shadow: none !important;
     }
-    .col{
+    .col {
         padding-right: 40px !important;
     }
 }

@@ -37,4 +37,12 @@ export class HomePage {
     this.pages = index;
   }
 
+  seeAllCategories(){
+    alert('Categories');
+  }
+
+  seeAllHotprices(){
+    alert('Hotprices');
+  }
+
 }

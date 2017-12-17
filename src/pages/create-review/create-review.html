@@ -7,34 +7,45 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>create-review</ion-title>
+    <ion-title>Write review</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
-    <ion-card>
-        
-          <ion-item>
-            <ion-avatar item-start>
-              <img src="./assets/imgs/user/user1.png">
-            </ion-avatar>
-            <h2>Marty McFly</h2>
-            <!-- <p>November 5, 1955</p> -->
-          </ion-item>
-        
-          <ion-card-content>
-              <textarea #myInput id="myInput" rows="1" maxLength="500" [(ngModel)]="myStuff" placeholder="Write a cation..."></textarea>
-          </ion-card-content>
-          <ion-row>
-              <ion-col text-center>
-                  <button ion-button round outline >POST</button>
-              </ion-col>
-          </ion-row>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="./assets/imgs/user/user1.png">
+      </ion-avatar>
+      <h2>MooNoi</h2>
+    </ion-item>
 
-        
-        </ion-card>
+    <ion-row>
+      <ion-col col-3>
+      </ion-col>
+      <ion-col col-6>
+        <!-- <img src="./assets/imgs/review/review1.png" class="write-review-image"> -->
+        <img src="./assets/icon/image-upload.png" class="write-review-image">
+      </ion-col>
+      <ion-col col-3>
+      </ion-col>
+    </ion-row>
+
+    <ion-card-content>
+      <textarea class="write-review-title" rows="1" maxLength="30" placeholder="Shop name"></textarea>
+      <hr>
+      <textarea class="write-review-detail" rows="6" maxLength="150" placeholder="Write a caption..."></textarea>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button round outline color="bite">Review</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
 
 </ion-content>

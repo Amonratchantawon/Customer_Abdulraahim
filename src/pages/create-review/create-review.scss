@@ -1,27 +1,32 @@
 page-create-review {
-
-    #myInput {
-        width: calc(100% - 10px);
+    .write-review-title {
+        width: 100%;
+        border: 2px !important;
+        border-radius: 5 !important;
+        background: transparent;
+        margin-top: 18px;
+    }
+    .write-review-detail {
+        width: 100%;
         border: 2px !important;
         border-radius: 5 !important;
         background: transparent;
     }
-    
-
+    .write-review-image {
+        width: 100%;
+        object-fit: cover;
+    }
+    textarea[placeholder].write-review-detail {
+        font-size: 20px;
+    }
+    textarea {
+        resize: none;
+    }
     .card {
         box-shadow: none !important;
         border: none;
         margin: 0px 0px 12px 0px !important;
         width: 100% !important;
-        p {
-            margin: 0 0 2px;
-            font-size: 1.4rem;
-            color: rgb(7, 6, 6);
-        }
-        b {
-            color: rgb(80, 75, 62);
-            font-size: 1.6rem;
-        }
+        padding: 0px !important;
     }
-
 }

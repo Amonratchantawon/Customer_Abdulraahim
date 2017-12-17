@@ -1,7 +1,7 @@
 import { ReviewModel } from '../../assets/model/review';
 import { ReviewProvider } from '../../providers/review/review';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 
 
@@ -17,7 +17,9 @@ export class RecommentedPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public reviewProvider: ReviewProvider) {
+    public reviewProvider: ReviewProvider,
+    public app: App
+  ) {
   }
 
   ionViewWillEnter() {
@@ -51,9 +53,9 @@ export class RecommentedPage {
       refresher.complete();
     }, 2000);
   }
-  
-  createReview(){
-    this.navCtrl.push('CreateReviewPage');
+
+  createReview() {
+    this.app.getRootNav().push('CreateReviewPage');
   }
 
 

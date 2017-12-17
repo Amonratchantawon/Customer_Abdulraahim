@@ -52,5 +52,9 @@ export class RecommentedPage {
     }, 2000);
   }
   
+  createReview(){
+    this.navCtrl.push('CreateReviewPage');
+  }
+
 
 }

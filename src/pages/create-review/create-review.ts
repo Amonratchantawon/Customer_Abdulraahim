@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'create-review.html',
 })
 export class CreateReviewPage {
+  @ViewChild('myInput') myInput: ElementRef;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

@@ -1,3 +1,20 @@
 page-reward {
-
+    ion-slides {
+        height: auto !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: $bite-color;
+        opacity: 1;
+    }
+    .searchbar-ios .searchbar-input {
+        background-color: #eeeded !important;
+        border-radius: 15px !important;
+    }
+    .searchbar-ios {
+        background: white !important;
+        text-align: center;
+    }
+    .searchbar-input-container {
+        margin-top: 6px;
+    }
 }

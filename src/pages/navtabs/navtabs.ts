@@ -22,12 +22,9 @@ export class NavtabsPage {
   statusRoot = 'StatusPage';
   moreRoot = 'MorePage';
 
-  isShow: Boolean;
+  icon: string = './assets/icon/reward.svg';
 
   constructor(public navCtrl: NavController) {
-    setTimeout(() => {
-      this.isShow = true;
-    }, 0);
   }
 
   onReword() {

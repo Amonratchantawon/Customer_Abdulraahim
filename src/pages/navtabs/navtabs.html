@@ -2,9 +2,9 @@
     <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="icon-tab-home"></ion-tab>
     <ion-tab [root]="recommentedRoot" tabTitle="Review" tabIcon="icon-tab-recommented"></ion-tab>
     <ion-tab [root]="rewardRoot" tabTitle="Reward" tabIcon="icon-tab-reword"></ion-tab>
-    <ion-fab bottom center *ngIf="isShow">
+    <ion-fab bottom center>
         <button ion-fab class="fab-bite" (click)="onReword()">
-          <img src="./assets/icon/reward.svg">
+          <img [src]="icon">
         </button>
       </ion-fab>
     <ion-tab [root]="statusRoot" tabTitle="Status" tabIcon="icon-tab-status"></ion-tab>

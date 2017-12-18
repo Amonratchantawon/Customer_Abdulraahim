@@ -17,14 +17,14 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
-  
+
   <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร" (window:keydown)="getItems($event)"></ion-searchbar>
 
   <ion-card *ngFor="let item of dataReview">
 
     <ion-item>
       <ion-avatar item-start>
-        <img src="{{item.user.profileImageURL}}">
+        <preload-image [ratio]="{w:1, h:1}" [src]="item.user.profileImageURL" title="profile-image"></preload-image>
       </ion-avatar>
       <p>
         <b>{{item.user.displayName}}</b>
@@ -33,7 +33,8 @@
     </ion-item>
 
     <ion-card-content>
-      <img src="{{item.image}}">
+      <!-- <img src="{{item.image}}"> -->
+      <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="review-image"></preload-image>
       <div class="card-description">
         <p>
           <b>{{item.shop}}</b>
@@ -45,8 +46,8 @@
     <ion-row>
       <ion-col col-6 text-left>
         <button ion-button icon-left clear large (click)="onLike()">
-          <ion-icon name="heart" color="danger" *ngIf="item.islike"></ion-icon>
-          <ion-icon name="heart-outline" color="danger" *ngIf="!item.islike"></ion-icon>
+          <ion-icon name="md-heart" color="danger" *ngIf="item.islike"></ion-icon>
+          <ion-icon name="md-heart-outline" color="danger" *ngIf="!item.islike"></ion-icon>
         </button>
       </ion-col>
       <ion-col col-6 text-right align-self-center>

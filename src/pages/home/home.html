@@ -11,7 +11,6 @@
 
 
 <ion-content>
-
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
@@ -20,7 +19,8 @@
     <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
     <ion-slides pager autoplay="3000" loop="true" speed="1500">
       <ion-slide *ngFor="let item of homeData.ads.items">
-        <img src="{{item.image}}" alt="imgErr">
+        <!-- <img src="{{item.image}}" alt="imgErr"> -->
+        <preload-image [ratio]="{w:20, h:10}" [src]="item.image" title="ads"></preload-image>
       </ion-slide>
     </ion-slides>
 
@@ -40,12 +40,14 @@
       <ion-scroll scrollX="true">
         <ion-row class="row-custom">
           <ion-col col-6 *ngFor="let item of homeData.hotprices.items1">
-            <img src="{{item.image}}" alt="imgErr">
+            <!-- <img src="{{item.image}}" alt="imgErr"> -->
+            <preload-image [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices"></preload-image>
           </ion-col>
         </ion-row>
         <ion-row class="row-custom">
           <ion-col col-6 *ngFor="let item of homeData.hotprices.items2">
-            <img src="{{item.image}}" alt="imgErr">
+            <!-- <img src="{{item.image}}" alt="imgErr"> -->
+            <preload-image [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices"></preload-image>            
           </ion-col>
         </ion-row>
       </ion-scroll>
@@ -63,7 +65,8 @@
       <ion-scroll scrollX="true">
         <ion-row class="row-custom">
           <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeData.categories.items">
-            <img src="{{item.image}}" alt="">
+            <!-- <img src="{{item.image}}" alt=""> -->
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories"></preload-image>                        
           </ion-col>
         </ion-row>
       </ion-scroll>
@@ -80,7 +83,8 @@
       <ion-scroll scrollX="true">
         <ion-row class="row-custom" *ngIf="homeData.shops && homeData.shops.length > 0">
           <ion-col col-4 col-md-3 col-lg-3 *ngFor="let item of homeData.shops[pages].items">
-            <img src="{{item.image}}" alt="imgErr">
+            <!-- <img src="{{item.image}}" alt="imgErr"> -->
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="shops"></preload-image>                                    
             <div class="text-hover-product">
               <label>{{item.name}}</label>
               <span class="distance">{{item.distance}} km.</span>

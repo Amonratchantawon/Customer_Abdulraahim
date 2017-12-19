@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
   templateUrl: 'recommented.html',
 })
 export class RecommentedPage {
-
+  searchText:string = '';
   dataReview: Array<ReviewModel>;
 
   constructor(

@@ -15,6 +15,7 @@ import { HomeProvider } from '../providers/home/home';
 import { ReviewProvider } from '../providers/review/review';
 import { HotpriceProvider } from '../providers/hotprice/hotprice';
 import { ShopProvider } from '../providers/shop/shop';
+import { CategoryProvider } from '../providers/category/category';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ShopProvider } from '../providers/shop/shop';
     HomeProvider,
     ReviewProvider,
     HotpriceProvider,
-    ShopProvider
+    ShopProvider,
+    CategoryProvider
   ]
 })
 export class AppModule { }

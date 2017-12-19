@@ -1,0 +1,46 @@
+[
+    {
+        "_id": "cat0000",
+        "image": "./assets/imgs/Catagory/cat0.png"
+    },
+    {
+        "_id": "cat0001",
+        "image": "./assets/imgs/Catagory/cat1.png"
+    },
+    {
+        "_id": "cat0002",
+        "image": "./assets/imgs/Catagory/cat2.png"
+    },
+    {
+        "_id": "cat0003",
+        "image": "./assets/imgs/Catagory/cat3.png"
+    },
+    {
+        "_id": "cat0004",
+        "image": "./assets/imgs/Catagory/cat4.png"
+    },
+    {
+        "_id": "cat0005",
+        "image": "./assets/imgs/Catagory/cat5.png"
+    },
+    {
+        "_id": "cat0006",
+        "image": "./assets/imgs/Catagory/cat6.png"
+    },
+    {
+        "_id": "cat0007",
+        "image": "./assets/imgs/Catagory/cat7.png"
+    },
+    {
+        "_id": "cat0008",
+        "image": "./assets/imgs/Catagory/cat8.png"
+    },
+    {
+        "_id": "cat0009",
+        "image": "./assets/imgs/Catagory/cat9.png"
+    },
+    {
+        "_id": "cat00010",
+        "image": "./assets/imgs/Catagory/cat10.png"
+    }
+]

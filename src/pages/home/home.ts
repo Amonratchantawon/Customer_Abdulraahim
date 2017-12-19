@@ -67,4 +67,8 @@ export class HomePage {
     this.app.getRootNav().push('ShopSeeAllPage');
   }
 
+  categoryPage(){
+    this.navCtrl.push('CategoryListPage');
+  }
+
 }

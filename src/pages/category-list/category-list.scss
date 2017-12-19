@@ -1,4 +1,5 @@
-page-hotprice-list {
+page-category-list {
+
     .content {
         padding-left: 8px !important;
         padding-right: 8px !important;
@@ -11,7 +12,21 @@ page-hotprice-list {
         background: white !important;
         text-align: center;
     }
-    // .searchbar-input-container {
-    //     margin-top: 6px;
-    // }
+    .searchbar-input-container {
+        margin-top: 6px;
+    }
+
+    .categories {
+        ion-scroll {
+            height: 28vw;
+        }
+        .row-custom {
+            flex-wrap: inherit !important;
+        }
+    }
+
+    .scroll-content{
+        padding: 0px 0px 0px 0px !important;
+    }
+
 }

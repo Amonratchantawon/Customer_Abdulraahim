@@ -11,6 +11,8 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 import { HomeProvider } from '../providers/home/home';
 import { ReviewProvider } from '../providers/review/review';
+import { HotpriceProvider } from '../providers/hotprice/hotprice';
+import { ShopProvider } from '../providers/shop/shop';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ReviewProvider } from '../providers/review/review';
     YoutubeVideoPlayer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
-    ReviewProvider
+    ReviewProvider,
+    HotpriceProvider,
+    ShopProvider
   ]
 })
 export class AppModule {}

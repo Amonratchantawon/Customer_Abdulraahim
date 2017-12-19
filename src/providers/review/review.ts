@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ReviewModel } from '../../assets/model/review';
+import { ReviewModel } from '../../assets/model/review.model';
 
 
 /*
@@ -14,7 +14,6 @@ import { ReviewModel } from '../../assets/model/review';
 export class ReviewProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello ReviewProvider Provider');
   }
 
   getReviews(): Promise<Array<ReviewModel>> {

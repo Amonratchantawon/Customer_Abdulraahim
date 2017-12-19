@@ -1,7 +1,7 @@
-import { ReviewModel } from '../../assets/model/review';
 import { ReviewProvider } from '../../providers/review/review';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { ReviewModel } from '../../assets/model/review.model';
 
 
 

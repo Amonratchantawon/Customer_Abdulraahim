@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ModalController } from 'ionic-angular';
-import { HomeModel } from '../../assets/model/homeModel';
+import { IonicPage, NavController, NavParams, Slides, ModalController, App } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
+import { HomeModel } from '../../assets/model/home.model';
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -16,7 +16,8 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public home: HomeProvider,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public app: App
   ) {
 
   }
@@ -57,8 +58,13 @@ export class HomePage {
     // profileModal.present();
   }
 
-  seeAllHotprices() {
+  seeAllHotPrice() {
+    this.app.getRootNav().push('HotpriceListPage');
+  }
 
+  seeAll(cate) {
+    console.log(cate);
+    this.app.getRootNav().push('ShopSeeAllPage');
   }
 
 }

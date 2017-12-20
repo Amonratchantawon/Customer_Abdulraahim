@@ -7,17 +7,17 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>category-list</ion-title>
+    <ion-title>Category</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
+    <ion-searchbar mode="ios" placeholder="Search by restaurant/food"></ion-searchbar>
   <div class="categories">
-    <ion-scroll scrollX="true">
-      <ion-row class="row-custom">
+    <ion-scroll scrollX="true" id="scroll">
+      <ion-row class="row-custom" >
         <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of categoryData" (click)="categoryPage()">
           <!-- <img src="{{item.image}}" alt=""> -->
           <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories"></preload-image>
@@ -27,7 +27,7 @@
   </div>
   <div class="shops">
     <div no-padding>
-      <ion-segment mode="md" [(ngModel)]="pages">
+      <ion-segment mode="md" [(ngModel)]="pages" >
         <ion-segment-button *ngFor="let segment of shopByCate; let i = index;" [ngClass]="{'active-page' : i == pages}" (click)="onSelectedPage(i)">
           {{ segment.title }}
         </ion-segment-button>

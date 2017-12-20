@@ -21,8 +21,11 @@ export class CategoryListPage {
   categoryData:Array<ItemCategoriyModel>;
   shopByCate:Array<CategoryListModel>;
   pages: any = 0;
+  index:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public categoryProvider:CategoryProvider) {
+    this.index = this.navParams.get('index')
+    console.log(this.index);
   }
 
   ionViewDidLoad() {
@@ -34,6 +37,9 @@ export class CategoryListPage {
   getCate(){
     this.categoryProvider.getCategory().then(res=>{
       this.categoryData = res;
+
+    // let scroll = document.getElementById('scroll');
+    // scroll.scrollLeft = 1000 * this.index;
       console.log(this.categoryData);
     })
   }
@@ -47,6 +53,10 @@ export class CategoryListPage {
 
   onSelectedPage(index) { // selected category
     this.pages = index;
+  }
+
+  categoryPage(){
+    
   }
 
 }

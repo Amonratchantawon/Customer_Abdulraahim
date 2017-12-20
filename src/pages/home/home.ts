@@ -63,12 +63,12 @@ export class HomePage {
   }
 
   seeAll(cate) {
-    console.log(cate);
     this.app.getRootNav().push('ShopSeeAllPage');
   }
 
-  categoryPage(){
-    this.navCtrl.push('CategoryListPage');
+  categoryPage(index,item){
+    // this.navCtrl.push('CategoryListPage',{ index: index,item:item});
+    this.app.getRootNav().push('CategoryListPage',{ index: index,item:item});
   }
 
 }

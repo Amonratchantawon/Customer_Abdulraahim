@@ -15,12 +15,6 @@ page-category-list {
         margin-top: 6px;
     }
     .categories {
-        ion-scroll {
-            height: 28vw;
-        }
-        .row-custom {
-            flex-wrap: inherit !important;
-        }
         ion-segment {
             display: block;
             white-space: nowrap !important;
@@ -32,11 +26,17 @@ page-category-list {
                 display: inline-block !important;
                 min-width: auto !important;
                 padding-left: 8px !important;
-                width: 80px !important;
-                height: 80px !important;
+                width: 90px !important;
+                height: 90px !important;
                 border: 0 !important;
                 color: #607D8B !important;
                 font-size: 14px !important;
+            }
+        }
+        .active-cates {
+            img {
+                border: 4px solid #607d8b !important;
+                border-radius: 100% !important;
             }
         }
     }
@@ -49,6 +49,7 @@ page-category-list {
         overflow-x: scroll !important;
         background-color: #ffffff !important;
         height: 45px !important; // margin-top: -4px !important;
+        margin-top: -6px;        
         .segment-button {
             display: inline-block !important;
             min-width: auto !important;

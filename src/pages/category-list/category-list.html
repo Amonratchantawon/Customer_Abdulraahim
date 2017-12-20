@@ -14,21 +14,17 @@
 
 
 <ion-content padding>
+
   <ion-searchbar mode="ios" placeholder="Search by restaurant/food"></ion-searchbar>
+
   <div class="categories">
-    <!-- <ion-scroll scrollX="true" #scroll>
-      <ion-row class="row-custom">
-        <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of categoryData" (click)="categoryPage()">
-          <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories"></preload-image>
-        </ion-col>
-      </ion-row>
-    </ion-scroll> -->
     <ion-segment mode="md" [(ngModel)]="index" id="scroll">
       <ion-segment-button *ngFor="let item of categoryData; let i = index;" (click)="selectedCategory(i)">
-        <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories"></preload-image>
+        <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories" [ngClass]="{'active-cates' : i == cate}"></preload-image>
       </ion-segment-button>
     </ion-segment>
   </div>
+  <hr>
   <div class="shops">
     <div no-padding>
       <ion-segment mode="md" [(ngModel)]="pages">

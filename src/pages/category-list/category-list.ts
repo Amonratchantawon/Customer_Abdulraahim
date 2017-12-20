@@ -21,7 +21,7 @@ export class CategoryListPage {
   categoryData: Array<ItemCategoriyModel>;
   shopByCate: Array<CategoryListModel>;
   pages: any = 0;
-  index: any;
+  cate: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoryProvider: CategoryProvider) {
 
@@ -35,11 +35,11 @@ export class CategoryListPage {
   getCate() {
     this.categoryProvider.getCategory().then(res => {
       this.categoryData = res;
-      this.index = this.navParams.get('index');
+      this.cate = this.navParams.get('index');
       let cateId = this.navParams.get('item')._id;
       setTimeout(() => {
         let scroll = document.getElementById('scroll');
-        scroll.scrollLeft = 80 * this.index;
+        scroll.scrollLeft = 90 * this.cate;
       }, 0);
       console.log(cateId);
       this.getShopByCate(cateId);
@@ -57,7 +57,8 @@ export class CategoryListPage {
   }
 
   selectedCategory(index) {
-    this.index = index;
+    this.cate = index;
+    this.getShopByCate(index);
   }
 
 }

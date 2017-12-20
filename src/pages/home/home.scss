@@ -12,10 +12,15 @@ page-home {
     ion-avatar {
         img {
             border-radius: 100%;
+            height: 40px;
         }
+        z-index: 999 !important;
     }
     .avatar-profile {
         width: 50px;
+    }
+    ion-buttons{
+        order: 1 !important;
     }
     ion-slides {
         height: auto !important;

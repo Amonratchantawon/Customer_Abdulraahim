@@ -1,9 +1,13 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-avatar class="avatar-profile">
-      <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
-    </ion-avatar>
+    <ion-buttons start>
+      <button ion-button (click)="onToProfile()">
+        <ion-avatar class="avatar-profile" >
+          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png"\>
+        </ion-avatar>
+      </button>
+    </ion-buttons>
     <ion-title>{{ 'HOME' | translate}}</ion-title>
   </ion-navbar>
 

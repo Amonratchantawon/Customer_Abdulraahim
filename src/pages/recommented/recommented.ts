@@ -111,6 +111,9 @@ export class RecommentedPage {
       outputType: 0
     };
     this.imagePicker.getPictures(options).then((results) => {
+      if(results === 'OK'){
+        results = [];
+      }
       for (let i = 0; i < results.length; i++) {
         let fileUri = results[i];
         if (this.platform.is('android')) {

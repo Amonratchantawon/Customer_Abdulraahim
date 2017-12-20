@@ -13,6 +13,7 @@ grid-shop-y {
             top: 50%;
         }
         .product-name {
+            margin-left: 6px;
             text-align: left;
             font-weight: 600;
             font-size: 18px;
@@ -25,7 +26,7 @@ grid-shop-y {
             position: absolute;
             margin-top: -47px;
             background-color: rgba(255, 255, 255, 0.73);
-            width: 100%;
+            width: calc(100% - 4px);
             color: #2e2e2e;
             height: 48px;
             padding-top: 2px;
@@ -39,13 +40,13 @@ grid-shop-y {
             padding: 0px;
             position: absolute;
             margin-top: 26px;
-            left: 0px;
+            left: 6px;
             font-size: 100%;
         }
         ul {
             padding: 0px;
             position: absolute;
-            margin-top: -14px;
+            margin-top: -16px;
             margin-right: 0px;
             right: 10px;
             &.rating li {
@@ -53,7 +54,7 @@ grid-shop-y {
                 background: none;
                 color: #ff5566;
                 ion-icon {
-                    margin-right: 2px;
+                    margin-right: 0px;
                     font-size: 14px;
                 }
             }

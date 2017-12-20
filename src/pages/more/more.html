@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>More</ion-title>
+    <ion-title>{{ 'MORE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,29 +17,29 @@
   <ion-list>
     <button ion-item item-start>
       <ion-icon name="md-card" item-start></ion-icon>
-      Service charge
+      {{ 'SERVICE_CHARGE' | translate }}
     </button>
     <button ion-item item-start>
       <ion-icon name="md-help" item-start></ion-icon>
-      Questions & Answers
+      {{ 'QUESTIONS_&_ANSWERS' | translate }}
     </button>
     <button ion-item item-start>
       <ion-icon name="md-contact" item-start></ion-icon>
-      Contact BiteBite
+      {{ 'CONTANT_BITEBITE' | translate }}
     </button>
     <button ion-item item-start (click)="onSetting()">
       <ion-icon name="md-settings" item-start></ion-icon>
-      Settings
+      {{ 'SETTINGS' | translate }}
     </button>
     <button ion-item item-start>
       <ion-icon name="md-contacts" item-start></ion-icon>
-      Join with BiteBite
+      {{ 'JOIN_WITH_BITEBITE' | translate }}
     </button>
   </ion-list>
   <ion-list>
     <button ion-item item-start>
       <ion-icon name="md-log-out" item-start></ion-icon>
-      Logout
+      {{ 'LOGOUT' | translate }}
     </button>
   </ion-list>
 </ion-content>

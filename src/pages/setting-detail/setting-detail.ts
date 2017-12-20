@@ -16,10 +16,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class SettingDetailPage {
 
   languages: Array<any> = [{
-    language: 'English',
+    language: 'ENGLISH',
     json: 'en'
   }, {
-    language: 'Thai',
+    language: 'THAI',
     json: 'th'
   }];
   language: string = '';

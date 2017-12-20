@@ -12,10 +12,26 @@
   "REFRESHING": "กำลังรีเฟรช...",
   "RESTAURANT": "ร้านอาหาร",
 
-  "REVIEW":"รีวิวร้านอาหาร",
-  "WRITE_REVIEW":"เขียนรีวิว",
-  "RESTAURANT_NAME": "ชื่อร้านอาหาร",  
-  "WRITE_A_CAPTION":"สิ่งที่คุณประทับใจ",
+  "REVIEW": "รีวิวร้านอาหาร",
+  "WRITE_REVIEW": "เขียนรีวิว",
+  "LIKES": "ถูกใจ",
+  "RESTAURANT_NAME": "ชื่อร้านอาหาร",
+  "WRITE_A_CAPTION": "สิ่งที่คุณประทับใจ",
 
-  "SETTING_DETAIL": "การตั้งค่า"
+  "REWARD": "สิทธิประโยชน์",
+
+  "STATUS": "สถานะ",
+
+  "MORE": "อื่นๆ",
+  "SERVICE_CHARGE": "ค่าบริการ",
+  "QUESTIONS_&_ANSWERS": "คำถามพี่พบบ่อย",
+  "CONTANT_BITEBITE": "ติดต่อ BiteBite",
+  "SETTINGS": "ตั้งค่า",
+  "JOIN_WITH_BITEBITE": "ร่วมงานกับ BiteBite",
+  "LOGOUT": "ออกจากระบบ",
+
+  "SETTING_DETAIL": "การตั้งค่า",
+  "LANGUAGE": "ภาษา",
+  "ENGLISH": "อังกฤษ",
+  "THAI": "ไทย"
 }

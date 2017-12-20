@@ -16,8 +16,6 @@ import { ReviewProvider } from '../../providers/review/review';
   templateUrl: 'recommented.html',
 })
 export class RecommentedPage {
-  lottieConfig: Object;
-  anim: any;
   searchText: string = '';
   dataReview: Array<ReviewModel>;
   constructor(
@@ -32,13 +30,6 @@ export class RecommentedPage {
     private alertCtrl: AlertController,
     private camera: Camera
   ) {
-    this.lottieConfig = {
-      path: './assets/icon/lottie/heart.json',
-      loop: true,
-      prerender: true,
-      autoplay: false,
-      autoloadSegments: true,
-    };
   }
 
   ionViewWillEnter() {
@@ -59,15 +50,6 @@ export class RecommentedPage {
     }).catch(err => {
       console.log(err);
     });
-  }
-
-  handleAnimation(e: any) {
-    this.anim = e;
-  }
-
-  animate() {
-    console.log('like');
-    this.anim.playSegments([[27, 142], [14, 26]], true);
   }
 
   doRefresh(refresher) {

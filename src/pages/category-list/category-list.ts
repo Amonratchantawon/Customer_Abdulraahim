@@ -18,36 +18,37 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CategoryListPage {
 
-  categoryData:Array<ItemCategoriyModel>;
-  shopByCate:Array<CategoryListModel>;
+  categoryData: Array<ItemCategoriyModel>;
+  shopByCate: Array<CategoryListModel>;
   pages: any = 0;
-  index:any;
+  cate: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public categoryProvider:CategoryProvider) {
-    this.index = this.navParams.get('index')
-    console.log(this.index);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public categoryProvider: CategoryProvider) {
+
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad CategoryListPage');
     this.getCate();
-    this.getShopByCate();
   }
 
-  getCate(){
-    this.categoryProvider.getCategory().then(res=>{
+  getCate() {
+    this.categoryProvider.getCategory().then(res => {
       this.categoryData = res;
-
-    // let scroll = document.getElementById('scroll');
-    // scroll.scrollLeft = 1000 * this.index;
-      console.log(this.categoryData);
+      this.cate = this.navParams.get('index');
+      let cateId = this.navParams.get('item')._id;
+      setTimeout(() => {
+        let scroll = document.getElementById('scroll');
+        scroll.scrollLeft = 90 * this.cate;
+      }, 0);
+      console.log(cateId);
+      this.getShopByCate(cateId);
     })
   }
 
-  getShopByCate(){
-    this.categoryProvider.getListCategory().then(res=>{
+  getShopByCate(cateId) {
+    this.categoryProvider.getListCategory().then(res => {
       this.shopByCate = res;
-      console.log(this.shopByCate);
     });
   }
 
@@ -55,8 +56,9 @@ export class CategoryListPage {
     this.pages = index;
   }
 
-  categoryPage(){
-    
+  selectedCategory(index) {
+    this.cate = index;
+    this.getShopByCate(index);
   }
 
 }

@@ -67,7 +67,6 @@ export class HomePage {
   }
 
   categoryPage(index,item){
-    // this.navCtrl.push('CategoryListPage',{ index: index,item:item});
     this.app.getRootNav().push('CategoryListPage',{ index: index,item:item});
   }
 

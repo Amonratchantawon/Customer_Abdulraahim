@@ -15,11 +15,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  displayName = "อมรรัตน์ จันทะวร";
+  isenabled: boolean = true;
+  Edit = "create";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+  clicktogglr(users){
+    if (this.Edit == "create") {
+      // this.Edit = "checkbox-outline"
+      if (this.isenabled == true) {
+        this.isenabled = false;
+      }
+    } else if (this.Edit == "checkbox-outline") {
+      // this.Edit = "create"
+      if (this.isenabled == false) {
+        this.isenabled = false;
+      }
+    }
+  }
+  save(){
+    if (this.isenabled == true) {
+      this.isenabled = false;
+    }else  {
+      this.isenabled = true;
+    }
   }
 
 }

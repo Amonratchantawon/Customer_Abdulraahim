@@ -5,7 +5,7 @@ import { Crop } from '@ionic-native/crop';
 import { Base64 } from '@ionic-native/base64';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { IonicPage, NavController, NavParams, App, ActionSheetController, Platform, AlertController } from 'ionic-angular';
+import { IonicPage, App, ActionSheetController, Platform, AlertController } from 'ionic-angular';
 import { ReviewModel } from '../../assets/model/review.model';
 import { ReviewProvider } from '../../providers/review/review';
 
@@ -20,8 +20,6 @@ export class RecommentedPage {
   dataReview: Array<ReviewModel>;
 
   constructor(
-    private navCtrl: NavController,
-    private navParams: NavParams,
     private reviewProvider: ReviewProvider,
     private app: App,
     private actionSheetCtrl: ActionSheetController,
@@ -111,7 +109,7 @@ export class RecommentedPage {
       outputType: 0
     };
     this.imagePicker.getPictures(options).then((results) => {
-      if(results === 'OK'){
+      if (results === 'OK') {
         results = [];
       }
       for (let i = 0; i < results.length; i++) {

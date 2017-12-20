@@ -2,9 +2,9 @@
 
   <ion-navbar color="bite">
     <ion-buttons start>
-      <button ion-button (click)="onToProfile()">
-        <ion-avatar class="avatar-profile" >
-          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png"\>
+      <button ion-button clear (click)="onToProfile()">
+        <ion-avatar class="avatar-profile">
+          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
         </ion-avatar>
       </button>
     </ion-buttons>
@@ -12,7 +12,6 @@
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
@@ -90,7 +89,7 @@
           <ion-col col-4 col-md-3 col-lg-3 *ngFor="let item of homeData.shops[pages].items">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="shops"></preload-image>
             <div class="text-hover-product">
-              <label>{{item.name}}</label>
+              <label class="product-name">{{item.name}}</label>
               <span class="distance">{{item.distance}} km.</span>
               <p text-center>
                 <rating [(ngModel)]="item.rating" readOnly="true" max="5" emptyStarIconName="md-heart-outline" halfStarIconName="md-heart-outline"

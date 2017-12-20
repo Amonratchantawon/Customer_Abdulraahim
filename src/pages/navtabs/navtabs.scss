@@ -10,14 +10,14 @@ page-navtabs {
     .tab-button-icon {
         color: $white !important;
     }
-    .ion-ios-icon-tab-reword {
+    .ion-ios-icon-tab-reword-outline {
         color: transparent !important;
     }
     .ion-md-icon-tab-reword {
         color: transparent !important;
     }
     ion-fab[bottom] {
-        bottom: 18px !important;
+        bottom: 22px !important;
     }
     .fab-ios.activated {
         color: #fff;
@@ -31,16 +31,15 @@ page-navtabs {
         color: #fff;
         background-color: $bite-color;
     }
+    .fab-md {
+        transition: none !important;
+    }
     .fab-bite {
         color: $white;
         background-color: $bite-color;
-        box-shadow: none;
-        height: 65px;
-        width: 65px;
-        margin-left: -4px; // img {
-        //     border: 3px solid #ffffff;
-        //     border-radius: 100%;
-        // }
+        box-shadow: none; // height: 65px;
+        // width: 65px;
+        // margin-left: -4px;
         background-image: url("../assets/icon/reward_radius.png");
         background-size: 50%;
         background-repeat: no-repeat;

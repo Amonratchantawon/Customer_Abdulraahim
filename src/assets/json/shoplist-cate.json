@@ -1,6 +1,6 @@
 [
     {
-        "title": "Promotion",
+        "title": "PROMOTION",
         "items": [
             {
                 "_id": "pro0001",
@@ -141,7 +141,7 @@
         ]
     },
     {
-        "title": "Near by",
+        "title": "NEAR_BY",
         "items": [
             {
                 "_id": "pro0001",
@@ -282,7 +282,7 @@
         ]
     },
     {
-        "title": "Popular",
+        "title": "POPULAR",
         "items": [
             {
                 "_id": "pro0001",
@@ -423,7 +423,7 @@
         ]
     },
     {
-        "title": "Favorite",
+        "title": "FAVORITE",
         "items": [
             {
                 "_id": "pro0001",

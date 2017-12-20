@@ -1,8 +1,12 @@
 <ion-header>
   <ion-navbar color="bite">
-    <ion-avatar class="avatar-profile">
-      <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
-    </ion-avatar>
+    <ion-buttons start>
+      <button ion-button clear (click)="goToProfile()">
+        <ion-avatar class="avatar-profile">
+          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
+        </ion-avatar>
+      </button>
+    </ion-buttons>
     <ion-title>{{ 'REVIEW' | translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only clear end (click)="createReview()">
@@ -18,7 +22,7 @@
     <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
-  
+
   <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
 
   <ion-card *ngFor="let item of dataReview">

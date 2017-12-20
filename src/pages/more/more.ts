@@ -26,11 +26,15 @@ export class MorePage {
     console.log('ionViewDidLoad MorePage');
   }
 
+  goToProfile() {
+    this.app.getRootNav().push('ProfilePage');
+  }
+
   onSetting() {
     this.app.getRootNav().push('SettingDetailPage');
   }
 
-  logout(){
+  logout() {
     this.app.getActiveNav().push('WalkthroughPage');
   }
 

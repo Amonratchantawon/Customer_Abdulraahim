@@ -1,5 +1,5 @@
 {
-  "HOME": "HOME",
+  "HOME": "Home",
   "BITE_SEARCH": "Search by restaurant / food",
   "SEE_ALL": "See all",
   "HOT_PRICE": "Hot price",
@@ -34,14 +34,15 @@
   "LANGUAGE": "Language",
   "ENGLISH": "English",
   "THAI": "Thai",
-  "USERNAME":"Username",
-  "PASSWORD":"Password",
-  "LOGIN":"Login",
-  "FACEBOOK":"Contact with Facebook",
-  "GOOGLE":"Contact with Google",
-  "REGISTER":"Register",
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "LOGIN": "Login",
+  "FACEBOOK": "Contact with Facebook",
+  "GOOGLE": "Contact with Google",
+  "REGISTER": "Register",
 
-  "CHANGE_PROFILE":"Change Profile Picture ",
-  "PROFILE":"Profile",
-  "NAME":"Name"
+  "CHANGE_PROFILE": "Change Picture ",
+  "PROFILE": "Profile",
+  "NAME": "Name",
+  "SAVE": "Save"
 }

@@ -29,7 +29,9 @@ import { CategoryProvider } from '../providers/category/category';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      backButtonText: '',
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -59,6 +59,10 @@ export class RecommentedPage {
     }, 2000);
   }
 
+  goToProfile(){
+    this.app.getRootNav().push('ProfilePage');
+  }
+
   createReview() {
 
     let btn1;

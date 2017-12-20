@@ -61,4 +61,11 @@ export class CategoryListPage {
     this.getShopByCate(index);
   }
 
+  getItems(e) {
+    if (e.keyCode == 13) {
+      let activeElement = <HTMLElement>document.activeElement;
+      activeElement && activeElement.blur && activeElement.blur();
+    }
+  }
+
 }

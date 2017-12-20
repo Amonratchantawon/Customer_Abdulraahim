@@ -20,6 +20,10 @@ page-home {
     }
     ion-buttons[start] {
         order: 1 !important;
+        height: 50px;
+    }
+    .bar-button{
+        height: 50px;
     }
     ion-slides {
         height: auto !important;

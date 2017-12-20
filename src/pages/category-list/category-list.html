@@ -7,15 +7,15 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>Category</ion-title>
+    <ion-title>{{ 'CATEGORIES' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
-  <ion-searchbar mode="ios" placeholder="Search by restaurant/food"></ion-searchbar>
+  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
 
   <div class="categories">
     <ion-segment mode="md" [(ngModel)]="index" id="scroll">
@@ -29,7 +29,7 @@
     <div no-padding>
       <ion-segment mode="md" [(ngModel)]="pages">
         <ion-segment-button *ngFor="let segment of shopByCate; let i = index;" [ngClass]="{'active-page' : i == pages}" (click)="onSelectedPage(i)">
-          {{ segment.title }}
+          {{ segment.title | translate }}
         </ion-segment-button>
       </ion-segment>
     </div>

@@ -1,12 +1,13 @@
-<!--
-  Generated template for the MorePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="bite">
+    <ion-buttons start>
+      <button ion-button clear (click)="goToProfile()">
+        <ion-avatar class="avatar-profile">
+          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
+        </ion-avatar>
+      </button>
+    </ion-buttons>
     <ion-title>{{ 'MORE' | translate }}</ion-title>
   </ion-navbar>
 

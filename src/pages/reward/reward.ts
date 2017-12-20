@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RewardPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,7 +8,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RewardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public app: App
+  ) {
   }
 
   ionViewDidLoad() {
@@ -33,6 +30,10 @@ export class RewardPage {
       let activeElement = <HTMLElement>document.activeElement;
       activeElement && activeElement.blur && activeElement.blur();
     }
+  }
+
+  goToProfile() {
+    this.app.getRootNav().push('ProfilePage');
   }
 
 

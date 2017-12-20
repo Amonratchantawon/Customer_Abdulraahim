@@ -45,9 +45,9 @@
   </ion-list>
   <ion-grid>
     <ion-row>
-      <ion-col col-4></ion-col >
+      <ion-col col-4></ion-col>
       <ion-col col-4 text-center *ngIf="!isenabled">
-        <button ion-button outline (click)="save()">save</button>
+        <button ion-button outline (click)="save()">{{ 'SAVE' | translate}}</button>
       </ion-col>
       <ion-col col-4></ion-col>
     </ion-row>

@@ -123,7 +123,7 @@
     ]
   },
   "shops": [{
-      "title": "Promotion",
+      "title": "PROMOTION",
       "items": [{
           "_id": "pro0001",
           "name": "ข้าวหมูแดงอาก๋ง",
@@ -162,7 +162,7 @@
       ]
     },
     {
-      "title": "Near by",
+      "title": "NEAR_BY",
       "items": [{
           "_id": "nb0001",
           "name": "Poppen",
@@ -194,7 +194,7 @@
       ]
     },
     {
-      "title": "Popular",
+      "title": "POPULAR",
       "items": [{
           "_id": "pop0001",
           "name": "ภัตตาคารหลวง",
@@ -219,7 +219,7 @@
       ]
     },
     {
-      "title": "Favorite",
+      "title": "FAVORITE",
       "items": [{
           "_id": "fav0001",
           "name": "แซ่บแน่",

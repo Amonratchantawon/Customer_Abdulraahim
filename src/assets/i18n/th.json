@@ -1,4 +1,21 @@
 {
   "HOME": "หน้าหลัก",
+  "BITE_SEARCH": "ค้นหาร้าน/รายการอาหาร",
+  "SEE_ALL": "ดูทั้งหมด",
+  "HOT_PRICE": "ราคาพิเศษ",
+  "CATEGORIES": "ประเภทร้านอาหาร",
+  "PROMOTION": "โปรโมชั่น",
+  "NEAR_BY": "ร้านใกล้เคียง",
+  "POPULAR": "ยอดนิยม",
+  "FAVORITE": "ที่ชื่นชอบ",
+  "PULL_TO_REFRESH": "ดึงเพื่อรีเฟรช",
+  "REFRESHING": "กำลังรีเฟรช...",
+  "RESTAURANT": "ร้านอาหาร",
+
+  "REVIEW":"รีวิวร้านอาหาร",
+  "WRITE_REVIEW":"เขียนรีวิว",
+  "RESTAURANT_NAME": "ชื่อร้านอาหาร",  
+  "WRITE_A_CAPTION":"สิ่งที่คุณประทับใจ",
+
   "SETTING_DETAIL": "การตั้งค่า"
 }

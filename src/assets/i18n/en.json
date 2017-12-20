@@ -1,4 +1,21 @@
 {
   "HOME": "HOME",
+  "BITE_SEARCH": "Search by restaurant/food",
+  "SEE_ALL": "See all",
+  "HOT_PRICE": "Hot price",
+  "CATEGORIES": "Categories",
+  "PROMOTION": "Promotion",
+  "NEAR_BY": "Near by",
+  "POPULAR": "Popular",
+  "FAVORITE": "Favorite",
+  "PULL_TO_REFRESH": "Pull to refresh",
+  "REFRESHING": "Refreshing...",
+  "RESTAURANT": "restaurant",
+
+  "REVIEW":"Review",
+  "WRITE_REVIEW":"Write review",
+  "RESTAURANT_NAME": "Restaurant name",  
+  "WRITE_A_CAPTION":"Write a caption...",
+
   "SETTING_DETAIL": "Setting detail"
 }

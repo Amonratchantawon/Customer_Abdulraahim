@@ -70,4 +70,8 @@ export class HomePage {
     this.app.getRootNav().push('CategoryListPage',{ index: index,item:item});
   }
 
+  onToProfile(){
+    this.app.getRootNav().push('ProfilePage');
+  }
+
 }

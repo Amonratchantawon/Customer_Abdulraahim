@@ -21,19 +21,36 @@
     <ion-row>
       <ion-col col-3>
       </ion-col>
-      <ion-col col-6 align-self-center>
-        <ion-avatar>
-          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
-        </ion-avatar>
-        <button ion-button round outline>แก้ไขโปรไฟล์</button>
+      <ion-col col-6 text-center>
+
+        <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
+
+        <button ion-button round outline block>แก้ไขโปรไฟล์</button>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-list >
-    <!-- <ion-item *ngFor="let  of " >
-      {{}}
-    </ion-item> -->
+  <ion-list class="user-data-content">
+
+    <ion-list-header>
+      <p>ข้อมูลส่วนตัว</p>
+      <button ion-button clear item-end larg class="size-btn" (click)="clicktogglr(users)">
+        <ion-icon [name]="Edit"></ion-icon>
+      </button>
+    </ion-list-header>
+    <ion-item>
+      <ion-label stacked>ชื่อ</ion-label>
+      <ion-input [disabled]="isenabled" type="text" [(ngModel)]="displayName"></ion-input>
+    </ion-item>
   </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4></ion-col >
+      <ion-col col-4 text-center *ngIf="!isenabled">
+        <button ion-button outline (click)="save()">save</button>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

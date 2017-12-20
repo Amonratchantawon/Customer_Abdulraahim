@@ -3,5 +3,16 @@ page-profile {
     ion-avatar img{
         border-radius: 500px;
     }
+    .scroll-content{
+        padding: 0px 0px 0px 0px !important;
+        background-color:#f4f4f4;
+    }
 
+    .size-btn{
+        font-size: 1.9rem !important;
+        margin: 0px 0px 0px 10px !important
+    }
+    img{
+        border-radius: 100%;
+    }
 }

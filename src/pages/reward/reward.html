@@ -7,17 +7,18 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>Reward</ion-title>
+    <ion-title>{{ 'REWARD' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
-  <!-- <ion-slides pager autoplay="3000" loop="true" speed="1500">
-    <ion-slide>
-      <img src="" alt="imgErr">
-    </ion-slide>
-  </ion-slides> -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
+      refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
+
 </ion-content>

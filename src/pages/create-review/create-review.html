@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>Write review</ion-title>
+    <ion-title>{{ 'WRITE_REVIEW' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -24,25 +24,25 @@
     </ion-item>
 
     <ion-row>
-      <ion-col col-3>
+      <ion-col col-4>
       </ion-col>
-      <ion-col col-6>
+      <ion-col col-4>
         <!-- <img src="./assets/imgs/review/review1.png" class="write-review-image"> -->
         <img src="./assets/icon/image-upload.png" class="write-review-image">
       </ion-col>
-      <ion-col col-3>
+      <ion-col col-4>
       </ion-col>
     </ion-row>
 
     <ion-card-content>
-      <textarea class="write-review-title" rows="1" maxLength="30" placeholder="Shop name"></textarea>
+      <textarea class="write-review-title" rows="1" maxLength="30" placeholder="{{ 'RESTAURANT_NAME' | translate}}"></textarea>
       <hr>
-      <textarea class="write-review-detail" rows="6" maxLength="150" placeholder="Write a caption..."></textarea>
+      <textarea class="write-review-detail" rows="6" maxLength="150" placeholder="{{ 'WRITE_A_CAPTION' | translate}}"></textarea>
     </ion-card-content>
 
     <ion-row>
       <ion-col text-center>
-        <button ion-button round outline color="bite">Review</button>
+        <button ion-button round outline color="bite">{{ 'REVIEW' | translate}}</button>
       </ion-col>
     </ion-row>
 

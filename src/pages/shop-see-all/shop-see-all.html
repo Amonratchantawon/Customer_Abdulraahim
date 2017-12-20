@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>Shop</ion-title>
+    <ion-title>{{ 'RESTAURANT' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,9 +15,10 @@
 
 <ion-content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
+      refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
-  <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร"></ion-searchbar>
+  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
 
   <grid-shop-y [items]="shopData" (selectedItem)="goToDetail($event)"></grid-shop-y>
 </ion-content>

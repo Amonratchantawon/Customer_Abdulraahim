@@ -3,7 +3,7 @@
     <ion-avatar class="avatar-profile">
       <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
     </ion-avatar>
-    <ion-title>Review</ion-title>
+    <ion-title>{{ 'REVIEW' | translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only clear end (click)="createReview()">
         <ion-icon name="camera"></ion-icon>
@@ -15,11 +15,12 @@
 
 <ion-content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
+      refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
 
-  <ion-searchbar mode="ios" placeholder="ค้นหาร้าน/รายการอาหาร" [(ngModel)]="searchText" (window:keydown)="getItems($event)"></ion-searchbar>
-
+  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
+    
   <ion-card *ngFor="let item of dataReview">
 
     <ion-item>

@@ -9,7 +9,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MyApp } from './app.component';
 
-import { LottieAnimationViewModule } from 'lottie-angular2';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
@@ -38,7 +37,6 @@ import { CategoryProvider } from '../providers/category/category';
         deps: [HttpClient]
       }
     }),
-    LottieAnimationViewModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -16,9 +16,10 @@ import { ReviewProvider } from '../../providers/review/review';
   templateUrl: 'recommented.html',
 })
 export class RecommentedPage {
+  lottieConfig: any;
+  like: any;
   searchText: string = '';
   dataReview: Array<ReviewModel>;
-
   constructor(
     private reviewProvider: ReviewProvider,
     private app: App,
@@ -31,6 +32,11 @@ export class RecommentedPage {
     private alertCtrl: AlertController,
     private camera: Camera
   ) {
+    this.lottieConfig = {
+      path: './assets/icon/lottie/heart_with_particles.json',
+      autoplay: false,
+      loop: false
+    };
   }
 
   ionViewWillEnter() {
@@ -55,6 +61,17 @@ export class RecommentedPage {
 
   onLike() {
     console.log('like');
+  }
+
+  handleAnimation(e: any) {
+    this.like = e;
+  }
+
+  isLike() {
+    this.like.playSegments([], true);
+    setTimeout(() => {
+
+    }, 1000);
   }
 
   doRefresh(refresher) {

@@ -32,28 +32,27 @@
               <ion-grid>
                 <ion-row>
                   <ion-col col-2>
-                    <ion-icon  name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-facebook"></ion-icon>
                   </ion-col>
-                  <ion-col col-8 align-self-center>
-                    {{ 'FACEBOOKO' | translate}}
+                  <ion-col col-8 align-self-center class="btn-social">
+                    {{ 'FACEBOOK' | translate }}
                   </ion-col>
                 </ion-row>
               </ion-grid>
             </button>
-            <button ion-button no-shadow block color="bite" (click)="onLogin()">
+            <button ion-button no-shadow block color="bite">
               <ion-grid>
                 <ion-row>
                   <ion-col col-2>
                     <ion-icon name="logo-google"></ion-icon>
                   </ion-col>
-                  <ion-col col-8 align-self-center>
-                    {{ 'GOOGLE' | translate}}
+                  <ion-col col-8 align-self-center class="btn-social">
+                    {{ 'GOOGLE' | translate }}
                   </ion-col>
                 </ion-row>
               </ion-grid>
             </button>
-            <br>
-            <button ion-button no-shadow block clear color="bite">{{ 'REGISTER' | translate}}</button>
+            <button ion-button no-shadow block outline color="dark">{{ 'REGISTER' | translate}}</button>
           </ion-col>
         </ion-row>
       </ion-grid>

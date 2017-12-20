@@ -15,8 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreateReviewPage {
   @ViewChild('myInput') myInput: ElementRef;
-
+  image: string = '';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.image = this.navParams.data;
   }
 
   ionViewDidLoad() {

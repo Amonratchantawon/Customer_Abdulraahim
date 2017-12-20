@@ -34,7 +34,7 @@ page-walkthrough {
         overflow: hidden;
     }
     .login {
-        top: 60vw !important;
+        top: 50vw !important;
         position: absolute;
         height: 70%;
         justify-content: center;
@@ -56,5 +56,8 @@ page-walkthrough {
     }
     .col {
         padding-right: 40px !important;
+    }
+    .btn-social {
+        padding: 0px !important;
     }
 }

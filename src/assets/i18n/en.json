@@ -37,7 +37,7 @@
   "USERNAME":"Username",
   "PASSWORD":"Password",
   "LOGIN":"Login",
-  "FACEBOOKO":"Contact with Facebook",
+  "FACEBOOK":"Contact with Facebook",
   "GOOGLE":"Contact with Google",
   "REGISTER":"Register"
 }

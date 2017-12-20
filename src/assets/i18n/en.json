@@ -39,5 +39,9 @@
   "LOGIN":"Login",
   "FACEBOOK":"Contact with Facebook",
   "GOOGLE":"Contact with Google",
-  "REGISTER":"Register"
+  "REGISTER":"Register",
+
+  "CHANGE_PROFILE":"Change Profile Picture ",
+  "PROFILE":"Profile",
+  "NAME":"Name"
 }

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-title>Profile</ion-title>
+    <ion-title>{{ 'PROFILE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -25,7 +25,7 @@
 
         <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
 
-        <button ion-button round outline block>แก้ไขโปรไฟล์</button>
+        <button ion-button round outline block>{{ 'CHANGE_PROFILE' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -33,13 +33,13 @@
   <ion-list class="user-data-content">
 
     <ion-list-header>
-      <p>ข้อมูลส่วนตัว</p>
+      <p>{{ 'PROFILE' | translate}}</p>
       <button ion-button clear item-end larg class="size-btn" (click)="clicktogglr(users)">
         <ion-icon [name]="Edit"></ion-icon>
       </button>
     </ion-list-header>
     <ion-item>
-      <ion-label stacked>ชื่อ</ion-label>
+      <ion-label stacked>{{ 'NAME' | translate}}</ion-label>
       <ion-input [disabled]="isenabled" type="text" [(ngModel)]="displayName"></ion-input>
     </ion-item>
   </ion-list>

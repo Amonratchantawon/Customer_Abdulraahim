@@ -24,19 +24,44 @@
             <ion-list>
 
               <ion-item>
-                <ion-label floating>Username</ion-label>
+                <ion-label floating>{{ 'USERNAME' | translate}}</ion-label>
                 <ion-input type="text"></ion-input>
               </ion-item>
 
               <ion-item>
-                <ion-label floating>Password</ion-label>
+                <ion-label floating>{{ 'PASSWORD' | translate}}</ion-label>
                 <ion-input type="password"></ion-input>
               </ion-item>
 
             </ion-list>
-            <button ion-button no-shadow block color="bite" (click)="onLogin()">Login</button>
+            <button ion-button no-shadow block color="bite" (click)="onLogin()">{{ 'LOGIN' | translate}}</button>
+            <!-- <p text-center>or</p> -->
+            <button ion-button no-shadow block color="primary" (click)="onLogin()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-2>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </ion-col>
+                  <ion-col col-2>
+                    {{ 'FACEBOOKO' | translate}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <button ion-button no-shadow block color="bite" (click)="onLogin()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-2>
+                      <ion-icon name="logo-google"></ion-icon>
+                  </ion-col>
+                  <ion-col col-2>
+                    {{ 'GOOGLE' | translate}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
             <br>
-            <button ion-button no-shadow block clear color="bite" >Register</button>
+            <button ion-button no-shadow block clear color="bite">{{ 'REGISTER' | translate}}</button>
           </ion-col>
         </ion-row>
       </ion-grid>

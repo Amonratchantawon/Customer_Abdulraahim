@@ -33,5 +33,11 @@
   "SETTING_DETAIL": "การตั้งค่า",
   "LANGUAGE": "ภาษา",
   "ENGLISH": "อังกฤษ",
-  "THAI": "ไทย"
+  "THAI": "ไทย",
+  "USERNAME":"ชื่อผู้ใช้",
+  "PASSWORD":"รหัสผ่าน",
+  "LOGIN":"เข้าสู่ระบบ",
+  "FACEBOOKO":"เฟสบุ๊ค",
+  "GOOGLE":"กูเกิล",
+  "REGISTER":"ลงทะเบียน"
 }

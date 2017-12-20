@@ -33,5 +33,11 @@
   "SETTING_DETAIL": "Setting detail",
   "LANGUAGE": "Language",
   "ENGLISH": "English",
-  "THAI": "Thai"
+  "THAI": "Thai",
+  "USERNAME":"Username",
+  "PASSWORD":"Password",
+  "LOGIN":"Login",
+  "FACEBOOKO":"Contact with Facebook",
+  "GOOGLE":"Contact with Google",
+  "REGISTER":"Register"
 }

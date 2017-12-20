@@ -30,4 +30,8 @@ export class MorePage {
     this.app.getRootNav().push('SettingDetailPage');
   }
 
+  logout(){
+    this.app.getActiveNav().push('WalkthroughPage');
+  }
+
 }

@@ -16,8 +16,8 @@ import { ReviewProvider } from '../../providers/review/review';
   templateUrl: 'recommented.html',
 })
 export class RecommentedPage {
-  lottieConfig: any;
-  like: any;
+  lottieConfig: Object;
+  anim: any;
   searchText: string = '';
   dataReview: Array<ReviewModel>;
   constructor(
@@ -33,9 +33,11 @@ export class RecommentedPage {
     private camera: Camera
   ) {
     this.lottieConfig = {
-      path: './assets/icon/lottie/heart_with_particles.json',
+      path: './assets/icon/lottie/heart.json',
+      loop: true,
+      prerender: true,
       autoplay: false,
-      loop: false
+      autoloadSegments: true,
     };
   }
 
@@ -59,19 +61,13 @@ export class RecommentedPage {
     });
   }
 
-  onLike() {
-    console.log('like');
-  }
-
   handleAnimation(e: any) {
-    this.like = e;
+    this.anim = e;
   }
 
-  isLike() {
-    this.like.playSegments([], true);
-    setTimeout(() => {
-
-    }, 1000);
+  animate() {
+    console.log('like');
+    this.anim.playSegments([[27, 142], [14, 26]], true);
   }
 
   doRefresh(refresher) {

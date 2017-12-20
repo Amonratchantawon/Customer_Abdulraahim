@@ -1,3 +1,4 @@
+import { CategoryListModel } from '../../assets/model/category-list.model';
 import { ItemCategoriyModel } from '../../assets/model/category-master.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -20,6 +21,13 @@ export class CategoryProvider {
     return this.http.get('./assets/json/categorylist.json')
       .toPromise()
       .then(response => response as Array<ItemCategoriyModel>)
+      .catch(this.handleError);
+  }
+
+  getListCategory(): Promise<Array<CategoryListModel>> {
+    return this.http.get('./assets/json/shoplist-cate.json')
+      .toPromise()
+      .then(response => response as Array<CategoryListModel>)
       .catch(this.handleError);
   }
 

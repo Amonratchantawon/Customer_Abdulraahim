@@ -25,5 +25,15 @@
       </ion-row>
     </ion-scroll>
   </div>
+  <div class="shops">
+    <div no-padding>
+      <ion-segment mode="md" [(ngModel)]="pages">
+        <ion-segment-button *ngFor="let segment of shopByCate; let i = index;" [ngClass]="{'active-page' : i == pages}" (click)="onSelectedPage(i)">
+          {{ segment.title }}
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </div>
+  <grid-shop-y *ngIf="shopByCate && shopByCate.length && shopByCate[pages]"  [items]="shopByCate[pages].items"></grid-shop-y>
 
 </ion-content>

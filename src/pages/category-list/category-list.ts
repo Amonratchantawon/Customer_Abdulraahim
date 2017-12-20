@@ -1,3 +1,4 @@
+import { CategoryListModel } from '../../assets/model/category-list.model';
 import { ItemCategoriyModel } from '../../assets/model/category-master.model';
 import { CategoryProvider } from '../../providers/category/category';
 import { Component } from '@angular/core';
@@ -18,6 +19,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CategoryListPage {
 
   categoryData:Array<ItemCategoriyModel>;
+  shopByCate:Array<CategoryListModel>;
+  pages: any = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public categoryProvider:CategoryProvider) {
   }
@@ -25,6 +28,7 @@ export class CategoryListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryListPage');
     this.getCate();
+    this.getShopByCate();
   }
 
   getCate(){
@@ -32,6 +36,17 @@ export class CategoryListPage {
       this.categoryData = res;
       console.log(this.categoryData);
     })
+  }
+
+  getShopByCate(){
+    this.categoryProvider.getListCategory().then(res=>{
+      this.shopByCate = res;
+      console.log(this.shopByCate);
+    });
+  }
+
+  onSelectedPage(index) { // selected category
+    this.pages = index;
   }
 
 }

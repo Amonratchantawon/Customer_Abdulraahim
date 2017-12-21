@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the WalkthroughPage page.
+ * Generated class for the LoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,20 +10,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-walkthrough',
-  templateUrl: 'walkthrough.html',
+  selector: 'page-login',
+  templateUrl: 'login.html',
 })
-export class WalkthroughPage {
+export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WalkthroughPage');
+    console.log('ionViewDidLoad LoginPage');
   }
 
-  goToLogin(){
-    this.navCtrl.push('LoginPage');
+  onSkip() {
+    this.navCtrl.push('NavtabsPage');
+  }
+
+  onLogin() {
+    this.navCtrl.push('NavtabsPage');
   }
 
 }

@@ -1,61 +1,15 @@
 <ion-content>
   <ion-slides pager>
     <ion-slide class="bg-slide-1">
-      <!-- <h1>Slide 1</h1> -->
     </ion-slide>
     <ion-slide class="bg-slide-2">
-      <!-- <h1>Slide 2</h1> -->
     </ion-slide>
-    <ion-slide class="bg-slide-3" padding>
-      <!-- <h1>Slide 3</h1> -->
-      <ion-grid class="login">
-        <ion-row>
-        </ion-row>
-        <ion-row>
-          <ion-col col-12 padding>
-            <ion-list>
-
-              <ion-item>
-                <ion-label floating>{{ 'USERNAME' | translate}}</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label floating>{{ 'PASSWORD' | translate}}</ion-label>
-                <ion-input type="password"></ion-input>
-              </ion-item>
-
-            </ion-list>
-            <button ion-button no-shadow block color="light" (click)="onLogin()">{{ 'LOGIN' | translate}}</button>
-            <!-- <p text-center>or</p> -->
-            <button ion-button no-shadow block color="primary" (click)="onLogin()">
-              <ion-grid>
-                <ion-row>
-                  <ion-col col-2>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                  </ion-col>
-                  <ion-col col-8 align-self-center class="btn-social">
-                    {{ 'FACEBOOK' | translate }}
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </button>
-            <button ion-button no-shadow block color="bite">
-              <ion-grid>
-                <ion-row>
-                  <ion-col col-2>
-                    <ion-icon name="logo-google"></ion-icon>
-                  </ion-col>
-                  <ion-col col-8 align-self-center class="btn-social">
-                    {{ 'GOOGLE' | translate }}
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </button>
-            <button ion-button no-shadow block outline color="dark">{{ 'REGISTER' | translate}}</button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+    <ion-slide class="bg-slide-3">
+    </ion-slide>
+    <ion-slide class="bg-slide-3">
+    </ion-slide>
+    <ion-slide class="bg-slide-3">
     </ion-slide>
   </ion-slides>
+  <button ion-button clear color="dark" (click)="goToLogin()">{{ 'SKIP' | translate }}</button>
 </ion-content>

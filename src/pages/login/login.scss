@@ -1,0 +1,60 @@
+$bg-shadow-tran: rgba(255, 255, 255, 0);
+$bg-shadow: #ffffff;
+$text: #4E342E;
+page-login {
+    .btn-login {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        z-index: 999;
+    }
+    .content {
+        background: -moz-linear-gradient(top, $bg-shadow-tran 0%, $bg-shadow 50%, $bg-shadow 100%);
+        background: -webkit-linear-gradient(top, $bg-shadow-tran 0%, $bg-shadow 50%, $bg-shadow 100%);
+        background: linear-gradient(to bottom, $bg-shadow-tran 0%, $bg-shadow 110%, $bg-shadow 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+        background-position: center !important;
+        background-size: cover !important;
+    }
+    .scroll-content {
+        padding-bottom: 0px !important;
+    }
+    .no-scroll .scroll-content {
+        overflow: hidden;
+    }
+    .login {
+        position: absolute;
+        height: 100%;
+        justify-content: center;
+        .col {
+            padding: 16px !important;
+        }
+        .col-logo {
+            padding: 0px !important;
+            .image-logo {
+                width: 100% !important;
+            }
+        }
+    }
+    .app-name {
+        color: $text;
+        font-size: 3.6rem !important;
+        font-weight: 900 !important;
+    }
+    .item {
+        color: $text;
+        background-color: rgba(255, 255, 255, 0.42);
+        .label {
+            color: $text;
+        }
+    }
+    .button {
+        box-shadow: none !important;
+    }
+    .col {
+        padding-right: 40px !important;
+    }
+    .btn-social {
+        padding: 0px !important;
+    }
+}

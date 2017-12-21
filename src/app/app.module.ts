@@ -23,15 +23,18 @@ import { CategoryProvider } from '../providers/category/category';
 import { LoadingProvider } from '../providers/loading/loading';
 import { AlertProvider } from '../providers/alert/alert';
 
+import * as ionicGalleryModal from 'ionic-gallery-modal';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     MyApp
   ],
   imports: [
+    ionicGalleryModal.GalleryModalModule,
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp,{
+    IonicModule.forRoot(MyApp, {
       backButtonText: '',
     }),
     TranslateModule.forRoot({
@@ -55,6 +58,10 @@ import { AlertProvider } from '../providers/alert/alert';
     Base64,
     Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: ionicGalleryModal.GalleryModalHammerConfig,
+    },
     HomeProvider,
     ReviewProvider,
     HotpriceProvider,

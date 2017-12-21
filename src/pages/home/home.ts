@@ -57,9 +57,15 @@ export class HomePage {
     }
   }
 
-  openAds() {
-    let profileModal = this.modalCtrl.create('VideoContentPage', { userId: 8675309 });
-    profileModal.present();
+  openAds(item) {
+    console.log(item);
+    if (item.isvideo === true) {
+      let profileModal = this.modalCtrl.create('VideoContentPage', { userId: 8675309 });
+      profileModal.present();
+    } else {
+      let profileModal = this.modalCtrl.create('ImageContentPage', { userId: 8675309 });
+      profileModal.present();
+    }
   }
 
   seeAllHotPrice() {

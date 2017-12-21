@@ -54,8 +54,8 @@ export class HomePage {
   }
 
   openAds() {
-    // let profileModal = this.modalCtrl.create('VideoContentPage', { userId: 8675309 });
-    // profileModal.present();
+    let profileModal = this.modalCtrl.create('VideoContentPage', { userId: 8675309 });
+    profileModal.present();
   }
 
   seeAllHotPrice() {

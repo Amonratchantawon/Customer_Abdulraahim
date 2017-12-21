@@ -31,23 +31,11 @@ export class ImageContentPage {
   showPhoto(){
     let modal = this.modalCtrl.create(GalleryModal, {
       photos:[{ 
-        url: './assets/imgs/hot_price/hotprice1.png', 
-        type: '.png',
-      },
-      { 
-        url: './assets/imgs/hot_price/hotprice2.png', 
-        type: '.png',
-      },
-      { 
-        url: './assets/imgs/hot_price/hotprice3.png', 
-        type: '.png',
-      },
-      { 
-        url: './assets/imgs/hot_price/hotprice4.png', 
+        url: './assets/imgs/ads/ads2.png', 
         type: '.png',
       }],
       // closeIcon: 'Close',
-      initialSlide: 1,
+      // initialSlide: 1,
     });
     modal.present();
   }

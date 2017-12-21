@@ -15,7 +15,6 @@ export class AlertProvider {
     public http: HttpClient,
     public alertCtrl: AlertController
   ) {
-    console.log('Hello AlertProvider Provider');
   }
 
   onShow(title, massage, button) {

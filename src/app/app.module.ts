@@ -21,6 +21,7 @@ import { HotpriceProvider } from '../providers/hotprice/hotprice';
 import { ShopProvider } from '../providers/shop/shop';
 import { CategoryProvider } from '../providers/category/category';
 import { LoadingProvider } from '../providers/loading/loading';
+import { AlertProvider } from '../providers/alert/alert';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { LoadingProvider } from '../providers/loading/loading';
     HotpriceProvider,
     ShopProvider,
     CategoryProvider,
-    LoadingProvider
+    LoadingProvider,
+    AlertProvider
   ]
 })
 export class AppModule { }

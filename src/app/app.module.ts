@@ -20,6 +20,7 @@ import { ReviewProvider } from '../providers/review/review';
 import { HotpriceProvider } from '../providers/hotprice/hotprice';
 import { ShopProvider } from '../providers/shop/shop';
 import { CategoryProvider } from '../providers/category/category';
+import { LoadingProvider } from '../providers/loading/loading';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CategoryProvider } from '../providers/category/category';
     ReviewProvider,
     HotpriceProvider,
     ShopProvider,
-    CategoryProvider
+    CategoryProvider,
+    LoadingProvider
   ]
 })
 export class AppModule { }

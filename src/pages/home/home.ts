@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, ModalController, App } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { HomeModel } from '../../assets/model/home.model';
+import { LoadingProvider } from '../../providers/loading/loading';
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -17,7 +18,8 @@ export class HomePage {
     public navParams: NavParams,
     public home: HomeProvider,
     public modalCtrl: ModalController,
-    public app: App
+    public app: App,
+    public loading: LoadingProvider
   ) {
 
   }
@@ -32,10 +34,12 @@ export class HomePage {
   }
 
   getdata() {
+    this.loading.onLoading();
     this.home.getHomeData().then(data => {
       this.homeData = data;
+      this.loading.dismiss();
     }, (error) => {
-
+      this.loading.dismiss();
     })
   }
 
@@ -66,11 +70,11 @@ export class HomePage {
     this.app.getRootNav().push('ShopSeeAllPage');
   }
 
-  categoryPage(index,item){
-    this.app.getRootNav().push('CategoryListPage',{ index: index,item:item});
+  categoryPage(index, item) {
+    this.app.getRootNav().push('CategoryListPage', { index: index, item: item });
   }
 
-  goToProfile(){
+  goToProfile() {
     this.app.getRootNav().push('ProfilePage');
   }
 

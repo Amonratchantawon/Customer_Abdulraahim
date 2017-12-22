@@ -8,7 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = 'WalkthroughPage';
+  // rootPage: any = 'WalkthroughPage';
+  rootPage: any = 'NavtabsPage';
 
   constructor(
     platform: Platform,

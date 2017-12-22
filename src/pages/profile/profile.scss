@@ -1,18 +1,24 @@
 page-profile {
-
-    ion-avatar img{
+    ion-avatar img {
         border-radius: 500px;
     }
-    .scroll-content{
+    .scroll-content {
         padding: 0px 0px 0px 0px !important;
-        background-color:#f4f4f4;
+        background-color: #f4f4f4;
     }
-
-    .size-btn{
+    .size-btn {
         font-size: 1.9rem !important;
         margin: 0px 0px 0px 10px !important
     }
-    img{
+    img {
         border-radius: 100%;
+    }
+    .camera-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .text-coin {
+        color: #eb3841;
     }
 }

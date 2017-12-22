@@ -35,7 +35,7 @@ export class MorePage {
   }
 
   logout() {
-    this.app.getActiveNav().push('WalkthroughPage');
+    // this.app.getRootNav().setRoot('NavtabsPage');
   }
 
 }

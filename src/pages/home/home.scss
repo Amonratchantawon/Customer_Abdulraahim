@@ -22,7 +22,7 @@ page-home {
         order: 1 !important;
         height: 50px;
     }
-    .bar-button{
+    .bar-button {
         height: 50px;
     }
     ion-slides {
@@ -127,6 +127,12 @@ page-home {
                     font-size: 12px;
                 }
             }
+        }
+        .icon-ads {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            background-color: #ff5566;
         }
     }
     /* segment*/

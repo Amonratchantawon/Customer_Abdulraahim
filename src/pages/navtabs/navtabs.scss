@@ -10,11 +10,46 @@ page-navtabs {
     .tab-button-icon {
         color: $white !important;
     }
+    .ion-ios-icon-tab-home {
+        margin-top: 3px !important;
+        margin-bottom: -3px !important;
+    }
+    .ion-md-icon-tab-home {
+        margin-top: 3px !important;
+        margin-bottom: -3px !important;
+    }
+    .ion-ios-icon-tab-recommented {
+        margin-top: 3px !important;
+        margin-bottom: -3px !important;
+    }
+    .ion-md-icon-tab-recommented {
+        margin-top: 3px !important;
+        margin-bottom: -3px !important;
+    }
+    .ion-ios-icon-tab-reword-outline {
+        color: transparent !important;
+    }
     .ion-ios-icon-tab-reword {
         color: transparent !important;
     }
     .ion-md-icon-tab-reword {
         color: transparent !important;
+    }
+    .ion-ios-icon-tab-status {
+        margin-top: 3px !important;
+        margin-bottom: -3px !important;
+    }
+    .ion-md-icon-tab-status {
+        margin-top: 3px !important;
+        margin-bottom: -3px !important;
+    }
+    .ion-ios-icon-tab-more {
+        margin-top: 7px !important;
+        margin-bottom: -7px !important;
+    }
+    .ion-md-icon-tab-more {
+        margin-top: 7px !important;
+        margin-bottom: -7px !important;
     }
     ion-fab[bottom] {
         bottom: 22px !important;

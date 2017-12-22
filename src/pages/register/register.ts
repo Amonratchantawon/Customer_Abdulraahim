@@ -22,4 +22,16 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  onSkip(){
+    this.navCtrl.push('NavtabsPage');
+  }
+
+  onFacebook(){
+
+  }
+
+  onEmail(){
+
+  }
+
 }

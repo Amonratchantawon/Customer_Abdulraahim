@@ -1,6 +1,6 @@
 <ion-content>
 
-  <button ion-button clear color="bite" class="btn-login" (click)="onSkip()">{{ 'SKIP' | translate }}</button>
+  <button ion-button clear color="bite" class="btn-skip" (click)="onSkip()">{{ 'SKIP' | translate }}</button>
 
   <ion-grid class="login">
     <ion-row>
@@ -32,7 +32,7 @@
                 <ion-icon name="logo-facebook"></ion-icon>
               </ion-col>
               <ion-col col-8 align-self-center class="btn-social">
-                {{ 'FACEBOOK' | translate }}
+                {{ 'LOGIN_VIA_FACEBOOK' | translate }}
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -44,7 +44,7 @@
                 <ion-icon name="logo-google"></ion-icon>
               </ion-col>
               <ion-col col-8 align-self-center class="btn-social">
-                {{ 'GOOGLE' | translate }}
+                {{ 'LOGIN_VIA_EMAIL' | translate }}
               </ion-col>
             </ion-row>
           </ion-grid>

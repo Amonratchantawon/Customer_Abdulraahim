@@ -37,8 +37,10 @@
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "LOGIN": "Login",
-  "FACEBOOK": "Contact with Facebook",
-  "GOOGLE": "Contact with Google",
+  "LOGIN_VIA_FACEBOOK": "Contact with Facebook",
+  "LOGIN_VIA_EMAIL": "Contact with Google",
+  "REGISTER_VIA_FACEBOOK": "Contact with Facebook",
+  "REGISTER_VIA_EMAIL": "Contact with Google",
   "REGISTER": "Register",
 
   "CHANGE_PROFILE": "Change Picture ",

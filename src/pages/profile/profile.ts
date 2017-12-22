@@ -47,4 +47,8 @@ export class ProfilePage {
     }
   }
 
+  onToAddress(){
+    this.navCtrl.push('AddressPage');
+  }
+
 }

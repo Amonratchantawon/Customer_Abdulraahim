@@ -44,7 +44,13 @@
     <ion-item>
       <ion-label stacked>{{ 'NAME' | translate}}</ion-label>
       <ion-input [disabled]="isenabled" type="text" [(ngModel)]="displayName"></ion-input>
-    </ion-item>
+    </ion-item>  
+  </ion-list>
+  <ion-list *ngIf="isenabled">
+    <button ion-item item-start (click)="onToAddress()">
+      <ion-icon name="pin" item-start color="#503f3f"></ion-icon>
+      {{ 'ADDRESS' | translate}}
+    </button>
   </ion-list>
   <ion-grid>
     <ion-row>

@@ -15,16 +15,32 @@
 
 <ion-content padding>
   <ion-row>
-    <ion-col col-12>
-      <!-- <img src="{{ user. }}" alt=""> -->
+    <ion-col col-12 text-center>
+      <img src="{{ user.profileImageURL}}" class="profile-image">
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-12>
       <ion-list>
         <ion-item>
+          <ion-label floating>{{ 'FIRST_NAME' | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="user.firstName" [disabled]="provider === 'fb'"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>{{ 'LAST_NAME' | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="user.lastName" [disabled]="provider === 'fb'"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label floating>{{ 'E_MAIL' | translate}}</ion-label>
           <ion-input type="text" [(ngModel)]="user.email" [disabled]="provider === 'fb'"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>{{ 'GENDER' | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="user.gender" [disabled]="provider === 'fb' && user.gender !== ''"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>{{ 'BIRTHDAY' | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="user.birthday" [disabled]="provider === 'fb' && user.birthday !== ''"></ion-input>
         </ion-item>
       </ion-list>
     </ion-col>

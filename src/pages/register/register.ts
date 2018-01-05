@@ -35,9 +35,9 @@ export class RegisterPage {
   }
 
   onFacebook() {
-    this.fb.login(['public_profile', 'user_friends', 'email'])
+    this.fb.login(['public_profile', 'user_birthday', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
-        this.fb.api('me?fields=id,last_name,first_name,picture,email', null).then((user: FacebookLoginResponse) => {
+        this.fb.api('me?fields=id,first_name,last_name,email,birthday,gender,picture.width(300).height(300)', null).then((user) => {
           this.navCtrl.push('RegisterProfilePage', { provider: 'fb', data: user })
         })
           .catch(e => {

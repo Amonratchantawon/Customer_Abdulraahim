@@ -2,4 +2,8 @@ page-register-profile {
     .scroll-content {
         overflow-y: auto !important;
     }
+    .profile-image{
+        width: 150px;
+        border-radius: 100%;
+    }
 }

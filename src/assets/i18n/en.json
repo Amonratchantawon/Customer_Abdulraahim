@@ -45,12 +45,17 @@
 
   "CHANGE_PROFILE": "Change Picture ",
   "PROFILE": "Profile",
-  "NAME": "Name",
-  "SAVE": "Save",
-  "SKIP": "Skip",
+  "DISPLAY_NAME": "Display name",
+  "FIRST_NAME": "Firstname",
+  "LAST_NAME": "Lastname",
+  "GENDER": "Gender",
+  "BIRTHDAY": "Birthday",
+  "E_MAIL": "E-mail",
+  "ADDRESS": "Address",
   "WEBSITE": "Website",
+
   "YOU_HAVE": "You have",
   "COINS": "coins",
-  "ADDRESS": "Address",
-  "E_MAIL": "E-mail"
+  "SAVE": "Save",
+  "SKIP": "Skip"
 }

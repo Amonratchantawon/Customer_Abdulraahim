@@ -45,11 +45,17 @@
 
   "CHANGE_PROFILE": "เปลี่ยนรูปโปรไฟล์",
   "PROFILE": "ข้อมูลส่วนตัว",
-  "NAME": "ชื่อ",
-  "SAVE": "บันทึก",
-  "SKIP": "ข้าม",
+  "DISPLAY_NAME": "ชื่อ-สกุล",
+  "FIRST_NAME":"ชื่อ",
+  "LAST_NAME":"สกุล",
+  "GENDER":"เพศ",
+  "BIRTHDAY":"วันเกิด",
+  "E_MAIL": "อีเมล์",
   "WEBSITE": "เว็บไซต์",
+  "ADDRESS": "ที่อยู่ของฉัน",
+
   "YOU_HAVE": "คุณมี",
   "COIN": "เหรียญ",
-  "ADDRESS": "ที่อยู่ของฉัน"
+  "SAVE": "บันทึก",
+  "SKIP": "ข้าม"
 }

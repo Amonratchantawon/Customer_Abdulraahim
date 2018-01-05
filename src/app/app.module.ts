@@ -14,6 +14,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Base64 } from '@ionic-native/base64';
 import { Camera } from '@ionic-native/camera';
+import { Facebook } from '@ionic-native/facebook';
 
 import { HomeProvider } from '../providers/home/home';
 import { ReviewProvider } from '../providers/review/review';
@@ -57,6 +58,7 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     Crop,
     Base64,
     Camera,
+    Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,

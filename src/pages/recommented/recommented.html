@@ -23,7 +23,7 @@
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
 
-  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
+  <search-input></search-input>
 
   <ion-card *ngFor="let item of dataReview">
 
@@ -38,7 +38,6 @@
     </ion-item>
 
     <ion-card-content>
-      <!-- <img src="{{item.image}}"> -->
       <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="review-image"></preload-image>
       <div class="card-description">
         <p>

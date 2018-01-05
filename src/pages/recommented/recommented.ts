@@ -37,13 +37,6 @@ export class RecommentedPage {
     this.getReview();
   }
 
-  getItems(e) {
-    if (e.keyCode == 13) {
-      let activeElement = <HTMLElement>document.activeElement;
-      activeElement && activeElement.blur && activeElement.blur();
-    }
-  }
-
   getReview() {
     this.reviewProvider.getReviews().then(res => {
       this.dataReview = res;
@@ -59,7 +52,7 @@ export class RecommentedPage {
     }, 2000);
   }
 
-  goToProfile(){
+  goToProfile() {
     this.app.getRootNav().push('ProfilePage');
   }
 
@@ -172,7 +165,9 @@ export class RecommentedPage {
 
     return new Promise((resolve, reject) => {
       this.crop.crop(fileUri, { quality: 50 }).then((cropData) => {
+        alert(JSON.stringify(cropData));
         this.base64.encodeFile(cropData).then((base64File: string) => {
+          alert(JSON.stringify(base64File));
           let base64img = base64File.replace(/\n/g, '');
           base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
           resolve(base64img);

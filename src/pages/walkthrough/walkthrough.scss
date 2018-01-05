@@ -1,4 +1,7 @@
 page-walkthrough {
+    .scroll-content {
+        overflow-y: auto !important;
+    }
     .button {
         position: absolute;
         top: 2px;

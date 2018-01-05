@@ -14,9 +14,9 @@
 
 
 <ion-content>
-
-  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
-
+  
+  <search-input></search-input>
+  
   <div class="categories">
     <ion-segment mode="md" [(ngModel)]="index" id="scroll">
       <ion-segment-button *ngFor="let item of categoryData; let i = index;" (click)="selectedCategory(i)">

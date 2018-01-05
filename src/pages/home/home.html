@@ -20,7 +20,9 @@
   </ion-refresher>
 
   <div *ngIf="homeData.ads.items">
-    <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
+    
+    <search-input></search-input>
+
     <ion-slides pager autoplay="3000" loop="true" speed="1500">
       <ion-slide *ngFor="let item of homeData.ads.items" (click)="openAds(item)">
         <img src="{{item.image}}" alt="imgErr">
@@ -44,13 +46,11 @@
       <ion-scroll scrollX="true">
         <ion-row class="row-custom">
           <ion-col col-6 *ngFor="let item of homeData.hotprices.items1">
-            <!-- <img src="{{item.image}}" alt="imgErr"> -->
             <preload-image [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices"></preload-image>
           </ion-col>
         </ion-row>
         <ion-row class="row-custom">
           <ion-col col-6 *ngFor="let item of homeData.hotprices.items2">
-            <!-- <img src="{{item.image}}" alt="imgErr"> -->
             <preload-image [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices"></preload-image>
           </ion-col>
         </ion-row>
@@ -69,7 +69,6 @@
       <ion-scroll scrollX="true">
         <ion-row class="row-custom">
           <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeData.categories.items ; let i = index;" (click)="categoryPage(i,item)">
-            <!-- <img src="{{item.image}}" alt=""> -->
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories"></preload-image>
           </ion-col>
         </ion-row>

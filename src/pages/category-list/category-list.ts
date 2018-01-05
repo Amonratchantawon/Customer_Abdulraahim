@@ -47,7 +47,7 @@ export class CategoryListPage {
   }
 
   getShopByCate(cateId) {
-    this.categoryProvider.getListCategory().then(res => {
+    this.categoryProvider.getShopListByCategory().then(res => {
       this.shopByCate = res;
     });
   }
@@ -59,13 +59,6 @@ export class CategoryListPage {
   selectedCategory(index) {
     this.cate = index;
     this.getShopByCate(index);
-  }
-
-  getItems(e) {
-    if (e.keyCode == 13) {
-      let activeElement = <HTMLElement>document.activeElement;
-      activeElement && activeElement.blur && activeElement.blur();
-    }
   }
 
 }

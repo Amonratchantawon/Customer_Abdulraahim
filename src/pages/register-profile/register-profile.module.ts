@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { StatusPage } from './status';
+import { RegisterProfilePage } from './register-profile';
 import { TranslateModule } from '@ngx-translate/core';
-import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
-    StatusPage,
+    RegisterProfilePage,
   ],
   imports: [
-    IonicPageModule.forChild(StatusPage),
+    IonicPageModule.forChild(RegisterProfilePage),
     TranslateModule.forChild(),
-    ComponentsModule
   ],
 })
-export class StatusPageModule {}
+export class RegisterProfilePageModule {}

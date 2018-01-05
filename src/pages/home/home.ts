@@ -35,24 +35,19 @@ export class HomePage {
 
   getdata() {
     this.loading.onLoading();
-    this.home.getHomeData().then(data => {
-      this.homeData = data;
-      this.loading.dismiss();
-    }, (error) => {
-      this.loading.dismiss();
-    })
+    setTimeout(() => {
+      this.home.getHomeData().then(data => {
+        this.homeData = data;
+        this.loading.dismiss();
+      }, (error) => {
+        this.loading.dismiss();
+      })
+    }, 1000);
   }
 
   doRefresh(refresher) {
     this.getdata();
     refresher.complete();
-  }
-
-  getItems(e) {
-    if (e.keyCode == 13) {
-      let activeElement = <HTMLElement>document.activeElement;
-      activeElement && activeElement.blur && activeElement.blur();
-    }
   }
 
   openAds(item) {

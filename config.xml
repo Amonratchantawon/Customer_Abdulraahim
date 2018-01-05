@@ -15,7 +15,7 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="FadeSplashScreenDuration" value="2000" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="orientation" value="portrait" />
@@ -90,4 +90,8 @@
     <plugin name="cordova-plugin-crop" spec="^0.4.0" />
     <plugin name="com-badrit-base64" spec="^0.2.0" />
     <plugin name="cordova-plugin-camera" spec="^3.0.0" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="277183306145425" />
+        <variable name="APP_NAME" value="App_authen" />
+    </plugin>
 </widget>

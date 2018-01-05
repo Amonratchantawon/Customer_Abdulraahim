@@ -18,7 +18,8 @@
     <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
-  <ion-searchbar mode="ios" placeholder="{{ 'BITE_SEARCH' | translate }}" (window:keydown)="getItems($event)"></ion-searchbar>
+  
+  <search-input></search-input>
 
   <div class="content">
     <preload-image *ngFor="let item of hotpriceData" [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices"></preload-image>

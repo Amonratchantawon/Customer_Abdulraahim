@@ -18,13 +18,13 @@ export class CategoryProvider {
   }
 
   getCategory(): Promise<Array<ItemCategoriyModel>> {
-    return this.http.get('./assets/json/categorylist.json')
+    return this.http.get('./assets/json/category.json')
       .toPromise()
       .then(response => response as Array<ItemCategoriyModel>)
       .catch(this.handleError);
   }
 
-  getListCategory(): Promise<Array<CategoryListModel>> {
+  getShopListByCategory(): Promise<Array<CategoryListModel>> {
     return this.http.get('./assets/json/shoplist-cate.json')
       .toPromise()
       .then(response => response as Array<CategoryListModel>)

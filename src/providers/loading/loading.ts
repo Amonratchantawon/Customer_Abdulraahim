@@ -13,7 +13,6 @@ import { HttpClient } from '@angular/common/http';
 export class LoadingProvider {
   loading: any;
   constructor(public http: HttpClient, public loadingCtrl: LoadingController) {
-    // console.log('Hello LoadingProvider Provider');
   }
 
   onLoading() {
@@ -21,7 +20,7 @@ export class LoadingProvider {
       spinner: 'hide',
       content: `<div class="lds-css ng-scope">
       <div style="width:100%;height:100%" class="lds-eclipse">
-        <img src="http://mirandacatering.com/wp-content/uploads/2017/01/cpg-foods-icon.png" class="loading-img"/>
+        <img src="./assets/icon/loading/foods-icon.png" class="loading-img"/>
         <div></div>
       </div>`
     });

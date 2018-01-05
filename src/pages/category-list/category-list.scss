@@ -3,18 +3,6 @@ page-category-list {
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
-    .searchbar-ios .searchbar-input {
-        background-color: #eeeded !important;
-        border-radius: 15px !important;
-    }
-    .searchbar-ios {
-        background: white !important;
-        text-align: center;
-        border-bottom: none !important;
-    }
-    .searchbar-input-container {
-        margin-top: 6px;
-    }
     .categories {
         ion-segment {
             display: block;
@@ -31,7 +19,7 @@ page-category-list {
                 width: 90px !important;
                 height: 90px !important;
                 border: 0 !important;
-                color: #607D8B !important;
+                opacity: 1 !important;
                 font-size: 14px !important;
             }
         }

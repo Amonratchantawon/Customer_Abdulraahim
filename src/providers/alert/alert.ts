@@ -17,7 +17,7 @@ export class AlertProvider {
   ) {
   }
 
-  onShow(title, massage, button) {
+  onAlert(title, massage, button) {
     let alert = this.alertCtrl.create({
       title: title,
       subTitle: massage,

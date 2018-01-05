@@ -51,8 +51,14 @@ page-navtabs {
         margin-top: 7px !important;
         margin-bottom: -7px !important;
     }
-    ion-fab[bottom] {
-        bottom: 22px !important;
+    .tabs-ios-bite .tab-button[aria-selected=true] .tab-button-icon {
+        margin-top: 0px !important;
+    }
+    ion-fab[bottom] .fab-ios {
+        bottom: 10px !important;
+    }
+    ion-fab[bottom] .fab-md {
+        bottom: 10px !important;
     }
     .fab-ios.activated {
         color: #fff;

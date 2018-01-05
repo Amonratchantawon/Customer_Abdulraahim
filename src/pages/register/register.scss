@@ -9,7 +9,11 @@ page-register {
         height: 100%;
         justify-content: center;
     }
-    .social-icon{
+    .social-icon-fb {
+        margin-top: 2px;
+        width: 24px !important;
+    }
+    .social-icon-email {
         width: 24px !important;
     }
 }

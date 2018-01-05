@@ -44,10 +44,8 @@ export class HomePage {
   }
 
   doRefresh(refresher) {
-    setTimeout(() => {
-      this.getdata();
-      refresher.complete();
-    }, 2000);
+    this.getdata();
+    refresher.complete();
   }
 
   getItems(e) {

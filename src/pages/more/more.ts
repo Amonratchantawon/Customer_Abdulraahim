@@ -1,3 +1,4 @@
+import { AuthProvider } from '../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
@@ -18,7 +19,8 @@ export class MorePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public app: App
+    public app: App,
+    private auth:AuthProvider
   ) {
   }
 
@@ -35,6 +37,7 @@ export class MorePage {
   }
 
   logout() {
+    this.auth.logout()
     // this.app.getRootNav().setRoot('NavtabsPage');
   }
 

@@ -34,8 +34,8 @@ export class RegisterPage {
     this.navCtrl.push('NavtabsPage');
   }
 
-  onFacebook() {
-    this.fb.login(['public_profile', 'user_birthday', 'user_friends', 'email'])
+  onFacebook() { //'user_birthday'
+    this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me?fields=id,first_name,last_name,email,birthday,gender,picture.width(300).height(300)', null).then((user) => {
           this.navCtrl.push('RegisterProfilePage', { provider: 'fb', data: user })

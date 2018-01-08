@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 //import { Http } from '@angular/http';
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/toPromise';

@@ -1,4 +1,7 @@
 page-register-account {
+    .scroll-content {
+        overflow-y: auto !important;
+    }
     .register {
         position: absolute;
         height: 100%;

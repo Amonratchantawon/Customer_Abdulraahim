@@ -1,6 +1,8 @@
 page-agreement {
-
-    h2{
+    .scroll-content {
+        overflow-y: auto !important;
+    }
+    h2 {
         text-align: center;
     }
     ion-scroll {

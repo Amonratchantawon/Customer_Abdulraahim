@@ -32,10 +32,11 @@ export class RegisterProfilePage {
       this.user.username = fb_user.email;
       this.user.password = 'FB@pass1234';
 
-      this.birthday = new Date(fb_user.birthday);
       this.onChangeDate();
 
     } else if (this.provider === 'local') {
+
+      this.birthday = new Date("12/29/1992");
       this.user = this.navParams.get('data');
       this.user.profileImageURL = 'https://eatsyd.herokuapp.com/modules/users/client/img/profile/default.png';
     }
@@ -52,8 +53,9 @@ export class RegisterProfilePage {
     this.user.birthyear = date.getFullYear();
   }
 
-  onRegister(){
+  onRegister() {
     console.log(this.user);
+    this.navCtrl.push('RegisterGiftPage');
   }
 
 }

@@ -167,7 +167,7 @@ export class RecommentedPage {
       this.crop.crop(fileUri, { quality: 50 }).then((cropData) => {
         alert(JSON.stringify(cropData));
         this.base64.encodeFile(cropData).then((base64File: string) => {
-          alert(JSON.stringify(base64File));
+          // alert(JSON.stringify(base64File));
           let base64img = base64File.replace(/\n/g, '');
           base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
           resolve(base64img);

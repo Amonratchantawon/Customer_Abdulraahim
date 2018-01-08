@@ -67,6 +67,9 @@
   "SKIP": "Skip",
   "CANCEL": "Cancel",
   "OK": "ok",
+  "ACCEPT": "Accept",
+  "AGREEMENT": "Agreement",
+  "PRIVACY_POLICY": "Privacy Policy",
 
   "MONTH": "Month",
   "JANUARY": "January",

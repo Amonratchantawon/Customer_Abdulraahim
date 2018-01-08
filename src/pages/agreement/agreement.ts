@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the WalkthroughPage page.
+ * Generated class for the AgreementPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,21 +10,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-walkthrough',
-  templateUrl: 'walkthrough.html',
+  selector: 'page-agreement',
+  templateUrl: 'agreement.html',
 })
-export class WalkthroughPage {
+export class AgreementPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WalkthroughPage');
+    console.log('ionViewDidLoad AgreementPage');
   }
 
-  goToLogin(){
-    // this.navCtrl.push('RegisterPage');
-    this.navCtrl.push('AgreementPage');
+  agreement(){
+    this.navCtrl.push('RegisterPage');
   }
 
 }

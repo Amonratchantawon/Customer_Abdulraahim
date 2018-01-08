@@ -6,6 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Http } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 
@@ -26,6 +29,18 @@ import { AlertProvider } from '../providers/alert/alert';
 
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { AuthProvider } from '../providers/auth/auth';
+
+let storage = new Storage({});
+
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    headerPrefix: 'Bearer',
+    noJwtError: true,
+    globalHeaders: [{'Accept': 'application/json'}],
+    tokenGetter: (() => storage.get('token').then((token: string) => token)),
+  }), http);
+}
 
 @NgModule({
   declarations: [
@@ -64,13 +79,19 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
       provide: HAMMER_GESTURE_CONFIG,
       useClass: ionicGalleryModal.GalleryModalHammerConfig,
     },
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http]
+    },
     HomeProvider,
     ReviewProvider,
     HotpriceProvider,
     ShopProvider,
     CategoryProvider,
     LoadingProvider,
-    AlertProvider
+    AlertProvider,
+    AuthProvider
   ]
 })
 export class AppModule { }

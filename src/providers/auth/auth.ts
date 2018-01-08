@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+//import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import { Injectable, Inject } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Storage } from '@ionic/storage';
+import 'rxjs/add/operator/toPromise';
 
 /*
   Generated class for the AuthProvider provider.
@@ -14,7 +16,7 @@ export class AuthProvider {
   API_URL: string = "https://eatsyd-test.herokuapp.com";
   user: any;
 
-  constructor(public http: HttpClient, private local: Storage) {
+  constructor(public http: Http, private local: Storage) {
 
   }
 
@@ -22,17 +24,21 @@ export class AuthProvider {
     return tokenNotExpired();
   }
 
-  login(credentials):Promise<any> {
+  login(credentials) {
     return this.http.post(this.API_URL + "/api/auth/signin", credentials)
       .toPromise()
-      .then(response => response as any)
+      .then(response => {
+        let res = response.json();
+        this.local.set('token', res.loginToken);
+        return res;
+      })
       .catch(this.handleError);
   }
 
-  signup(credentials):Promise<any> {
+  signup(credentials) {
     return this.http.post(this.API_URL + "/api/auth/signup", credentials)
       .toPromise()
-      .then(response => response as any)
+      .then(response => response.json())
       .catch(this.handleError);
   }
 

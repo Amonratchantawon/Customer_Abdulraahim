@@ -53,8 +53,9 @@ export class RegisterProfilePage {
     this.user.birthyear = date.getFullYear();
   }
 
-  onRegister(){
+  onRegister() {
     console.log(this.user);
+    this.navCtrl.push('RegisterGiftPage');
   }
 
 }

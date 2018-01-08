@@ -32,6 +32,8 @@ export class RegisterProfilePage {
     this.provider = this.navParams.get('provider');
     if (this.provider === 'fb') {
       let fb_user = this.navParams.get('data');
+      this.user.username = fb_user.username;
+      this.user.password = fb_user.password;
       this.user.profileImageURL = fb_user.picture.data.url;
       this.user.firstName = fb_user.first_name;
       this.user.lastName = fb_user.last_name;
@@ -61,7 +63,6 @@ export class RegisterProfilePage {
       this.navCtrl.push('RegisterGiftPage');
       this.loading.dismiss();
     }).catch((err) => {
-      alert(JSON.stringify(err));
       let language = this.translate.currentLang;
       if (language === 'th') {
         // this.alert.onAlert('แจ้งเตือน', 'ชื่อบัญชีนี้มีผู้ใช้งานแล้ว', 'ตกลง');

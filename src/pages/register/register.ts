@@ -69,7 +69,6 @@ export class RegisterPage {
       username: user.username,
       password: user.password
     };
-
     this.loading.onLoading();
     this.auth.login(credential).then((res) => {
       this.navCtrl.push('NavtabsPage');

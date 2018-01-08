@@ -48,7 +48,6 @@ export class RecommentedPage {
           this.user = user;
         });
       } else {
-        window.localStorage.setItem('current_page_for_login', 'RecommentedPage');
         this.navCtrl.push('LoginPage');
       }
     });

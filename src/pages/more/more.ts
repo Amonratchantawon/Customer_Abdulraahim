@@ -45,7 +45,6 @@ export class MorePage {
   }
 
   goLogin() {
-    window.localStorage.setItem('current_page_for_login', 'MorePage');
     this.navCtrl.push('LoginPage');
   }
 

@@ -13,4 +13,10 @@ page-agreement {
         flex-wrap: inherit !important;
         margin-top: -18px;
     }
+    .footer-agreement {
+        .toolbar {
+            min-height: 40px !important;
+            max-height: 40px !important;
+        }
+    }
 }

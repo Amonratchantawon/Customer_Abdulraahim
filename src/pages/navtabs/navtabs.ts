@@ -66,9 +66,20 @@ export class NavtabsPage {
   }
 
   onSelectChange(e) {
-    if (e.id === 't0-2') {
+    if (e.id === 't0-0') {
+      window.localStorage.setItem('current_page_for_login', 'HomePage');
+      this.color = '#EB3841';
+    } else if (e.id === 't0-1') {
+      window.localStorage.setItem('current_page_for_login', 'RecommentedPage');
+      this.color = '#EB3841';
+    } else if (e.id === 't0-2') {
+      window.localStorage.setItem('current_page_for_login', 'RewardPage');
       this.color = '#b3222f';
-    } else {
+    } else if (e.id === 't0-3') {
+      window.localStorage.setItem('current_page_for_login', 'StatusPage');
+      this.color = '#EB3841';
+    } else if (e.id === 't0-4') {
+      window.localStorage.setItem('current_page_for_login', 'MorePage');
       this.color = '#EB3841';
     }
   }

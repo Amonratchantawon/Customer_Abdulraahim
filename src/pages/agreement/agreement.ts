@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'agreement.html',
 })
 export class AgreementPage {
-
+  isShowAgreementBtn: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,7 +22,9 @@ export class AgreementPage {
     console.log('ionViewDidLoad AgreementPage');
   }
 
-  agreement(){
+
+
+  agreement() {
     this.navCtrl.push('RegisterPage');
   }
 

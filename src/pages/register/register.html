@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color="bite" hideBackButton>
+  <ion-navbar color="bite">
     <ion-title>{{ 'REGISTER'| translate}}</ion-title>
   </ion-navbar>
 
@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <button ion-button clear color="bite" class="btn-skip" (click)="onSkip()">{{ 'SKIP' | translate }}</button>
+  <button *ngIf="!inApp" ion-button clear color="bite" class="btn-skip" (click)="onSkip()">{{ 'SKIP' | translate }}</button>
 
   <ion-grid class="register">
     <ion-row>

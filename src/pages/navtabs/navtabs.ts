@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, Tabs } from 'ionic-angular';
+import { IonicPage, NavController, Tabs, Platform, ToastController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the NavtabsPage tabs.
@@ -24,7 +25,40 @@ export class NavtabsPage {
 
   icon: string = './assets/icon/reward.svg';
   color: string = '#EB3841';
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    private platform: Platform,
+    private toastCtrl: ToastController,
+    private translate: TranslateService,
+  ) {
+    platform.ready().then(() => {
+      //back button handle
+      //Registration of push in Android and Windows Phone
+      var lastTimeBackPress = 0;
+      var timePeriodToExit = 2000;
+
+      platform.registerBackButtonAction(() => {
+        //Double check to exit app
+        if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
+          this.platform.exitApp(); //Exit from app
+        } else {
+          let language = this.translate.currentLang;
+          let message = '';
+          if (language === 'th') {
+            message = 'กดปุ่มย้อนกลับอีกครั้ง เพื่อออกจากแอปพลิเคชัน';
+          } else if (language === 'en') {
+            message = 'Press back again to exit App?'
+          }
+          let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000,
+            position: 'bottom'
+          });
+          toast.present();
+          lastTimeBackPress = new Date().getTime();
+        }
+      });
+    });
   }
 
   onReword() {

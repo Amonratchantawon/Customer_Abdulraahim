@@ -1,10 +1,10 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-buttons start>
+    <ion-buttons start *ngIf="user && user.profileImageURL">
       <button ion-button clear (click)="goToProfile()">
         <ion-avatar class="avatar-profile">
-          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
+          <img src="{{ user.profileImageURL }}">
         </ion-avatar>
       </button>
     </ion-buttons>
@@ -15,6 +15,12 @@
 
 
 <ion-content>
+  <ion-list *ngIf="!user || !user.username">
+    <button ion-item item-start (click)="goLogin()">
+      <ion-icon name="md-log-in" item-start></ion-icon>
+      {{ 'LOGIN' | translate }}
+    </button>
+  </ion-list>
   <ion-list>
     <button ion-item item-start>
       <ion-icon name="md-card" item-start></ion-icon>
@@ -37,7 +43,7 @@
       {{ 'JOIN_WITH_BITEBITE' | translate }}
     </button>
   </ion-list>
-  <ion-list>
+  <ion-list *ngIf="user && user.username">
     <button ion-item item-start (click)="logout()">
       <ion-icon name="md-log-out" item-start></ion-icon>
       {{ 'LOGOUT' | translate }}

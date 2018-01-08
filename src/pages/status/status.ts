@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { UserModel } from '../../assets/model/review.model';
 
 /**
  * Generated class for the StatusPage page.
@@ -14,16 +16,19 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
   templateUrl: 'status.html',
 })
 export class StatusPage {
-
+  user: UserModel = new UserModel();
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    public app : App
+    private app: App,
+    private local: Storage,
   ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StatusPage');
+  ionViewWillEnter() {
+    this.local.get('user').then((user) => {
+      this.user = user;
+    });
   }
 
   doRefresh(refresher) {
@@ -32,7 +37,7 @@ export class StatusPage {
     }, 2000);
   }
 
-  goToProfile(){
+  goToProfile() {
     this.app.getRootNav().push('ProfilePage');
   }
 

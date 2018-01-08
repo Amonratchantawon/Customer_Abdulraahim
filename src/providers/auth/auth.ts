@@ -24,8 +24,12 @@ export class AuthProvider {
 
   }
 
-  public authenticated() {
-    return tokenNotExpired();
+  public authenticated(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.local.get('token').then((token) => {
+        resolve(tokenNotExpired('Bearer', token))
+      });
+    });
   }
 
   login(credentials) {
@@ -46,6 +50,7 @@ export class AuthProvider {
     this.local.remove('token');
     this.local.remove('user');
     this.user = null;
+    console.log('logout');
   }
 
   private loginSuccess(res) {
@@ -55,7 +60,7 @@ export class AuthProvider {
   }
 
   private registerSuccess(res) {
-    this.local.set('token', res);
+    this.local.set('token', res.loginToken);
     this.local.set('user', res);
     return res;
   }

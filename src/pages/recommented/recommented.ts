@@ -1,15 +1,17 @@
-import { AuthProvider } from '../../providers/auth/auth';
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { TranslateService } from '@ngx-translate/core';
 import { Crop } from '@ionic-native/crop';
 import { Base64 } from '@ionic-native/base64';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { IonicPage, App, ActionSheetController, Platform, AlertController } from 'ionic-angular';
+import { IonicPage, App, ActionSheetController, Platform, AlertController, NavController } from 'ionic-angular';
 import { ReviewModel } from '../../assets/model/review.model';
 import { ReviewProvider } from '../../providers/review/review';
-
+import { AuthProvider } from '../../providers/auth/auth';
+import { UserModel } from '../../assets/model/user.model';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 @IonicPage()
 @Component({
@@ -18,8 +20,10 @@ import { ReviewProvider } from '../../providers/review/review';
 })
 export class RecommentedPage {
   searchText: string = '';
+  user: UserModel = new UserModel();
   dataReview: Array<ReviewModel>;
   constructor(
+    public navCtrl: NavController,
     private reviewProvider: ReviewProvider,
     private app: App,
     private actionSheetCtrl: ActionSheetController,
@@ -30,30 +34,42 @@ export class RecommentedPage {
     private base64: Base64,
     private alertCtrl: AlertController,
     private camera: Camera,
-    private auth:AuthProvider
+    private auth: AuthProvider,
+    private local: Storage,
+    private loading: LoadingProvider,
   ) {
   }
 
   ionViewWillEnter() {
-    let a = this.auth.authenticated();
-    console.log(a);
-    console.log('ionViewDidLoad RecommentedPage');
-    this.getReview();
-  }
-
-  getReview() {
-    this.reviewProvider.getReviews().then(res => {
-      this.dataReview = res;
-    }).catch(err => {
-      console.log(err);
+    this.auth.authenticated().then((res) => {
+      if (res) {
+        this.getReview();
+        this.local.get('user').then((user) => {
+          this.user = user;
+        });
+      } else {
+        window.localStorage.setItem('current_page_for_login', 'RecommentedPage');
+        this.navCtrl.push('LoginPage');
+      }
     });
   }
 
-  doRefresh(refresher) {
+  getReview() {
+    this.loading.onLoading();
     setTimeout(() => {
-      this.getReview();
-      refresher.complete();
-    }, 2000);
+      this.reviewProvider.getReviews().then(res => {
+        this.dataReview = res;
+        this.loading.dismiss();
+      }).catch(err => {
+        console.log(err);
+        this.loading.dismiss();
+      });
+    }, 1000);
+  }
+
+  doRefresh(refresher) {
+    this.getReview();
+    refresher.complete();
   }
 
   goToProfile() {

@@ -19,10 +19,10 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public home: HomeProvider,
-    public modalCtrl: ModalController,
-    public app: App,
-    public loading: LoadingProvider,
+    private home: HomeProvider,
+    private modalCtrl: ModalController,
+    private app: App,
+    private loading: LoadingProvider,
     private local: Storage,
   ) {
   }

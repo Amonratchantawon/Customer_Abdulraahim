@@ -18,20 +18,23 @@ import { AuthProvider } from '../../providers/auth/auth';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
+  inApp: Boolean = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private fb: Facebook,
-    public translate: TranslateService,
-    public alert: AlertProvider,
-    public loading: LoadingProvider,
+    private translate: TranslateService,
+    private alert: AlertProvider,
+    private loading: LoadingProvider,
     private auth: AuthProvider,
   ) {
+    // ไม่แสดงปุ่ม skip เพราะเข้ามาจากทาง login มีปุ่มย้อนกลับ
+    // กรณีเข้ามาครั้งแรกจะมีปุ่ม skip ให้กดได้
+    this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+
   }
 
   onSkip() {
@@ -60,7 +63,7 @@ export class RegisterPage {
   }
 
   onEmail() {
-    this.navCtrl.push('RegisterAccountPage');
+    this.navCtrl.push('RegisterAccountPage', { inApp: this.inApp });
   }
 
   authenFB(user) {
@@ -71,7 +74,13 @@ export class RegisterPage {
     };
     this.loading.onLoading();
     this.auth.login(credential).then((res) => {
-      this.navCtrl.push('NavtabsPage');
+      if (this.inApp) {
+        // กรณีเข้ามาใน app แล้ว จะ pop กลับไปหน้าที่สั่งให้เปิด
+        this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+      } else {
+        // กรณีเข้ามาครั้งแรก ไปหน้าแรก
+        this.navCtrl.push('NavtabsPage');
+      }
       this.loading.dismiss();
     }).catch((err) => {
       if (err.message === 'Invalid password') {
@@ -82,7 +91,7 @@ export class RegisterPage {
           this.alert.onAlert('Wraning', 'Username is already exists.', 'OK');
         }
       } else {
-        this.navCtrl.push('RegisterProfilePage', { provider: 'fb', data: user });
+        this.navCtrl.push('RegisterProfilePage', { provider: 'fb', data: user, inApp: this.inApp });
       }
       this.loading.dismiss();
     });

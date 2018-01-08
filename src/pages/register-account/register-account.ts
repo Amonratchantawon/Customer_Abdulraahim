@@ -18,37 +18,44 @@ import { LoadingProvider } from '../../providers/loading/loading';
   templateUrl: 'register-account.html',
 })
 export class RegisterAccountPage {
+  inApp: Boolean = false;
   user: any = {};
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private auth: AuthProvider,
-    public alert: AlertProvider,
+    private alert: AlertProvider,
     private translate: TranslateService,
-    public loading: LoadingProvider
+    private loading: LoadingProvider
   ) {
+    this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterAccountPage');
   }
 
   onNext() {
     this.user.username = this.user.email;
     this.loading.onLoading();
     this.auth.login(this.user).then((res) => {
-      this.navCtrl.push('NavtabsPage');
+      if (this.inApp) {
+        // กรณีเข้ามาใน app แล้ว จะ pop กลับไปหน้าที่สั่งให้เปิด
+        this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+      } else {
+        // กรณีเข้ามาครั้งแรก ไปหน้าแรก
+        this.navCtrl.push('NavtabsPage');
+      }
       this.loading.dismiss();
     }).catch((err) => {
       if (err.message === 'Invalid password') {
         let language = this.translate.currentLang;
         if (language === 'th') {
-          this.alert.onAlert('แจ้งเตือน', 'ชื่อบัญชีนี้มีผู้ใช้งานแล้ว', 'ตกลง');
+          this.alert.onAlert('แจ้งเตือน', 'อีเมล์นี้มีผู้ใช้งานแล้ว', 'ตกลง');
         } else if (language === 'en') {
-          this.alert.onAlert('Wraning', 'Username is already exists.', 'OK');
+          this.alert.onAlert('Wraning', 'Email is already exists.', 'OK');
         }
       } else {
-        this.navCtrl.push('RegisterProfilePage', { provider: 'local', data: this.user });
+        this.navCtrl.push('RegisterProfilePage', { provider: 'local', data: this.user, inApp: this.inApp });
       }
       this.loading.dismiss();
     });

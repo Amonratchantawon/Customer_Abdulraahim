@@ -14,16 +14,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register-gift.html',
 })
 export class RegisterGiftPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  inApp: Boolean = false;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
+    this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterGiftPage');
   }
 
-  registerGift(){
-    this.navCtrl.push('NavtabsPage')
+  registerGift() {
+    if (this.inApp) {
+      // กรณีเข้ามาใน app แล้ว จะ pop กลับไปหน้าที่สั่งให้เปิด
+      this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+    } else {
+      // กรณีเข้ามาครั้งแรก ไปหน้าแรก
+      this.navCtrl.push('NavtabsPage');
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <ion-content>
 
-  <button ion-button clear color="bite" class="btn-skip" (click)="onSkip()">{{ 'SKIP' | translate }}</button>
+  <!-- <button ion-button clear color="bite" class="btn-skip" (click)="onSkip()">{{ 'SKIP' | translate }}</button> -->
 
   <ion-grid class="login">
     <ion-row>
@@ -16,40 +16,36 @@
       <ion-col col-12 padding>
         <ion-list>
           <ion-item>
-            <ion-label floating>{{ 'USERNAME' | translate}}</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label floating>{{ 'E_MAIL' | translate}}</ion-label>
+            <ion-input type="text" [(ngModel)]="credentials.username"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>{{ 'PASSWORD' | translate}}</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
           </ion-item>
         </ion-list>
-        <button ion-button no-shadow block color="light" (click)="onLogin()">{{ 'LOGIN' | translate}}</button>
-        <button ion-button no-shadow block color="primary" (click)="onLogin()">
+        <button ion-button no-shadow block color="bite" (click)="onLogin()">{{ 'LOGIN' | translate}}</button>
+        <hr>
+        <button ion-button outline block color="dark" (click)="onFacebook()">
           <ion-grid>
             <ion-row>
               <ion-col col-2>
-                <ion-icon name="logo-facebook"></ion-icon>
+                <img src="./assets/icon/button/facebook.png" class="social-icon-fb">
               </ion-col>
-              <ion-col col-8 align-self-center class="btn-social">
-                {{ 'LOGIN_VIA_FACEBOOK' | translate }}
+              <ion-col col-8 align-self-center>
+                {{ 'REGISTER_VIA_FACEBOOK' | translate}}
               </ion-col>
             </ion-row>
           </ion-grid>
         </button>
-        <button ion-button no-shadow block color="bite">
-          <ion-grid>
-            <ion-row>
-              <ion-col col-2>
-                <ion-icon name="logo-google"></ion-icon>
-              </ion-col>
-              <ion-col col-8 align-self-center class="btn-social">
-                {{ 'LOGIN_VIA_EMAIL' | translate }}
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </button>
-        <button ion-button no-shadow block outline color="dark">{{ 'REGISTER' | translate}}</button>
+        <ion-row>
+          <ion-col col-6 text-left class="col-btn-bottom">
+            <button ion-button no-shadow clear color="dark" (click)="goRegister()">{{ 'REGISTER' | translate}}</button>
+          </ion-col>
+          <ion-col col-6 text-right class="col-btn-bottom">
+            <button ion-button no-shadow clear color="dark">{{ 'FORGOT_PASSWORD' | translate}}</button>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

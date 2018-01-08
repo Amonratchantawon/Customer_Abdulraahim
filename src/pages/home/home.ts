@@ -1,8 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, Slides, ModalController, App } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { HomeModel } from '../../assets/model/home.model';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { UserModel } from '../../assets/model/review.model';
+
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -11,21 +14,24 @@ import { LoadingProvider } from '../../providers/loading/loading';
 export class HomePage {
   @ViewChild('ads') ads: Slides;
   homeData: HomeModel = new HomeModel();
+  user: UserModel = new UserModel();
   pages: any = 0;
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public home: HomeProvider,
     public modalCtrl: ModalController,
     public app: App,
-    public loading: LoadingProvider
+    public loading: LoadingProvider,
+    private local: Storage,
   ) {
-
+    this.local.get('user').then((user) => {
+      this.user = user;
+    });
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad HomePage');
+    // console.log('ionViewDidLoad HomePage');
     this.getdata();
   }
 

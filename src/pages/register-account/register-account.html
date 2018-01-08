@@ -28,15 +28,15 @@
       <ion-col col-12 padding>
         <ion-list>
           <ion-item>
-            <ion-label floating>{{ 'USERNAME' | translate}}*</ion-label>
-            <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+            <ion-label floating>{{ 'E_MAIL' | translate}}*</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>{{ 'PASSWORD' | translate}}*</ion-label>
             <ion-input type="password" [(ngModel)]="user.password"></ion-input>
           </ion-item>
         </ion-list>
-        <button ion-button no-shadow block color="bite" [disabled]="!user.username || user.username === '' || !user.password || user.password === ''"
+        <button ion-button no-shadow block color="bite" [disabled]="!user.email || user.email === '' || !user.password || user.password === ''"
           (click)="onNext()">{{ 'NEXT' | translate}}</button>
       </ion-col>
     </ion-row>

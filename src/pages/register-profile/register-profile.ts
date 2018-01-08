@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { LoadingProvider } from '../../providers/loading/loading';
+import { AlertProvider } from '../../providers/alert/alert';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the RegisterProfilePage page.
@@ -19,7 +23,11 @@ export class RegisterProfilePage {
   user: any = {};
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private auth: AuthProvider,
+    public loading: LoadingProvider,
+    public alert: AlertProvider,
+    private translate: TranslateService,
   ) {
     this.provider = this.navParams.get('provider');
     if (this.provider === 'fb') {
@@ -29,8 +37,6 @@ export class RegisterProfilePage {
       this.user.lastName = fb_user.last_name;
       this.user.gender = fb_user.gender;
       this.user.email = fb_user.email;
-      this.user.username = fb_user.email;
-      this.user.password = 'FB@pass1234';
       this.birthday = fb_user.birthday ? new Date(fb_user.birthday).toISOString() : '';
 
     } else if (this.provider === 'local') {
@@ -43,17 +49,26 @@ export class RegisterProfilePage {
     console.log('ionViewDidLoad RegisterProfilePage');
   }
 
-  onChangeDate() {
-    let date = new Date(this.birthday);
-    this.user.birthdate = date.getDate();
-    this.user.birthmonth = (date.getMonth() + 1);
-    this.user.birthyear = date.getFullYear();
-  }
-
   onRegister() {
-    this.onChangeDate();
-    console.log(this.user);
-    this.navCtrl.push('RegisterGiftPage');
+
+    let date = new Date(this.birthday);
+    this.user.birthdate = date.getDate().toString();
+    this.user.birthmonth = (date.getMonth() + 1).toString();
+    this.user.birthyear = date.getFullYear().toString();
+
+    this.loading.onLoading();
+    this.auth.signup(this.user).then((res) => {
+      this.navCtrl.push('RegisterGiftPage');
+      this.loading.dismiss();
+    }).catch((err) => {
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        // this.alert.onAlert('แจ้งเตือน', 'ชื่อบัญชีนี้มีผู้ใช้งานแล้ว', 'ตกลง');
+      } else if (language === 'en') {
+        // this.alert.onAlert('Wraning', 'Username is already exists.', 'OK');
+      }
+      this.loading.dismiss();
+    });
   }
 
 }

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/toPromise';
+import { Constants } from '../../app/app.constants';
 
 /*
   Generated class for the AuthProvider provider.
@@ -13,10 +14,13 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class AuthProvider {
-  API_URL: string = "https://eatsyd-test.herokuapp.com";
+  API_URL: string = Constants.URL;
   user: any;
 
-  constructor(public http: HttpClient, private local: Storage) {
+  constructor(
+    public http: HttpClient,
+    private local: Storage,
+  ) {
 
   }
 
@@ -34,7 +38,7 @@ export class AuthProvider {
   signup(credentials) {
     return this.http.post(this.API_URL + "/api/auth/signup", credentials)
       .toPromise()
-      .then(response => response)
+      .then(response => this.registerSuccess(response))
       .catch(this.handleError);
   }
 
@@ -44,7 +48,14 @@ export class AuthProvider {
   }
 
   private loginSuccess(res) {
-    this.local.set('token',res.loginToken)
+    this.local.set('token', res.loginToken);
+    this.local.set('user', res);
+    return res;
+  }
+
+  private registerSuccess(res) {
+    this.local.set('token', res);
+    this.local.set('user', res);
     return res;
   }
 

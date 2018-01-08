@@ -34,6 +34,7 @@ export class RegisterAccountPage {
   }
 
   onNext() {
+    this.user.username = this.user.email;
     this.loading.onLoading();
     this.auth.login(this.user).then((res) => {
       this.navCtrl.push('NavtabsPage');

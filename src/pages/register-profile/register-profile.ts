@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register-profile.html',
 })
 export class RegisterProfilePage {
-  birthday: Date;
+  birthday: string;
   provider: string;
   user: any = {};
   constructor(
@@ -31,12 +31,9 @@ export class RegisterProfilePage {
       this.user.email = fb_user.email;
       this.user.username = fb_user.email;
       this.user.password = 'FB@pass1234';
-
-      this.onChangeDate();
+      this.birthday = fb_user.birthday ? new Date(fb_user.birthday).toISOString() : '';
 
     } else if (this.provider === 'local') {
-
-      this.birthday = new Date("12/29/1992");
       this.user = this.navParams.get('data');
       this.user.profileImageURL = 'https://eatsyd.herokuapp.com/modules/users/client/img/profile/default.png';
     }
@@ -54,6 +51,7 @@ export class RegisterProfilePage {
   }
 
   onRegister() {
+    this.onChangeDate();
     console.log(this.user);
     this.navCtrl.push('RegisterGiftPage');
   }

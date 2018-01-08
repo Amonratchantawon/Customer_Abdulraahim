@@ -12,4 +12,9 @@ page-register-profile {
     preload-image {
         border-radius: 100% !important;
     }
+    ion-datetime {
+        .item-cover {
+            display: none !important;
+        }
+    }
 }

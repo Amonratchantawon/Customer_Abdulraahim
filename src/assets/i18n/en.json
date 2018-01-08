@@ -52,6 +52,7 @@
   "LAST_NAME": "Lastname",
   "GENDER": "Gender",
   "BIRTHDAY": "Birthday",
+  "BIRTHDAY_SELECTED":"Select birthday",
   "E_MAIL": "E-mail",
   "TEL": "Tel",
   "CITIZEN_ID": "Citizen id",

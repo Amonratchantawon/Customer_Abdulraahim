@@ -1,3 +1,4 @@
+import { AuthProvider } from '../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { TranslateService } from '@ngx-translate/core';
@@ -28,11 +29,14 @@ export class RecommentedPage {
     private crop: Crop,
     private base64: Base64,
     private alertCtrl: AlertController,
-    private camera: Camera
+    private camera: Camera,
+    private auth:AuthProvider
   ) {
   }
 
   ionViewWillEnter() {
+    let a = this.auth.authenticated();
+    console.log(a);
     console.log('ionViewDidLoad RecommentedPage');
     this.getReview();
   }

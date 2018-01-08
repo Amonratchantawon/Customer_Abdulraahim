@@ -44,6 +44,7 @@ export class AuthProvider {
 
   logout() {
     this.local.remove('token');
+    this.local.remove('user');
     this.user = null;
   }
 

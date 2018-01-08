@@ -42,6 +42,8 @@
   "REGISTER_VIA_FACEBOOK": "Contact with Facebook",
   "REGISTER_VIA_EMAIL": "Contact with Google",
   "REGISTER": "Register",
+  "REGISTER_ACCOUNT": "Register account",
+  "REGISTER_PROFILE": "Register profile",
 
   "CHANGE_PROFILE": "Change Picture ",
   "PROFILE": "Profile",
@@ -51,11 +53,36 @@
   "GENDER": "Gender",
   "BIRTHDAY": "Birthday",
   "E_MAIL": "E-mail",
+  "TEL": "Tel",
+  "CITIZEN_ID": "Citizen id",
   "ADDRESS": "Address",
   "WEBSITE": "Website",
+  "FEMALE": "female",
+  "MALE": "male",
 
   "YOU_HAVE": "You have",
   "COINS": "coins",
   "SAVE": "Save",
-  "SKIP": "Skip"
+  "NEXT": "Next",
+  "SKIP": "Skip",
+  "CANCEL": "Cancel",
+  "OK": "ok",
+  "ACCEPT": "Accept",
+  "AGREEMENT": "Agreement",
+  "PRIVACY_POLICY": "Privacy Policy",
+
+  "MONTH": "Month",
+  "JANUARY": "January",
+  "FEBRUARY": "February",
+  "MARCH": "March",
+  "APRIL": "April",
+  "MAY": "May",
+  "JUNE": "June",
+  "JULY": "July",
+  "AUGUST": "August",
+  "SEPTEMBER": "September",
+  "OCTOBER": "October",
+  "NOVEMBER": "November",
+  "DECEMBER": "December"
+
 }

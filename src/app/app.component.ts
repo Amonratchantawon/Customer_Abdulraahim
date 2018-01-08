@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class MyApp {
   rootPage: any = 'WalkthroughPage';
   // rootPage: any = 'NavtabsPage';
+  // rootPage: any = 'RegisterGiftPage';
 
   constructor(
     platform: Platform,

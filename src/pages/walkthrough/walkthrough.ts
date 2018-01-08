@@ -23,7 +23,8 @@ export class WalkthroughPage {
   }
 
   goToLogin(){
-    this.navCtrl.push('RegisterPage');
+    // this.navCtrl.push('RegisterPage');
+    this.navCtrl.push('AgreementPage');
   }
 
 }

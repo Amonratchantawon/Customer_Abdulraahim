@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the RegisterAccountPage page.
+ * Generated class for the RegisterGiftPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,20 +10,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-register-account',
-  templateUrl: 'register-account.html',
+  selector: 'page-register-gift',
+  templateUrl: 'register-gift.html',
 })
-export class RegisterAccountPage {
-  user: any = {};
+export class RegisterGiftPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterAccountPage');
+    console.log('ionViewDidLoad RegisterGiftPage');
   }
 
-  onNext() {
-    this.navCtrl.push('RegisterProfilePage', { provider: 'local', data: this.user });
+  registerGift(){
+    this.navCtrl.push('NavtabsPage')
   }
 
 }

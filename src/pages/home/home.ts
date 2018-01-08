@@ -25,13 +25,12 @@ export class HomePage {
     public loading: LoadingProvider,
     private local: Storage,
   ) {
-    this.local.get('user').then((user) => {
-      this.user = user;
-    });
   }
 
   ionViewWillEnter() {
-    // console.log('ionViewDidLoad HomePage');
+    this.local.get('user').then((user) => {
+      this.user = user;
+    });
     this.getdata();
   }
 

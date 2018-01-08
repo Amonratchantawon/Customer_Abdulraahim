@@ -61,6 +61,7 @@ export class RegisterProfilePage {
       this.navCtrl.push('RegisterGiftPage');
       this.loading.dismiss();
     }).catch((err) => {
+      alert(JSON.stringify(err));
       let language = this.translate.currentLang;
       if (language === 'th') {
         // this.alert.onAlert('แจ้งเตือน', 'ชื่อบัญชีนี้มีผู้ใช้งานแล้ว', 'ตกลง');

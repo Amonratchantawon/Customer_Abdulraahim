@@ -55,7 +55,7 @@
           <ion-label floating>{{ 'TEL' | translate}}
             <span class="danger">*</span>
           </ion-label>
-          <ion-input type="text" [(ngModel)]="user.tel" [disabled]="provider === 'fb' && user.tel && user.tel !== ''"></ion-input>
+          <ion-input type="text" [(ngModel)]="user.tel"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>{{ 'CITIZEN_ID' | translate}}</ion-label>

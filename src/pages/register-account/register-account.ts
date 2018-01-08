@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the RegisterAccountPage page.
@@ -15,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterAccountPage {
   user: any = {};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider) {
   }
 
   ionViewDidLoad() {
@@ -23,7 +24,13 @@ export class RegisterAccountPage {
   }
 
   onNext() {
-    this.navCtrl.push('RegisterProfilePage', { provider: 'local', data: this.user });
+    this.auth.login(this.user).then((res)=> {
+     //alert(res.loginToken);
+     
+    }).catch((err)=>{
+      //alert(JSON.stringify(err));
+    });
+    //this.navCtrl.push('RegisterProfilePage', { provider: 'local', data: this.user });
   }
 
 }

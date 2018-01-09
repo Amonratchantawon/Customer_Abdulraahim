@@ -48,7 +48,10 @@ page-login {
     .label-md[floating] {
         margin-top: 10px !important;
     }
-    .item-md {
+    .item {
         padding-left: 0px !important;
+    }
+    .list-ios>.item-block:first-child {
+        border-top: none !important;
     }
 }

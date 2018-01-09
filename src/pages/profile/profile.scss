@@ -21,4 +21,13 @@ page-profile {
     .text-coin {
         color: #eb3841;
     }
+    .item {
+        color: #607D8B !important;
+    }
+    .text-input{
+        color: #607D8B !important;        
+    }
+    .text-input[disabled]{
+        opacity: 0.8 !important;
+    }
 }

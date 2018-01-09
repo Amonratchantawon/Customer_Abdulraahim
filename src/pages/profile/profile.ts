@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Constants } from '../../app/app.constants';
+import { UserModel } from '../../assets/model/review.model';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,39 +17,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  user: UserModel = new UserModel();
   displayName = "อมรรัตน์ จันทะวร";
   isenabled: boolean = true;
   Edit = "create";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
   }
 
-  clicktogglr(users){
-    if (this.Edit == "create") {
-      // this.Edit = "checkbox-outline"
-      if (this.isenabled == true) {
-        this.isenabled = false;
-      }
-    } else if (this.Edit == "checkbox-outline") {
-      // this.Edit = "create"
-      if (this.isenabled == false) {
-        this.isenabled = false;
-      }
-    }
-  }
-  save(){
-    if (this.isenabled == true) {
-      this.isenabled = false;
-    }else  {
-      this.isenabled = true;
-    }
-  }
-
-  onToAddress(){
+  onToAddress() {
     this.navCtrl.push('AddressPage');
   }
 

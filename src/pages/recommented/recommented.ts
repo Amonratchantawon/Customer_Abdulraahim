@@ -40,12 +40,12 @@ export class RecommentedPage {
   }
 
   ionViewWillEnter() {
-    this.user = null;
     this.auth.authenticated().then((res) => {
       if (res) {
         this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
         this.getReview();
       } else {
+        this.user = null;
         this.navCtrl.push('LoginPage');
       }
     });
@@ -184,9 +184,10 @@ export class RecommentedPage {
       this.crop.crop(fileUri, { quality: 50 }).then((cropData) => {
         alert(JSON.stringify(cropData));
         this.base64.encodeFile(cropData).then((base64File: string) => {
-          // alert(JSON.stringify(base64File));
+          alert('base64 : 1');
           let base64img = base64File.replace(/\n/g, '');
           base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
+          alert('base64 : 2');
           resolve(base64img);
         }, (base64Err) => {
 

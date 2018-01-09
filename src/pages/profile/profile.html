@@ -22,44 +22,31 @@
       <ion-col col-3>
       </ion-col>
       <ion-col col-6 text-center>
-        <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
-        <button ion-button icon-only round color="light" class="camera-btn">
+        <preload-image class="preload-profile-image" [ratio]="{w:1, h:1}" [src]="user.profileImageURL" [isIcon]="true"></preload-image>
+        <!-- <button ion-button icon-only round color="light" class="camera-btn">
           <ion-icon name="md-camera"></ion-icon>
-        </button>
+        </button> -->
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row *ngIf="user.coin">
       <ion-col text-center>
-        <h2 class="text-coin">{{ 'YOU_HAVE' | translate}} 100 {{ 'COINS' | translate}}</h2>
+        <h2 class="text-coin">{{ 'YOU_HAVE' | translate}} {{user.coin}} {{ 'COINS' | translate}}</h2>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-list class="user-data-content">
     <ion-list-header>
       <p>{{ 'PROFILE' | translate}}</p>
-      <button ion-button clear item-end larg class="size-btn" (click)="clicktogglr(users)">
-        <ion-icon [name]="Edit"></ion-icon>
-      </button>
     </ion-list-header>
     <ion-item>
       <ion-label stacked>{{ 'DISPLAY_NAME' | translate}}</ion-label>
-      <ion-input [disabled]="isenabled" type="text" [(ngModel)]="displayName"></ion-input>
-    </ion-item>  
+      <ion-input [disabled]="true" type="text" [(ngModel)]="displayName"></ion-input>
+    </ion-item>
   </ion-list>
-  <ion-list *ngIf="isenabled">
+  <ion-list>
     <button ion-item item-start (click)="onToAddress()">
       <ion-icon name="pin" item-start color="#503f3f"></ion-icon>
       {{ 'ADDRESS' | translate}}
     </button>
   </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-4 text-center *ngIf="!isenabled">
-        <button ion-button outline (click)="save()">{{ 'SAVE' | translate}}</button>
-      </ion-col>
-      <ion-col col-4></ion-col>
-    </ion-row>
-  </ion-grid>
-
 </ion-content>

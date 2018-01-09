@@ -1,4 +1,4 @@
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -6,8 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { Http } from '@angular/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
@@ -30,18 +28,8 @@ import { AlertProvider } from '../providers/alert/alert';
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { AuthProvider } from '../providers/auth/auth';
+import { TokenInterceptor } from '../providers/auth/token-interceptor';
 
-
-let storage = new Storage({});
-
-export function getAuthHttp(http) {
-  return new AuthHttp(new AuthConfig({
-    headerPrefix: 'Bearer',
-    noJwtError: true,
-    globalHeaders: [{'Accept': 'application/json'}],
-    tokenGetter: (() => storage.get('token').then((token: string) => token)),
-  }), http);
-}
 
 @NgModule({
   declarations: [
@@ -82,9 +70,9 @@ export function getAuthHttp(http) {
       useClass: ionicGalleryModal.GalleryModalHammerConfig,
     },
     {
-      provide: AuthHttp,
-      useFactory: getAuthHttp,
-      deps: [Http]
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
     },
     HomeProvider,
     ReviewProvider,

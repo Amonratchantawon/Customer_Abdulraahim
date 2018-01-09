@@ -17,7 +17,9 @@ export class PreloadImageComponent implements OnChanges {
 
 	@Input() alt: string;
 
-  @Input() title: string;
+	@Input() title: string;
+	
+  @Input() isIcon: boolean;
 
 	@Input() set src(val: string) {
     this._src = isPresent(val) ? val : '';

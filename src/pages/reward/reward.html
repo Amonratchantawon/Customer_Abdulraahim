@@ -1,10 +1,10 @@
 <ion-header>
 
   <ion-navbar color="bite">
-    <ion-buttons start>
+    <ion-buttons start *ngIf="user && user.profileImageURL">
       <button ion-button clear (click)="goToProfile()">
         <ion-avatar class="avatar-profile">
-          <img src="https://assets.phenompeople.com/CareerConnectResources/GENEA0084/en_us/desktop/assets/images/default_profile.png">
+          <img src="{{ user.profileImageURL }}">
         </ion-avatar>
       </button>
     </ion-buttons>
@@ -21,5 +21,5 @@
   </ion-refresher>
 
   <search-input></search-input>
-  
+
 </ion-content>

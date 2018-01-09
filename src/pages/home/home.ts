@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, Slides, ModalController, App } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { HomeModel } from '../../assets/model/home.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { UserModel } from '../../assets/model/review.model';
+import { Constants } from '../../app/app.constants';
 
 @IonicPage()
 @Component({
@@ -19,18 +19,15 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public home: HomeProvider,
-    public modalCtrl: ModalController,
-    public app: App,
-    public loading: LoadingProvider,
-    private local: Storage,
+    private home: HomeProvider,
+    private modalCtrl: ModalController,
+    private app: App,
+    private loading: LoadingProvider
   ) {
   }
 
   ionViewWillEnter() {
-    this.local.get('user').then((user) => {
-      this.user = user;
-    });
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     this.getdata();
   }
 

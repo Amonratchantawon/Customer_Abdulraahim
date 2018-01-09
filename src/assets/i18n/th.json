@@ -36,6 +36,7 @@
   "THAI": "ไทย",
   "USERNAME": "ชื่อผู้ใช้",
   "PASSWORD": "รหัสผ่าน",
+  "FORGOT_PASSWORD": "ลืมรหัสผ่าน",
   "LOGIN": "เข้าสู่ระบบ",
   "LOGIN_VIA_FACEBOOK": "เข้าสู้ระบบด้วยเฟสบุ๊ค",
   "LOGIN_VIA_EMAIL": "เข้าสู้ระบบด้วยกูเกิล",

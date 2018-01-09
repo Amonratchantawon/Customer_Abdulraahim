@@ -28,11 +28,15 @@
       <ion-col col-12 padding>
         <ion-list>
           <ion-item>
-            <ion-label floating>{{ 'E_MAIL' | translate}}*</ion-label>
+            <ion-label floating>{{ 'E_MAIL' | translate}}
+              <span class="danger">*</span>
+            </ion-label>
             <ion-input type="text" [(ngModel)]="user.email"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>{{ 'PASSWORD' | translate}}*</ion-label>
+            <ion-label floating>{{ 'PASSWORD' | translate}}
+              <span class="danger">*</span>
+            </ion-label>
             <ion-input type="password" [(ngModel)]="user.password"></ion-input>
           </ion-item>
         </ion-list>

@@ -36,6 +36,7 @@
   "THAI": "Thai",
   "USERNAME": "Username",
   "PASSWORD": "Password",
+  "FORGOT_PASSWORD": "Forgot password",
   "LOGIN": "Login",
   "LOGIN_VIA_FACEBOOK": "Contact with Facebook",
   "LOGIN_VIA_EMAIL": "Contact with Google",

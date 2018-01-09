@@ -17,14 +17,23 @@ export class AlertProvider {
   ) {
   }
 
-  onAlert(title, massage, button) {
-    let alert = this.alertCtrl.create({
-      title: title,
-      subTitle: massage,
-      mode: 'ios',
-      buttons: [button]
-    });
-    alert.present();
-  }
+  // ### note ###
+  // private translate: TranslateService,
+  // let language = this.translate.currentLang;
+  // if (language === 'th') {
+  //   this.alert.onAlert('แจ้งเตือน', 'อีเมล์นี้มีผู้ใช้งานแล้ว', 'ตกลง');
+  // } else if (language === 'en') {
+  //   this.alert.onAlert('Wraning', 'Email is already exists.', 'OK');
+  // }
+
+onAlert(title, massage, button) {
+  let alert = this.alertCtrl.create({
+    title: title,
+    subTitle: massage,
+    mode: 'ios',
+    buttons: [button]
+  });
+  alert.present();
+}
 
 }

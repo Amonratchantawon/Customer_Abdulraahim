@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoadingProvider } from '../../providers/loading/loading';
-import { AlertProvider } from '../../providers/alert/alert';
+// import { AlertProvider } from '../../providers/alert/alert';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'register-profile.html',
 })
 export class RegisterProfilePage {
+  inApp: Boolean = false;
   birthday: string;
   provider: string;
   user: any = {};
@@ -25,10 +26,11 @@ export class RegisterProfilePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private auth: AuthProvider,
-    public loading: LoadingProvider,
-    public alert: AlertProvider,
+    private loading: LoadingProvider,
+    // private alert: AlertProvider,
     private translate: TranslateService,
   ) {
+    this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
     this.provider = this.navParams.get('provider');
     if (this.provider === 'fb') {
       let fb_user = this.navParams.get('data');
@@ -60,7 +62,7 @@ export class RegisterProfilePage {
 
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
-      this.navCtrl.push('RegisterGiftPage');
+      this.navCtrl.push('RegisterGiftPage', { inApp: this.inApp });
       this.loading.dismiss();
     }).catch((err) => {
       let language = this.translate.currentLang;

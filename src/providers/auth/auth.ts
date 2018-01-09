@@ -15,7 +15,6 @@ import { Constants } from '../../app/app.constants';
 @Injectable()
 export class AuthProvider {
   API_URL: string = Constants.URL;
-  user: any;
 
   constructor(
     public http: HttpClient,
@@ -24,8 +23,13 @@ export class AuthProvider {
 
   }
 
-  public authenticated() {
-    return tokenNotExpired();
+  public authenticated(): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.local.get('token').then((token) => {
+        resolve(tokenNotExpired('Bearer', token))
+      });
+    });
   }
 
   login(credentials) {
@@ -43,20 +47,20 @@ export class AuthProvider {
   }
 
   logout() {
+    window.localStorage.removeItem('user@' + this.API_URL);
     this.local.remove('token');
-    this.local.remove('user');
-    this.user = null;
+    console.log('logout');
   }
 
   private loginSuccess(res) {
+    window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     this.local.set('token', res.loginToken);
-    this.local.set('user', res);
     return res;
   }
 
   private registerSuccess(res) {
-    this.local.set('token', res);
-    this.local.set('user', res);
+    window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
+    this.local.set('token', res.loginToken);
     return res;
   }
 

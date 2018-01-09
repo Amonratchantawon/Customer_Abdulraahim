@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { UserModel } from '../../assets/model/review.model';
+import { Constants } from '../../app/app.constants';
 
 @IonicPage()
 @Component({
@@ -7,16 +9,16 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
   templateUrl: 'reward.html',
 })
 export class RewardPage {
-
+  user: UserModel = new UserModel();
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public app: App
+    private app: App
   ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RewardPage');
+  ionViewWillEnter() {
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
   }
 
   doRefresh(refresher) {

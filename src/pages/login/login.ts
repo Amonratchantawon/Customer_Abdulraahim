@@ -43,7 +43,7 @@ export class LoginPage {
     this.loading.onLoading();
     this.auth.login(credentials).then((res) => {
       this.navCtrl.pop();
-      this.loading.dismissAll();      
+      this.loading.dismiss();
     }).catch((err) => {
       if (err.message === 'Invalid password') {
         let language = this.translate.currentLang;
@@ -67,12 +67,11 @@ export class LoginPage {
           this.alert.onAlert('Wraning', 'Error! please try again', 'OK');
         }
       }
-      this.loading.dismissAll();
+      this.loading.dismiss();
     });
   }
 
   onFacebook() { //'user_birthday'
-    this.loading.onLoading();
     this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me?fields=id,first_name,last_name,email,birthday,gender,picture.width(300).height(300)', null).then((user) => {
@@ -88,12 +87,9 @@ export class LoginPage {
             } else if (this.translate.currentLang === 'en') {
               this.alert.onAlert('Facebook connect', 'Error logging into Facebook', 'OK');
             }
-            this.loading.dismiss();
           })
       })
-      .catch(e => {
-        this.loading.dismiss();
-      });
+      .catch(e => { });
 
     this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
   }

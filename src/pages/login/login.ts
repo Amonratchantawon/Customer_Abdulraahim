@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AlertProvider } from '../../providers/alert/alert';
-import { TranslateService } from '@ngx-translate/core';
 import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
@@ -25,7 +26,8 @@ export class LoginPage {
     private auth: AuthProvider,
     private alert: AlertProvider,
     private translate: TranslateService,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
+    private fb: Facebook,
   ) {
   }
 
@@ -37,12 +39,11 @@ export class LoginPage {
     });
   }
 
-  onLogin() {
-    console.log(this.credentials);
+  onLogin(credentials) {
     this.loading.onLoading();
-    this.auth.login(this.credentials).then((res) => {
+    this.auth.login(credentials).then((res) => {
       this.navCtrl.pop();
-      this.loading.dismiss();
+      this.loading.dismissAll();      
     }).catch((err) => {
       if (err.message === 'Invalid password') {
         let language = this.translate.currentLang;
@@ -66,8 +67,35 @@ export class LoginPage {
           this.alert.onAlert('Wraning', 'Error! please try again', 'OK');
         }
       }
-      this.loading.dismiss();
+      this.loading.dismissAll();
     });
+  }
+
+  onFacebook() { //'user_birthday'
+    this.loading.onLoading();
+    this.fb.login(['public_profile', 'user_friends', 'email'])
+      .then((res: FacebookLoginResponse) => {
+        this.fb.api('me?fields=id,first_name,last_name,email,birthday,gender,picture.width(300).height(300)', null).then((user) => {
+          let credentials = {
+            username: user.email,
+            password: 'FB@Pass1234'
+          }
+          this.onLogin(credentials);
+        })
+          .catch(e => {
+            if (this.translate.currentLang === 'th') {
+              this.alert.onAlert('การเชื่อมต่อเฟสบุ๊ค', 'ผิดพลาด', 'ตกลง');
+            } else if (this.translate.currentLang === 'en') {
+              this.alert.onAlert('Facebook connect', 'Error logging into Facebook', 'OK');
+            }
+            this.loading.dismiss();
+          })
+      })
+      .catch(e => {
+        this.loading.dismiss();
+      });
+
+    this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
   }
 
   goRegister() {

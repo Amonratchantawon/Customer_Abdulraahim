@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { TranslateService } from '@ngx-translate/core';
 import { Crop } from '@ionic-native/crop';
@@ -12,6 +11,7 @@ import { ReviewProvider } from '../../providers/review/review';
 import { AuthProvider } from '../../providers/auth/auth';
 import { UserModel } from '../../assets/model/user.model';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { Constants } from '../../app/app.constants';
 
 @IonicPage()
 @Component({
@@ -35,18 +35,16 @@ export class RecommentedPage {
     private alertCtrl: AlertController,
     private camera: Camera,
     private auth: AuthProvider,
-    private local: Storage,
     private loading: LoadingProvider,
   ) {
   }
 
   ionViewWillEnter() {
+    this.user = null;
     this.auth.authenticated().then((res) => {
       if (res) {
+        this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
         this.getReview();
-        this.local.get('user').then((user) => {
-          this.user = user;
-        });
       } else {
         this.navCtrl.push('LoginPage');
       }

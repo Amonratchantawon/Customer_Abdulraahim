@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { UserModel } from '../../assets/model/review.model';
+import { Constants } from '../../app/app.constants';
 
 @IonicPage()
 @Component({
@@ -13,15 +13,12 @@ export class RewardPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private app: App,
-    private local: Storage,
+    private app: App
   ) {
   }
 
   ionViewWillEnter() {
-    this.local.get('user').then((user) => {
-      this.user = user;
-    });
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
   }
 
   doRefresh(refresher) {

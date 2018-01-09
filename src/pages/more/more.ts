@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertProvider } from '../../providers/alert/alert';
 import { AuthProvider } from '../../providers/auth/auth';
 import { UserModel } from '../../assets/model/review.model';
+import { Constants } from '../../app/app.constants';
 /**
  * Generated class for the MorePage page.
  *
@@ -25,15 +25,12 @@ export class MorePage {
     private app: App,
     private auth: AuthProvider,
     private alertCtrl: AlertProvider,
-    private translate: TranslateService,
-    private local: Storage,
+    private translate: TranslateService
   ) {
   }
 
   ionViewWillEnter() {
-    this.local.get('user').then((user) => {
-      this.user = user;
-    });
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
   }
 
   goToProfile() {

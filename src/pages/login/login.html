@@ -17,14 +17,14 @@
         <ion-list>
           <ion-item>
             <ion-label floating>{{ 'E_MAIL' | translate}}</ion-label>
-            <ion-input type="text" [(ngModel)]="credentials.username"></ion-input>
+            <ion-input type="email" [(ngModel)]="credentials.username"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>{{ 'PASSWORD' | translate}}</ion-label>
             <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
           </ion-item>
         </ion-list>
-        <button ion-button no-shadow block color="bite" (click)="onLogin()">{{ 'LOGIN' | translate}}</button>
+        <button ion-button no-shadow block color="bite" (click)="onLogin(credentials)">{{ 'LOGIN' | translate}}</button>
         <hr>
         <button ion-button outline block color="dark" (click)="onFacebook()">
           <ion-grid>

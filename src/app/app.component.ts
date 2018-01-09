@@ -3,14 +3,13 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
+import { Constants } from './app.constants';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = 'WalkthroughPage';
-  // rootPage: any = 'NavtabsPage';
-  // rootPage: any = 'RegisterGiftPage';
+  rootPage: any;
 
   constructor(
     platform: Platform,
@@ -18,12 +17,20 @@ export class MyApp {
     splashScreen: SplashScreen,
     translate: TranslateService
   ) {
+
     
+    let agr = JSON.parse(window.localStorage.getItem('Agreement@' + Constants.URL));
+    if (agr && agr.status) {
+      this.rootPage = 'NavtabsPage';
+    } else {
+      this.rootPage = 'WalkthroughPage';
+    }
+
     translate.addLangs(['en', 'th']);
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
-    
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

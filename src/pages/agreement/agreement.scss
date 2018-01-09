@@ -3,7 +3,7 @@ page-agreement {
         overflow-y: auto !important;
         padding: 10px !important;
     }
-    h2 {
+    h3 {
         text-align: center;
     }
     ion-scroll {
@@ -18,5 +18,9 @@ page-agreement {
             min-height: 40px !important;
             max-height: 40px !important;
         }
+    }
+    ion-infinite-scroll-content{
+        height: 1px !important;
+        min-height: 1px !important;
     }
 }

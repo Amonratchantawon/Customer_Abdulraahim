@@ -15,9 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreateReviewPage {
   @ViewChild('myInput') myInput: ElementRef;
-  image: string = '';
+  review: any = {};
+  maxLengthTitle: number = 30;
+  maxLengthDetail: number = 150;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.image = this.navParams.data;
+    this.review.image = this.navParams.data;
+    this.review.title = '';
+    this.review.detail = '';
   }
 
   ionViewDidLoad() {

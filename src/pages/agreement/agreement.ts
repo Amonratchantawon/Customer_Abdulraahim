@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Constants } from '../../app/app.constants';
 
 /**
  * Generated class for the AgreementPage page.
@@ -22,9 +23,17 @@ export class AgreementPage {
     console.log('ionViewDidLoad AgreementPage');
   }
 
-
+  doInfinite(infiniteScroll) {
+    this.isShowAgreementBtn = true;
+    infiniteScroll.complete();
+  }
 
   agreement() {
+    let agr = {
+      agreement_date: new Date(),
+      status: true
+    }
+    window.localStorage.setItem('Agreement@' + Constants.URL, JSON.stringify(agr));
     this.navCtrl.push('RegisterPage');
   }
 

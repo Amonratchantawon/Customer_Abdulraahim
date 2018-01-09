@@ -46,6 +46,7 @@ export class RecommentedPage {
         this.getReview();
       } else {
         this.user = null;
+        this.dataReview = [];
         this.navCtrl.push('LoginPage');
       }
     });
@@ -94,6 +95,7 @@ export class RecommentedPage {
             if (this.platform.is('cordova')) {
               this.onImagePicker();
             }
+            // this.app.getRootNav().push('CreateReviewPage', './assets/imgs/review/review1.png');
           }
         },
         {

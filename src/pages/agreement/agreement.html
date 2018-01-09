@@ -13,9 +13,9 @@
 </ion-header>
 
 
-<ion-content padding (ionScrollEnd)="onScrollEnd($event)">
-  <h2>{{ 'TERMS_CONDITIONS' | translate }}</h2>
-  <!-- <ion-scroll scrollY="true"> -->
+<ion-content padding>
+  <h3>{{ 'TERMS_CONDITIONS' | translate }}</h3>
+
   <ion-row class="row-custom2">
     <ion-col col-12>
 
@@ -54,12 +54,14 @@
     </ion-col>
   </ion-row>
 
-  <!-- </ion-scroll> -->
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>
+
 <ion-footer class="footer-agreement">
   <ion-toolbar>
-    <!-- [disabled]="!isShowAgreementBtn" -->
-    <button ion-button block (click)="agreement()" color="bite" >{{ 'ACCEPT' | translate }}</button>
+    <button [disabled]="!isShowAgreementBtn" ion-button block (click)="agreement()" color="bite">{{ 'ACCEPT' | translate }}</button>
   </ion-toolbar>
 </ion-footer>

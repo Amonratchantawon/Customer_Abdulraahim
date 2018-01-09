@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { HomeModel } from '../../assets/model/home.model';
+import { Constants } from '../../app/app.constants';
 /*
   Generated class for the HomeProvider provider.
 
@@ -10,12 +11,12 @@ import { HomeModel } from '../../assets/model/home.model';
 */
 @Injectable()
 export class HomeProvider {
-
+  API_URL: string = Constants.URL;
   constructor(public http: HttpClient) {
   }
 
   getHomeData(): Promise<HomeModel> {
-    return this.http.get('./assets/json/home.json')
+    return this.http.get(this.API_URL + '/api/customerhome')
       .toPromise()
       .then(response => response as HomeModel)
       .catch(this.handleError);

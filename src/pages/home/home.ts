@@ -79,4 +79,8 @@ export class HomePage {
     this.app.getRootNav().push('ProfilePage');
   }
 
+  goToShop(){
+    this.navCtrl.push('ShopPage');
+  }
+
 }

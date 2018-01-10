@@ -87,7 +87,7 @@
       <ion-scroll scrollX="true">
         <ion-row class="row-custom" *ngIf="homeData.shops && homeData.shops.length > 0">
           <ion-col col-4 col-md-3 col-lg-3 *ngFor="let item of homeData.shops[pages].items">
-            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="shops"></preload-image>
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="shops" (click)="goToShop()"></preload-image>
             <div class="text-hover-product">
               <label class="product-name">{{item.name}}</label>
               <span class="distance">{{item.distance}} km.</span>

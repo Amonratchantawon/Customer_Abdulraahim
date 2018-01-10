@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ItemShopModel } from '../../assets/model/shop.model';
+import { ItemShopModel, ShopModel } from '../../assets/model/shop.model';
 
 /*
   Generated class for the ShopProvider provider.
@@ -18,6 +18,13 @@ export class ShopProvider {
     return this.http.get('./assets/json/shoplist.json')
       .toPromise()
       .then(response => response as Array<ItemShopModel>)
+      .catch(this.handleError);
+  }
+
+  getShopCenter(): Promise<ShopModel> {
+    return this.http.get('./assets/json/shop.json')
+      .toPromise()
+      .then(response => response as ShopModel)
       .catch(this.handleError);
   }
 

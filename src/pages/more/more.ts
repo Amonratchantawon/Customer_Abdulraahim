@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertProvider } from '../../providers/alert/alert';
 import { AuthProvider } from '../../providers/auth/auth';
-import { UserModel } from '../../assets/model/review.model';
 import { Constants } from '../../app/app.constants';
+import { UserModel } from '../../assets/model/user.model';
 /**
  * Generated class for the MorePage page.
  *

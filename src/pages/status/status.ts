@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-import { UserModel } from '../../assets/model/review.model';
 import { Constants } from '../../app/app.constants';
+import { UserModel } from '../../assets/model/user.model';
 
 /**
  * Generated class for the StatusPage page.

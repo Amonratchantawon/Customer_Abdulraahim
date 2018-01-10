@@ -56,10 +56,10 @@ export class RegisterProfilePage {
   onRegister() {
 
     let date = new Date(this.birthday);
-    this.user.birthdate = date.getDate().toString();
-    this.user.birthmonth = (date.getMonth() + 1).toString();
-    this.user.birthyear = date.getFullYear().toString();
-
+    // this.user.birthdate = date.getDate().toString();
+    // this.user.birthmonth = (date.getMonth() + 1).toString();
+    // this.user.birthyear = date.getFullYear().toString();
+    this.user.dateOfBirth = date;
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
       this.navCtrl.push('RegisterGiftPage', { inApp: this.inApp });

@@ -5,12 +5,11 @@ export class UserModel {
     fisrtName: string;
     lastName: string;
     gender: string;
-    birthdate: string;
-    birthmonth: string;
-    birthyear: string;
+    dateOfBirth: Date;
     citizenid: string;
     email: string;
-    tel: string;
+    mobile: string;
     profileImageURL: string
     coin: number;
+    notificationids: Array<string>;
 }

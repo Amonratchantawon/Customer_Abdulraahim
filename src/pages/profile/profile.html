@@ -38,9 +38,25 @@
     <ion-list-header>
       <p>{{ 'PROFILE' | translate}}</p>
     </ion-list-header>
-    <ion-item>
+    <ion-item *ngIf="user.displayName">
       <ion-label stacked>{{ 'DISPLAY_NAME' | translate}}</ion-label>
-      <ion-input [disabled]="true" type="text" [(ngModel)]="displayName"></ion-input>
+      <ion-input [disabled]="true" type="text" [(ngModel)]="user.displayName"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="user.email">
+      <ion-label stacked>{{ 'E_MAIL' | translate}}</ion-label>
+      <ion-input [disabled]="true" type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="user.mobile">
+      <ion-label stacked>{{ 'TEL' | translate}}</ion-label>
+      <ion-input [disabled]="true" type="text" [(ngModel)]="user.mobile"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="user.gender">
+      <ion-label stacked>{{ 'GENDER' | translate}}</ion-label>
+      <ion-input [disabled]="true" type="text" value="{{ user.gender | translate}}"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="user.dateOfBirth">
+      <ion-label stacked>{{ 'BIRTHDAY' | translate}}</ion-label>
+      <ion-input [disabled]="true" type="text" value="{{ user.dateOfBirth | translate}}"></ion-input>
     </ion-item>
   </ion-list>
   <ion-list>

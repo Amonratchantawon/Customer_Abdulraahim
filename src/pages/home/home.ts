@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams, Slides, ModalController, App } fro
 import { HomeProvider } from '../../providers/home/home';
 import { HomeModel } from '../../assets/model/home.model';
 import { LoadingProvider } from '../../providers/loading/loading';
-import { UserModel } from '../../assets/model/review.model';
 import { Constants } from '../../app/app.constants';
+import { UserModel } from '../../assets/model/user.model';
 
 @IonicPage()
 @Component({

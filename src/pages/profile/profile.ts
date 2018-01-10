@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Constants } from '../../app/app.constants';
-import { UserModel } from '../../assets/model/review.model';
+import { UserModel } from '../../assets/model/user.model';
 
 /**
  * Generated class for the ProfilePage page.
@@ -23,13 +23,14 @@ export class ProfilePage {
   Edit = "create";
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams
   ) {
   }
 
   ionViewDidLoad() {
     this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
+    this.user.gender = this.user.gender.toUpperCase();
   }
 
   onToAddress() {

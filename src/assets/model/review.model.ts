@@ -1,3 +1,5 @@
+import { UserModel } from "./user.model";
+
 
 export class ReviewModel {
     user: UserModel = new UserModel();
@@ -6,9 +8,4 @@ export class ReviewModel {
     caption: string;
     islike: boolean;
     likes: number;
-}
-
-export class UserModel {
-    displayName: string;
-    profileImageURL: string;
 }

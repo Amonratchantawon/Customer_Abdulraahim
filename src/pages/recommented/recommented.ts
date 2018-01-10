@@ -225,6 +225,13 @@ export class RecommentedPage {
       let img = new Image();
       img.crossOrigin = 'Anonymous';
       img.src = url;
+
+      if (this.platform.is('ios')) {
+        if (this.platform.version().num > 10.2) {
+          img.crossOrigin = 'anonymous';
+        }
+      }
+
       if (!img.complete) {
         img.onload = () => {
           observer.next(this.getBase64Image(img));

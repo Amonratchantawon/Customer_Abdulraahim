@@ -1,0 +1,22 @@
+page-shop {
+
+    .icon-ads {
+        // position: absolute;
+        background-color: #ff5566;
+    }
+
+    ion-grid.grid{
+        position: absolute;
+        z-index: 1;
+        margin-top: -80px;
+        color: aliceblue;
+    }
+
+    .row-custom {
+        flex-wrap: inherit !important;
+    }
+    ion-scroll {
+        height: 28vw;
+    }
+
+}

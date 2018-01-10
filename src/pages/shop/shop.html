@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ShopPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="bite">
+    <ion-title>shop</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <img  src="{{shopData.coverimage}}" alt="imgErr">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-row>
+          {{shopData.name}}
+        </ion-row>
+        <ion-row>
+          {{shopData.detail}}
+        </ion-row>
+        <ion-row>
+          <span>xxxxxxx</span>&nbsp;
+          <ion-badge  class="icon-ads" item-end color="bite">{{isO}}</ion-badge>
+        </ion-row>
+      </ion-col> 
+      <ion-col col-6 align-self-end text-right>
+          <ion-icon ios="ios-star-outline" md="md-star-outline" ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-scroll scrollX="true" class="">
+    <ion-row class="row-custom">
+      <ion-col col-3 *ngFor="let item of shopData.promoteimage">
+        <img src="{{item}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-scroll>
+
+</ion-content>

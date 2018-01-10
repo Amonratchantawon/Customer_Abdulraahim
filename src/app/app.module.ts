@@ -81,7 +81,7 @@ import { TokenInterceptor } from '../providers/auth/token-interceptor';
     CategoryProvider,
     LoadingProvider,
     AlertProvider,
-    AuthProvider
+    AuthProvider,
   ]
 })
 export class AppModule { }

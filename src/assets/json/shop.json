@@ -1,0 +1,50 @@
+{
+    "_id": "shop01",
+    "name": "ครัวคุณโก๋",
+    "detail": "Coffice Idea Space",
+    "isopen": true,
+    "address": {
+        "addressdetail": "ตรงข้าม big c"
+    },
+    "promoteimage": [
+        "./assets/imgs/shop/shop1.png",
+        "./assets/imgs/shop/shop2.png",
+        "./assets/imgs/shop/shop3.png",
+        "./assets/imgs/shop/shop4.png",
+        "./assets/imgs/shop/shop5.png",
+        "./assets/imgs/shop/shop6.png"
+    ],
+    "coverimage": "http://www.hardrock.com/cafes/amsterdam/files/2308/LegendsRoom.jpg",
+    "times": [
+        {
+            "description": "วันหยุด",
+            "timestart": "07.00",
+            "timeend": "20.00",
+            "days": [
+                "เสาร์",
+                "อาทิตย์"
+            ]
+        }
+    ],
+    "categories": [
+        {
+            "_id": "cate01",
+            "name": "ของทานเล่น",
+            "image": "https://i.pinimg.com/736x/a1/b6/2e/a1b62e13c959f4ede0f450605c67ed33--thai-dessert-thaifood.jpg"
+        }
+    ],
+    "items": [
+        {
+            "_id": "product01",
+            "cateid": "cate01",
+            "name": "ขนมปังชีสโรล",
+            "image": "https://img.kapook.com/u/2016/surauch/cook1/appetizer4.jpg",
+            "price": 200,
+            "ispromotion": true,
+            "isads": true,
+            "isadspop": true,
+            "popularcount": 30,
+            "isrecommend": false
+        }
+    ]
+}

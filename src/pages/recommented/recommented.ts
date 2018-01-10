@@ -128,29 +128,19 @@ export class RecommentedPage {
         if (this.platform.is('android')) {
           fileUri = 'file://' + fileUri;
         }
-        alert(fileUri);
-        this.base64.encodeFile(fileUri).then((base64File: string) => {
-          alert('base64 : 1');
-          let base64img = base64File.replace(/\n/g, '');
-          base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
-          alert('base64 : 2');
-          this.app.getRootNav().push('CreateReviewPage', base64img);
-        }, (base64Err) => {
-          alert('error');
+        this.resizeImage(fileUri).then((resizeImageData) => {
+          this.app.getRootNav().push('CreateReviewPage', resizeImageData);
+        }, (resizeImageError) => {
+
+          let alert = this.alertCtrl.create({
+            title: 'Resize image',
+            subTitle: 'Resize image error',
+            mode: 'ios',
+            buttons: ['OK']
+          });
+          alert.present();
+
         });
-        // this.resizeImage(fileUri).then((resizeImageData) => {
-        //   this.app.getRootNav().push('CreateReviewPage', resizeImageData);
-        // }, (resizeImageError) => {
-
-        //   let alert = this.alertCtrl.create({
-        //     title: 'Resize image',
-        //     subTitle: 'Resize image error',
-        //     mode: 'ios',
-        //     buttons: ['OK']
-        //   });
-        //   alert.present();
-
-        // });
       }
     });
   }

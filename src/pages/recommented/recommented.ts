@@ -12,6 +12,8 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { UserModel } from '../../assets/model/user.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { Constants } from '../../app/app.constants';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 
 @IonicPage()
 @Component({
@@ -95,6 +97,7 @@ export class RecommentedPage {
             if (this.platform.is('cordova')) {
               this.onImagePicker();
             }
+
             // this.app.getRootNav().push('CreateReviewPage', './assets/imgs/review/review1.png');
           }
         },
@@ -184,25 +187,30 @@ export class RecommentedPage {
 
     return new Promise((resolve, reject) => {
       this.crop.crop(fileUri, { quality: 50 }).then((cropData) => {
-        setTimeout(() => {
-          this.base64.encodeFile(cropData).then((base64File: string) => {
-            alert('base64 : 1');
-            let base64img = base64File.replace(/\n/g, '');
-            base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
-            alert('base64 : 2');
-            resolve(base64img);
-          }, (base64Err) => {
+        this.loading.onLoading();
+        this.getBase64ImageFromURL(cropData).subscribe(base64data => {
+          this.loading.dismiss();
+          resolve('data:image/jpg;base64,' + base64data);
+        });
 
-            let alert = this.alertCtrl.create({
-              title: 'Base64',
-              subTitle: 'Base64 error',
-              mode: 'ios',
-              buttons: ['OK']
-            });
-            alert.present();
+        // this.base64.encodeFile(cropData).then((base64File: string) => {
+        //   alert('base64 : 1');
+        //   let base64img = base64File.replace(/\n/g, '');
+        //   base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
+        //   alert('base64 : 2');
+        //   resolve(base64img);
+        // }, (base64Err) => {
 
-          });
-        }, 1000);
+        //   let alert = this.alertCtrl.create({
+        //     title: 'Base64',
+        //     subTitle: 'Base64 error',
+        //     mode: 'ios',
+        //     buttons: ['OK']
+        //   });
+        //   alert.present();
+
+        // });
+
       }, (cropError) => {
         reject(cropError);
       });
@@ -210,5 +218,35 @@ export class RecommentedPage {
 
   }
 
+  // Observable base64 good quality
 
+  getBase64ImageFromURL(url: string) {
+    return Observable.create((observer: Observer<string>) => {
+      let img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.src = url;
+      if (!img.complete) {
+        img.onload = () => {
+          observer.next(this.getBase64Image(img));
+          observer.complete();
+        };
+        img.onerror = (err) => {
+          observer.error(err);
+        };
+      } else {
+        observer.next(this.getBase64Image(img));
+        observer.complete();
+      }
+    });
+  }
+
+  getBase64Image(img: HTMLImageElement) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+  }
 }

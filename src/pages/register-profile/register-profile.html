@@ -71,7 +71,7 @@
         <p padding-top padding-left>{{ 'BIRTHDAY' | translate}}</p>
         <ion-datetime placeholder="{{ 'BIRTHDAY_SELECTED' | translate}}" displayFormat="DD/MM/YYYY" [(ngModel)]="birthday"></ion-datetime>
       </ion-list>
-      <button ion-button no-shadow block color="bite" (click)="onRegister()" [disabled]="!user.firstName || user.firstName === '' || !user.lastName || user.lastName === ''|| !user.email || user.email === ''|| !user.tel || user.tel === ''">{{ 'REGISTER' | translate}}</button>
+      <button ion-button no-shadow block color="bite" (click)="onRegister()" [disabled]="!user.firstName || user.firstName === '' || !user.lastName || user.lastName === ''|| !user.email || user.email === ''|| !user.mobile || user.mobile === ''">{{ 'REGISTER' | translate}}</button>
     </ion-col>
   </ion-row>
 </ion-content>

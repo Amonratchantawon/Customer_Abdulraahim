@@ -184,24 +184,25 @@ export class RecommentedPage {
 
     return new Promise((resolve, reject) => {
       this.crop.crop(fileUri, { quality: 50 }).then((cropData) => {
-        alert(JSON.stringify(cropData));
-        this.base64.encodeFile(cropData).then((base64File: string) => {
-          alert('base64 : 1');
-          let base64img = base64File.replace(/\n/g, '');
-          base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
-          alert('base64 : 2');
-          resolve(base64img);
-        }, (base64Err) => {
+        setTimeout(() => {
+          this.base64.encodeFile(cropData).then((base64File: string) => {
+            alert('base64 : 1');
+            let base64img = base64File.replace(/\n/g, '');
+            base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
+            alert('base64 : 2');
+            resolve(base64img);
+          }, (base64Err) => {
 
-          let alert = this.alertCtrl.create({
-            title: 'Base64',
-            subTitle: 'Base64 error',
-            mode: 'ios',
-            buttons: ['OK']
+            let alert = this.alertCtrl.create({
+              title: 'Base64',
+              subTitle: 'Base64 error',
+              mode: 'ios',
+              buttons: ['OK']
+            });
+            alert.present();
+
           });
-          alert.present();
-
-        });
+        }, 1000);
       }, (cropError) => {
         reject(cropError);
       });

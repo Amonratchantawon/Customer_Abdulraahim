@@ -5,6 +5,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/toPromise';
 import { Constants } from '../../app/app.constants';
+import { AlertProvider } from '../alert/alert';
 
 /*
   Generated class for the AuthProvider provider.
@@ -19,15 +20,18 @@ export class AuthProvider {
   constructor(
     public http: HttpClient,
     private local: Storage,
+    private alert: AlertProvider
   ) {
 
   }
 
-  public authenticated(): Promise<any> {
-
+  authenticated(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.local.get('token').then((token) => {
-        resolve(tokenNotExpired('Bearer', token))
+        if (!tokenNotExpired('Bearer', token)) {
+          this.logout();
+        }
+        resolve(tokenNotExpired('Bearer', token));
       });
     });
   }
@@ -37,6 +41,16 @@ export class AuthProvider {
       .toPromise()
       .then(response => this.loginSuccess(response))
       .catch(this.handleError);
+  }
+
+  getDailyWelcome() {
+    let dailywelcome = [{
+      title: 'ยินดีด้วย',
+      description: 'โปรโมชั่นประจำวัน คุณได้รับ 1 coin',
+      remark: 'หมายเหตุ: 1 วันต่อครั้งเท่านั้น',
+      image: './assets/imgs/Home-Collect.png'
+    }];
+    this.showDailyWelcome(dailywelcome);
   }
 
   signup(credentials) {
@@ -49,13 +63,19 @@ export class AuthProvider {
   logout() {
     window.localStorage.removeItem('user@' + this.API_URL);
     this.local.remove('token');
-    console.log('logout');
   }
 
   private loginSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     this.local.set('token', res.loginToken);
+    this.getDailyWelcome();
     return res;
+  }
+
+  private showDailyWelcome(dailywelcome) {
+    dailywelcome.forEach(element => {
+      this.alert.onAlert(element.title, element.description, 'ยืนยัน');
+    });
   }
 
   private registerSuccess(res) {

@@ -26,14 +26,24 @@ export class AlertProvider {
   //   this.alert.onAlert('Wraning', 'Email is already exists.', 'OK');
   // }
 
-onAlert(title, massage, button) {
-  let alert = this.alertCtrl.create({
-    title: title,
-    subTitle: massage,
-    mode: 'ios',
-    buttons: [button]
-  });
-  alert.present();
-}
+  onAlert(title, massage, button) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: massage,
+      mode: 'ios',
+      buttons: [button]
+    });
+    alert.present();
+  }
+
+  onDailyWelcomeAlert(image, title, description, remark, button) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: description,
+      mode: 'ios',
+      buttons: [button]
+    });
+    alert.present();
+  }
 
 }

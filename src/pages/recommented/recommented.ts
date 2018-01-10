@@ -201,15 +201,17 @@ export class RecommentedPage {
 
   uploadImage(imageString): Promise<any> {
 
-    const storageRef = firebase.storage().ref();
-    const filename = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
-    let imageRef = storageRef.child(`images/${filename}.png`);
-    let parseUpload: any;
-    let metadata = {
-      contentType: 'image/png',
-    };
-
     return new Promise((resolve, reject) => {
+
+      this.loading.onLoading();
+
+      const storageRef = firebase.storage().ref();
+      const filename = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
+      let imageRef = storageRef.child(`images/${filename}.png`);
+      let parseUpload: any;
+      let metadata = {
+        contentType: 'image/png',
+      };
 
       let xhr = new XMLHttpRequest();
       xhr.open('GET', imageString, true);
@@ -232,9 +234,11 @@ export class RecommentedPage {
         },
           (_err) => {
             reject(_err);
+            this.loading.dismiss();
           },
           (success) => {
             resolve(parseUpload.snapshot.downloadURL);
+            this.loading.dismiss();            
           });
 
       }

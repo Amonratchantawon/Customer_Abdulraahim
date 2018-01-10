@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { TranslateService } from '@ngx-translate/core';
 import { Crop } from '@ionic-native/crop';
-import { Base64 } from '@ionic-native/base64';
+// import { Base64 } from '@ionic-native/base64';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { IonicPage, App, ActionSheetController, Platform, AlertController, NavController } from 'ionic-angular';
@@ -12,8 +12,8 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { UserModel } from '../../assets/model/user.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { Constants } from '../../app/app.constants';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
+
+import * as firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -33,7 +33,7 @@ export class RecommentedPage {
     private platform: Platform,
     private imagePicker: ImagePicker,
     private crop: Crop,
-    private base64: Base64,
+    // private base64: Base64,
     private alertCtrl: AlertController,
     private camera: Camera,
     private auth: AuthProvider,
@@ -97,7 +97,13 @@ export class RecommentedPage {
             if (this.platform.is('cordova')) {
               this.onImagePicker();
             }
-
+            // this.uploadImage('file:///C:/Users/Administrator/Pictures/marshmallow-man.png').then((uploadImageData) => {
+            //   alert(JSON.stringify(uploadImageData));
+            //   // resolve(uploadImageData);
+            // }, (uploadImageError) => {
+            //   // reject(uploadImageError);
+            //   alert(JSON.stringify(uploadImageError));
+            // });
             // this.app.getRootNav().push('CreateReviewPage', './assets/imgs/review/review1.png');
           }
         },
@@ -119,7 +125,7 @@ export class RecommentedPage {
     let options = {
       maximumImagesCount: 1,
       width: 900,
-      quality: 30,
+      quality: 70,
       outputType: 0
     };
     this.imagePicker.getPictures(options).then((results) => {
@@ -150,7 +156,7 @@ export class RecommentedPage {
 
   onCamera() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 70,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -173,44 +179,19 @@ export class RecommentedPage {
       });
 
     }, (err) => {
-      // let alert = this.alertCtrl.create({
-      //   title: 'Camera',
-      //   subTitle: 'Camera error',
-      //   mode: 'ios',
-      //   buttons: ['OK']
-      // });
-      // alert.present();
+
     });
   }
 
   resizeImage(fileUri): Promise<any> {
 
     return new Promise((resolve, reject) => {
-      this.crop.crop(fileUri, { quality: 50 }).then((cropData) => {
-        this.loading.onLoading();
-        this.getBase64ImageFromURL(cropData).subscribe(base64data => {
-          this.loading.dismiss();
-          resolve('data:image/jpg;base64,' + base64data);
+      this.crop.crop(fileUri, { quality: 100 }).then((cropData) => {
+        this.uploadImage(cropData).then((uploadImageData) => {
+          resolve(uploadImageData);
+        }, (uploadImageError) => {
+          reject(uploadImageError);
         });
-
-        // this.base64.encodeFile(cropData).then((base64File: string) => {
-        //   alert('base64 : 1');
-        //   let base64img = base64File.replace(/\n/g, '');
-        //   base64img = base64img.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
-        //   alert('base64 : 2');
-        //   resolve(base64img);
-        // }, (base64Err) => {
-
-        //   let alert = this.alertCtrl.create({
-        //     title: 'Base64',
-        //     subTitle: 'Base64 error',
-        //     mode: 'ios',
-        //     buttons: ['OK']
-        //   });
-        //   alert.present();
-
-        // });
-
       }, (cropError) => {
         reject(cropError);
       });
@@ -218,42 +199,50 @@ export class RecommentedPage {
 
   }
 
-  // Observable base64 good quality
+  uploadImage(imageString): Promise<any> {
 
-  getBase64ImageFromURL(url: string) {
-    return Observable.create((observer: Observer<string>) => {
-      let img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.src = url;
+    const storageRef = firebase.storage().ref();
+    const filename = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
+    let imageRef = storageRef.child(`images/${filename}.png`);
+    let parseUpload: any;
+    let metadata = {
+      contentType: 'image/png',
+    };
 
-      if (this.platform.is('ios')) {
-        if (this.platform.version().num > 10.2) {
-          img.crossOrigin = 'anonymous';
-        }
+    return new Promise((resolve, reject) => {
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', imageString, true);
+      xhr.responseType = 'blob';
+      xhr.onload = (e) => {
+        let blob = new Blob([xhr.response], { type: 'image/png' });
+
+        parseUpload = imageRef.put(blob, metadata);
+        parseUpload.on('state_changed', (_snapshot) => {
+          let progress = (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+          switch (_snapshot.state) {
+            case firebase.storage.TaskState.PAUSED: // or 'paused'
+              console.log('Upload is paused');
+              break;
+            case firebase.storage.TaskState.RUNNING: // or 'running'
+              console.log('Upload is running');
+              break;
+          }
+        },
+          (_err) => {
+            reject(_err);
+          },
+          (success) => {
+            resolve(parseUpload.snapshot.downloadURL);
+          });
+
       }
 
-      if (!img.complete) {
-        img.onload = () => {
-          observer.next(this.getBase64Image(img));
-          observer.complete();
-        };
-        img.onerror = (err) => {
-          observer.error(err);
-        };
-      } else {
-        observer.next(this.getBase64Image(img));
-        observer.complete();
-      }
+      xhr.send();
+
     });
+
   }
 
-  getBase64Image(img: HTMLImageElement) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-  }
 }

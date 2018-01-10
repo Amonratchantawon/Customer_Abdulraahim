@@ -17,6 +17,7 @@ export class HomeProvider {
 
   getHomeData(): Promise<HomeModel> {
     return this.http.get(this.API_URL + '/api/customerhome')
+    // return this.http.get('./assets/json/home.json')
       .toPromise()
       .then(response => response as HomeModel)
       .catch(this.handleError);

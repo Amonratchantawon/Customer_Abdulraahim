@@ -3,7 +3,6 @@
     <ion-buttons start *ngIf="user && user.profileImageURL">
       <button ion-button clear (click)="goToProfile()">
         <ion-avatar class="avatar-profile">
-          <!-- <img src="{{ user.profileImageURL }}"> -->
           <preload-image class="preload-profile-image" [ratio]="{w:1, h:1}" [src]="user.profileImageURL" [isIcon]="true"></preload-image>
         </ion-avatar>
       </button>

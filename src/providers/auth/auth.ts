@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 //import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/toPromise';
 import { Constants } from '../../app/app.constants';
 import { AlertProvider } from '../alert/alert';
@@ -19,7 +19,6 @@ export class AuthProvider {
 
   constructor(
     public http: HttpClient,
-    private local: Storage,
     private alert: AlertProvider
   ) {
 
@@ -32,7 +31,7 @@ export class AuthProvider {
       //   resolve(tokenNotExpired('Bearer', token))
       // });
 
-      var token = window.localStorage.getItem('token');
+      let token = window.localStorage.getItem('token');
       resolve(tokenNotExpired('Bearer', token));
     });
   }
@@ -73,7 +72,8 @@ export class AuthProvider {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     //jigkoh3 change native storage to window.localStorage because just do same my team
     //this.local.set('token', res.loginToken);
-    window.localStorage.setItem('token' ,res.loginToken);
+    window.localStorage.setItem('token', res.loginToken);
+    this.getDailyWelcome();
     return res;
   }
 
@@ -87,7 +87,7 @@ export class AuthProvider {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     //jigkoh3 change native storage to window.localStorage because just do same my team
     //this.local.set('token', res.loginToken);
-    window.localStorage.setItem('token' ,res.loginToken);
+    window.localStorage.setItem('token', res.loginToken);
     return res;
   }
 

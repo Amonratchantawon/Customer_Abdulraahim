@@ -26,9 +26,13 @@ export class AuthProvider {
   public authenticated(): Promise<any> {
 
     return new Promise((resolve, reject) => {
-      this.local.get('token').then((token) => {
-        resolve(tokenNotExpired('Bearer', token))
-      });
+      //jigkoh3 change native storage to window.localStorage because just do same my team
+      // this.local.get('token').then((token) => {
+      //   resolve(tokenNotExpired('Bearer', token))
+      // });
+
+      var token = window.localStorage.getItem('token');
+      resolve(tokenNotExpired('Bearer', token));
     });
   }
 
@@ -48,19 +52,25 @@ export class AuthProvider {
 
   logout() {
     window.localStorage.removeItem('user@' + this.API_URL);
-    this.local.remove('token');
+    //jigkoh3 change native storage to window.localStorage because just do same my team
+    //this.local.remove('token');
+    window.localStorage.removeItem('token');
     console.log('logout');
   }
 
   private loginSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
-    this.local.set('token', res.loginToken);
+    //jigkoh3 change native storage to window.localStorage because just do same my team
+    //this.local.set('token', res.loginToken);
+    window.localStorage.setItem('token' ,res.loginToken);
     return res;
   }
 
   private registerSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
-    this.local.set('token', res.loginToken);
+    //jigkoh3 change native storage to window.localStorage because just do same my team
+    //this.local.set('token', res.loginToken);
+    window.localStorage.setItem('token' ,res.loginToken);
     return res;
   }
 

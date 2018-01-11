@@ -39,10 +39,13 @@ export class AlertProvider {
   onDailyWelcomeAlert(image, title, description, remark, button) {
     let alert = this.alertCtrl.create({
       title: title,
-      subTitle: description,
+      // subTitle: description,
       mode: 'ios',
       buttons: [button]
     });
+    // alert.setSubTitle();
+    let message = '<img src="' + image + '">'
+    alert.setMessage(message);
     alert.present();
   }
 

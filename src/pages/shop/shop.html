@@ -18,7 +18,7 @@
   <img src="{{shopData.coverimage}}" alt="imgErr">
   <ion-grid>
     <ion-row>
-      <ion-col col-6>
+      <ion-col col-12>
         <ion-row>
           {{shopData.name}}
         </ion-row>
@@ -29,9 +29,10 @@
           <span>{{shopData.address.addressdetail}}</span>&nbsp;
           <ion-badge class="icon-ads" item-end color="bite">{{isO}}</ion-badge>
         </ion-row>
-      </ion-col>
-      <ion-col col-6 align-self-end text-right>
-        <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
+
+        <button ion-button icon-left clear large class="like">
+            <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -56,7 +57,7 @@
 
   <ion-scroll scrollX="true">
     <ion-row class="row-custom">
-      <ion-col col-3 *ngFor="let cate of shopData.categories" class="col-imgpromote">
+      <ion-col col-3 *ngFor="let cate of shopData.categories" class="col-imgpromote" (click)="selectCate(cate)">
         <img src="{{cate.image}}" alt="imgErr">
         <p class="cate-order">{{cate.name}}</p>
       </ion-col>

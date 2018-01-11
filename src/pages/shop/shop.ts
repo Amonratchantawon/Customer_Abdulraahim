@@ -66,4 +66,8 @@ export class ShopPage {
     });
     modal.present();
   }
+
+  selectCate(cate){
+    console.log(cate._id);
+  }
 }

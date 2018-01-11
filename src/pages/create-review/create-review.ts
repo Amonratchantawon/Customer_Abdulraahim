@@ -21,15 +21,16 @@ export class CreateReviewPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.review.image = this.navParams.get('image');
     this.review.title = this.navParams.get('title');
-    this.review.detail = '';
+    this.review.description = '';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateReviewPage');
   }
 
-  createRevirw(){
+  createRevirw() {
     alert(JSON.stringify(this.review));
+    this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
   }
 
 }

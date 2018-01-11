@@ -1,3 +1,4 @@
+
 export class ItemShopModel {
     _id: string;
     name: string
@@ -14,6 +15,28 @@ export class ShopModel {
     detail: string;
     isopen: boolean;
     promoteimage:Array<Promoteimage>
+    address:AddressModel = new AddressModel(); 
+    products:Array<ProductModel>;
+}
+
+export class ProductModel{
+        title:string;
+        items: Array<ItemProductModel>
+}
+
+export class ItemProductModel{
+    _id: string;
+    cateid: string;
+    name: string;
+    image: string;
+    price: number;
+    ispromotion: boolean;
+    popularcount: number;
+    isrecommend: boolean;
+}
+
+export class AddressModel{
+    addressdetail:string;
 }
 
 export class Promoteimage{

@@ -77,9 +77,10 @@ export class RecommentedPage {
     return moment(date).startOf('minute').fromNow();
   }
 
-  isLike(item) {
+  isLike(item, i) {
     this.reviewProvider.like(item._id).then((res) => {
-      item = res;
+      this.dataReview[i].islike = res.islike;
+      this.dataReview[i].countlike = res.countlike;
     });
   }
 

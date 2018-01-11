@@ -40,7 +40,7 @@ export class ReviewProvider {
   }
 
   like(review_id): Promise<ReviewModel> {
-    return this.http.get(this.API_URL + '/api/islike/' + review_id)
+    return this.http.put(this.API_URL + '/api/islike/' + review_id, null)
       .toPromise()
       .then(response => response as ReviewModel)
       .catch(this.handleError);

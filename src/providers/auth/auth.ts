@@ -17,6 +17,9 @@ import { AlertProvider } from '../alert/alert';
 export class AuthProvider {
   API_URL: string = Constants.URL;
 
+  // temporary solution
+  _credentials: any = {};
+
   constructor(
     public http: HttpClient,
     private alert: AlertProvider
@@ -54,6 +57,7 @@ export class AuthProvider {
   }
 
   signup(credentials) {
+    this._credentials = credentials;
     return this.http.post(this.API_URL + "/api/auth/signup", credentials)
       .toPromise()
       .then(response => this.registerSuccess(response))
@@ -87,8 +91,9 @@ export class AuthProvider {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     //jigkoh3 change native storage to window.localStorage because just do same my team
     //this.local.set('token', res.loginToken);
-    window.localStorage.setItem('token', res.loginToken);
-    return res;
+    // window.localStorage.setItem('token', res.loginToken);
+    this.login(this._credentials);
+    // return res;
   }
 
   private handleError(error: any): Promise<any> {

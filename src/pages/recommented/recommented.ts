@@ -43,15 +43,13 @@ export class RecommentedPage {
 
   getReview() {
     this.loading.onLoading();
-    setTimeout(() => {
-      this.reviewProvider.getReviews().then(res => {
-        this.dataReview = res;
-        this.loading.dismiss();
-      }).catch(err => {
-        console.log(err);
-        this.loading.dismiss();
-      });
-    }, 1000);
+    this.reviewProvider.getReviews().then(res => {
+      this.dataReview = res;
+      this.loading.dismiss();
+    }).catch(err => {
+      console.log(err);
+      this.loading.dismiss();
+    });
   }
 
   doRefresh(refresher) {

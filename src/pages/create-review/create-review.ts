@@ -44,7 +44,6 @@ export class CreateReviewPage {
     this.reviewProvider.postReviews(this.review).then((res) => {
       this.loading.dismiss();
       this.navCtrl.setRoot('NavtabsPage');
-      this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
     }, (err) => {
       this.loading.dismiss();
       let language = this.translate.currentLang;

@@ -13,14 +13,14 @@ export class TokenInterceptor implements HttpInterceptor {
   token: string;
   tokenIsNotExpired: boolean = false;
   constructor(public local: Storage) {
-     //jigkoh3 change native storage to window.localStorage because just do same my team
+    //jigkoh3 change native storage to window.localStorage because just do same my team
     // this.local.get('token').then(res => {
     //   this.token = res;
     //   this.tokenIsNotExpired = tokenNotExpired(null, this.token)
     // });
 
     this.token = window.localStorage.getItem('token');
-    this.tokenIsNotExpired = tokenNotExpired(null, this.token)
+    this.tokenIsNotExpired = tokenNotExpired('Bearer', this.token);
   }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.tokenIsNotExpired) {

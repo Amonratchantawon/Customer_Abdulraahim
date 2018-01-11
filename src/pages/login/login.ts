@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -28,13 +28,14 @@ export class LoginPage {
     private translate: TranslateService,
     private loading: LoadingProvider,
     private fb: Facebook,
+    private app: App
   ) {
   }
 
   ionViewWillEnter() {
     this.auth.authenticated().then((res) => {
       if (res) {
-        this.navCtrl.pop();
+        this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
       }
     });
   }
@@ -93,7 +94,9 @@ export class LoginPage {
   }
 
   goRegister() {
-    this.navCtrl.push('RegisterPage', { inApp: true });
+    // this.navCtrl.push('RegisterPage', { inApp: true });
+    this.app.getRootNav().push('RegisterPage', { inApp: true });
+
   }
 
 }

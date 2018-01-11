@@ -40,7 +40,8 @@ export class RegisterAccountPage {
     this.auth.login(this.user).then((res) => {
       if (this.inApp) {
         // กรณีเข้ามาใน app แล้ว จะ pop กลับไปหน้าที่สั่งให้เปิด
-        this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+        // this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+        this.navCtrl.setRoot('NavtabsPage');
       } else {
         // กรณีเข้ามาครั้งแรก ไปหน้าแรก
         this.navCtrl.push('NavtabsPage');

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { ReviewModel } from '../../assets/model/review.model';
 import { ItemShopModel } from '../../assets/model/shop.model';
 import { Constants } from '../../app/app.constants';
+import { AuthProvider } from '../auth/auth';
 
 
 /*
@@ -15,7 +16,10 @@ import { Constants } from '../../app/app.constants';
 @Injectable()
 export class ReviewProvider {
   API_URL: string = Constants.URL;
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    public auth: AuthProvider
+  ) {
   }
 
   getReviews(): Promise<Array<ReviewModel>> {

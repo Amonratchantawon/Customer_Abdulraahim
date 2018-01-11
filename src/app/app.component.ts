@@ -30,7 +30,7 @@ export class MyApp {
       messagingSenderId: "386067578103"
     };
     firebase.initializeApp(config);
-
+    window.localStorage.setItem('current_select_tab', '0');
     let agr = JSON.parse(window.localStorage.getItem('Agreement@' + Constants.URL));
     if (agr && agr.status) {
       this.rootPage = 'NavtabsPage';

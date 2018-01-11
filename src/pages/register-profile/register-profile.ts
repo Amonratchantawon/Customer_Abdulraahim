@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoadingProvider } from '../../providers/loading/loading';
 // import { AlertProvider } from '../../providers/alert/alert';
@@ -27,8 +27,8 @@ export class RegisterProfilePage {
     public navParams: NavParams,
     private auth: AuthProvider,
     private loading: LoadingProvider,
-    // private alert: AlertProvider,
     private translate: TranslateService,
+    private app: App
   ) {
     this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
     this.provider = this.navParams.get('provider');
@@ -62,7 +62,7 @@ export class RegisterProfilePage {
     this.user.dateOfBirth = date;
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
-      this.navCtrl.push('RegisterGiftPage', { inApp: this.inApp });
+      this.app.getRootNav().push('RegisterGiftPage', { inApp: this.inApp });
       this.loading.dismiss();
     }).catch((err) => {
       let language = this.translate.currentLang;

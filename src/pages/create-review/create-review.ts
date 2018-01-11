@@ -19,13 +19,17 @@ export class CreateReviewPage {
   maxLengthTitle: number = 30;
   maxLengthDetail: number = 150;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.review.image = this.navParams.data;
-    this.review.title = '';
+    this.review.image = this.navParams.get('image');
+    this.review.title = this.navParams.get('title');
     this.review.detail = '';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateReviewPage');
+  }
+
+  createRevirw(){
+    alert(JSON.stringify(this.review));
   }
 
 }

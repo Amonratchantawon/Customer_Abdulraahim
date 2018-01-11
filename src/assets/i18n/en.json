@@ -14,10 +14,11 @@
 
   "REVIEW": "Review",
   "WRITE_REVIEW": "Write review",
+  "WRITE_FIND_SHOP_REVIEW": "Recommend restaurant",
   "LIKES": "Likes",
   "RESTAURANT_NAME": "Restaurant name",
   "WRITE_A_CAPTION": "Write a caption...",
-
+  "REVIEW_ERROR_NAME": "Restaurant is already exists",
   "REWARD": "Reward",
 
   "STATUS": "Status",
@@ -53,7 +54,7 @@
   "LAST_NAME": "Lastname",
   "GENDER": "Gender",
   "BIRTHDAY": "Birthday",
-  "BIRTHDAY_SELECTED":"Select birthday",
+  "BIRTHDAY_SELECTED": "Select birthday",
   "E_MAIL": "E-mail",
   "TEL": "Tel",
   "CITIZEN_ID": "Citizen id",

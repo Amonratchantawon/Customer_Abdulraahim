@@ -14,10 +14,11 @@
 
   "REVIEW": "รีวิว",
   "WRITE_REVIEW": "เขียนรีวิว",
+  "WRITE_FIND_SHOP_REVIEW": "แนะนำร้าน",
   "LIKES": "ถูกใจ",
   "RESTAURANT_NAME": "ชื่อร้านอาหาร",
   "WRITE_A_CAPTION": "สิ่งที่คุณประทับใจ",
-
+  "REVIEW_ERROR_NAME": "*มีร้านอาหารนี้อยู่ในระบบแล้ว",
   "REWARD": "รางวัล",
 
   "STATUS": "สถานะ",

@@ -19,14 +19,14 @@ export class ReviewProvider {
   }
 
   getReviews(): Promise<Array<ReviewModel>> {
-    return this.http.get(this.API_URL + '/api/reviews')
+    return this.http.get(this.API_URL + '/api/getlistreview')
       .toPromise()
       .then(response => response as Array<ReviewModel>)
       .catch(this.handleError);
   }
 
   getShopNameReviews(): Promise<Array<ItemShopModel>> {
-    return this.http.get('./assets/json/shoplist.json')
+    return this.http.get(this.API_URL + '/api/getshopsname')
       .toPromise()
       .then(response => response as Array<ItemShopModel>)
       .catch(this.handleError);

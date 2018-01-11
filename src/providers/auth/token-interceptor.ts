@@ -8,12 +8,11 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
 import { tokenNotExpired } from 'angular2-jwt';
-import { AuthProvider } from './auth';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   token: string;
   tokenIsNotExpired: boolean = false;
-  constructor(public local: Storage, private auth: AuthProvider) {
+  constructor(public local: Storage) {
     this.local.get('token').then(res => {
       this.token = res;
       this.tokenIsNotExpired = tokenNotExpired(null, this.token)
@@ -27,7 +26,7 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       });
     }
-    this.auth.getDailyWelcome();
+
     return next.handle(request);
   }
 }

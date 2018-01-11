@@ -46,7 +46,7 @@ export class AuthProvider {
   getDailyWelcome() {
     let dailywelcome = [{
       title: 'ยินดีด้วย',
-      description: 'โปรโมชั่นประจำวัน คุณได้รับ 1 coin',
+      description: 'โปรโมชั่นประจำวัน คุณได้รับ 1 เหรียญ',
       remark: 'หมายเหตุ: 1 วันต่อครั้งเท่านั้น',
       image: './assets/imgs/Home-Collect.png'
     }];
@@ -74,7 +74,7 @@ export class AuthProvider {
 
   private showDailyWelcome(dailywelcome) {
     dailywelcome.forEach(element => {
-      this.alert.onAlert(element.title, element.description, 'ยืนยัน');
+      this.alert.onDailyWelcomeAlert(element.image, element.title, element.description, element.remark, 'ยืนยัน');
     });
   }
 

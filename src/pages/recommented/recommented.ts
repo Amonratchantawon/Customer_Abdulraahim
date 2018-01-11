@@ -7,6 +7,8 @@ import { UserModel } from '../../assets/model/user.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { Constants } from '../../app/app.constants';
 
+import moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 @IonicPage()
 @Component({
   selector: 'page-recommented',
@@ -22,6 +24,7 @@ export class RecommentedPage {
     private app: App,
     private auth: AuthProvider,
     private loading: LoadingProvider,
+    private translate: TranslateService
   ) {
   }
 
@@ -62,6 +65,22 @@ export class RecommentedPage {
 
   findShopReview() {
     this.app.getRootNav().push('FindShopReviewPage');
+  }
+
+  getMoment(date) {
+    let language = this.translate.currentLang;
+    if (language === 'th') {
+      moment.locale('th');
+    } else if (language === 'en') {
+      moment.locale('en');
+    }
+    return moment(date).startOf('minute').fromNow();
+  }
+
+  isLike(item) {
+    this.reviewProvider.like(item._id).then((res) => {
+      item = res;
+    });
   }
 
 }

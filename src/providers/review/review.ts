@@ -19,7 +19,7 @@ export class ReviewProvider {
   }
 
   getReviews(): Promise<Array<ReviewModel>> {
-    return this.http.get('https://eatsyd-test.herokuapp.com/api/reviews')
+    return this.http.get(this.API_URL + '/api/reviews')
       .toPromise()
       .then(response => response as Array<ReviewModel>)
       .catch(this.handleError);
@@ -33,14 +33,14 @@ export class ReviewProvider {
   }
 
   postReviews(review): Promise<ReviewModel> {
-    return this.http.post('https://eatsyd-test.herokuapp.com/api/reviews', review)
+    return this.http.post(this.API_URL + '/api/reviews', review)
       .toPromise()
       .then(response => response as ReviewModel)
       .catch(this.handleError);
   }
 
   like(review_id): Promise<ReviewModel> {
-    return this.http.get('./assets/json/review.json/' + review_id)
+    return this.http.get(this.API_URL + '/api/islike/' + review_id)
       .toPromise()
       .then(response => response as ReviewModel)
       .catch(this.handleError);

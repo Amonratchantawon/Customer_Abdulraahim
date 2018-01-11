@@ -21,6 +21,7 @@ export class ShopPage {
   shopData: ShopModel = new ShopModel();
   isO: String;
   category: any = 0;
+  index:Number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public shop: ShopProvider, public modalCtrl: ModalController) {
   }
@@ -67,7 +68,8 @@ export class ShopPage {
     modal.present();
   }
 
-  selectCate(cate){
+  selectCate(i,cate){
+    this.index = i;
     console.log(cate._id);
   }
 }

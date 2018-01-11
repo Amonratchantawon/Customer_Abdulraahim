@@ -31,7 +31,7 @@
         </ion-row>
 
         <button ion-button icon-left clear large class="like">
-            <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
+          <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
@@ -57,8 +57,8 @@
 
   <ion-scroll scrollX="true">
     <ion-row class="row-custom">
-      <ion-col col-3 *ngFor="let cate of shopData.categories" class="col-imgpromote" (click)="selectCate(cate)">
-        <img src="{{cate.image}}" alt="imgErr">
+      <ion-col col-3 *ngFor="let cate of shopData.categories; let ii = index;" class="col-imgpromote" (click)="selectCate(ii,cate)">
+        <img src="{{cate.image}}" alt="imgErr" [ngClass]=" ii === index ? 'selectedCategory' : ''">
         <p class="cate-order">{{cate.name}}</p>
       </ion-col>
 

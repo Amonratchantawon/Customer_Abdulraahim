@@ -34,29 +34,30 @@
       <p>
         <b>{{item.user.displayName}}</b>
       </p>
-      <p>1 hour ago</p>
+      <p>{{getMoment(item.created)}}</p>
     </ion-item>
 
     <ion-card-content>
       <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="review-image"></preload-image>
       <div class="card-description">
         <p>
-          <b>{{item.shop}}</b>
+          <b>{{item.title}}</b>
         </p>
-        <p>{{item.caption}}</p>
+        <p>{{item.description}}</p>
       </div>
     </ion-card-content>
     <ion-row>
       <ion-col col-6 text-left>
         <button ion-button icon-left clear large>
-          <ion-icon name="md-heart" color="danger" *ngIf="item.islike"></ion-icon>
-          <ion-icon name="md-heart-outline" color="danger" *ngIf="!item.islike"></ion-icon>
+          <ion-icon name="md-heart" color="danger" *ngIf="item.islike" (click)="isLike(item)"></ion-icon>
+          <ion-icon name="md-heart-outline" color="danger" *ngIf="!item.islike" (click)="isLike(item)"></ion-icon>
         </button>
       </ion-col>
       <ion-col col-6 text-right align-self-center>
-        <p>
-          <b>{{item.likes | number:x}} {{ 'LIKES' | translate }}</b>
+        <p *ngIf="item.countlike">
+          <b>{{item.countlike | number:x}} {{ 'LIKES' | translate }}</b>
         </p>
+        <p *ngIf="!item.countlike"> 0 {{ 'LIKES' | translate }}</p>
       </ion-col>
     </ion-row>
 

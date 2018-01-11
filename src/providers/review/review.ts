@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReviewModel } from '../../assets/model/review.model';
 import { ItemShopModel } from '../../assets/model/shop.model';
+import { Constants } from '../../app/app.constants';
 
 
 /*
@@ -13,12 +14,12 @@ import { ItemShopModel } from '../../assets/model/shop.model';
 */
 @Injectable()
 export class ReviewProvider {
-
+  API_URL: string = Constants.URL;
   constructor(public http: HttpClient) {
   }
 
   getReviews(): Promise<Array<ReviewModel>> {
-    return this.http.get('./assets/json/review.json')
+    return this.http.get(this.API_URL + '/api/reviews')
       .toPromise()
       .then(response => response as Array<ReviewModel>)
       .catch(this.handleError);
@@ -28,6 +29,20 @@ export class ReviewProvider {
     return this.http.get('./assets/json/shoplist.json')
       .toPromise()
       .then(response => response as Array<ItemShopModel>)
+      .catch(this.handleError);
+  }
+
+  postReviews(review): Promise<ReviewModel> {
+    return this.http.post(this.API_URL + '/api/reviews', review)
+      .toPromise()
+      .then(response => response as ReviewModel)
+      .catch(this.handleError);
+  }
+
+  like(review_id): Promise<ReviewModel> {
+    return this.http.get(this.API_URL + '/api/islike/' + review_id)
+      .toPromise()
+      .then(response => response as ReviewModel)
       .catch(this.handleError);
   }
 

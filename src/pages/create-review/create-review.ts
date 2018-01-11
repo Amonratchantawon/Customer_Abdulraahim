@@ -1,5 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
+import { ReviewProvider } from '../../providers/review/review';
+import { LoadingProvider } from '../../providers/loading/loading';
+import { AlertProvider } from '../../providers/alert/alert';
 
 /**
  * Generated class for the CreateReviewPage page.
@@ -18,19 +23,36 @@ export class CreateReviewPage {
   review: any = {};
   maxLengthTitle: number = 30;
   maxLengthDetail: number = 150;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private reviewProvider: ReviewProvider,
+    private loading: LoadingProvider,
+    private alert: AlertProvider,
+    private translate: TranslateService
+  ) {
     this.review.image = this.navParams.get('image');
     this.review.title = this.navParams.get('title');
     this.review.description = '';
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateReviewPage');
   }
 
   createRevirw() {
-    alert(JSON.stringify(this.review));
-    this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+    this.loading.onLoading();
+    this.reviewProvider.postReviews(this.review).then((res) => {
+      this.loading.dismiss();
+      this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+    }, (err) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('รีวิว', 'เกิดข้อผิดพลาด', 'ตกลง');
+      } else {
+        this.alert.onAlert('Review', 'Error', 'OK');
+      }
+    });
   }
 
 }

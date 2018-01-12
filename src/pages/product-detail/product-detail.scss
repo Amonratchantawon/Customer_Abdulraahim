@@ -26,7 +26,7 @@ page-product-detail {
         background-image: none !important;
     }
     .toolbar-background {
-        background-color: #ff000000 !important;
+        background-color: transparent !important;
         border: none !important;
     }
     .close-close {
@@ -43,5 +43,11 @@ page-product-detail {
     .swiper-pagination-bullet-active {
         background: #eb3841 !important;
         opacity: 1;
+    }
+    .footer-product {
+        .toolbar {
+            min-height: 40px !important;
+            max-height: 40px !important;
+        }
     }
 }

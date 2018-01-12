@@ -21,4 +21,10 @@ page-cart {
     .searchbar-ios .searchbar-search-icon{
         background-image: none;
     }
+    .footer-cart {
+        .toolbar {
+            min-height: 40px !important;
+            max-height: 40px !important;
+        }
+    }
 }

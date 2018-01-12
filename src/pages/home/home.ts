@@ -1,10 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ModalController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ModalController, App, Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { TranslateService } from '@ngx-translate/core';
 import { HomeProvider } from '../../providers/home/home';
 import { HomeModel } from '../../assets/model/home.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { Constants } from '../../app/app.constants';
 import { UserModel } from '../../assets/model/user.model';
+import { AlertProvider } from '../../providers/alert/alert';
 
 @IonicPage()
 @Component({
@@ -22,23 +25,50 @@ export class HomePage {
     private home: HomeProvider,
     private modalCtrl: ModalController,
     private app: App,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
+    private geolocation: Geolocation,
+    private translate: TranslateService,
+    private alert: AlertProvider,
+    private platform: Platform
   ) {
   }
 
   ionViewWillEnter() {
     this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
-    this.getdata();
+    this.getCurrentPosition();
   }
 
-  onSelectedPage(index) { // selected category
-    this.pages = index;
-  }
-
-  getdata() {
+  getCurrentPosition() {
     this.loading.onLoading();
+
+    if (!this.platform.is('cordova')) { // serve test location in lumlukka
+      let locationd = {
+        coords: {
+          latitude: 13.9323555,
+          longitude: 100.7178317
+        }
+      }
+      this.getdata(locationd);
+      console.log('Browser debugger');
+      return;
+    }
+
+    this.geolocation.getCurrentPosition().then((location) => {
+      this.getdata(location);
+    }).catch((error) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('ตำแหน่ง', 'ค้นหาตำแหน่งผิดพลาด กรุณาตรวจสอบ GPS', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Location', 'Error! Please check your GPS.', 'OK');
+      }
+    });
+  }
+
+  getdata(location) {
     setTimeout(() => {
-      this.home.getHomeData().then(data => {
+      this.home.getHomeData(location).then(data => {
         this.homeData = data;
         this.loading.dismiss();
       }, (error) => {
@@ -48,17 +78,21 @@ export class HomePage {
   }
 
   doRefresh(refresher) {
-    this.getdata();
+    this.getCurrentPosition();
     refresher.complete();
+  }
+
+  onSelectedPage(index) { // selected category
+    this.pages = index;
   }
 
   openAds(item) {
     console.log(item);
     if (item.isvideo === true) {
-      let profileModal = this.modalCtrl.create('VideoContentPage', { userId: 8675309 });
+      let profileModal = this.modalCtrl.create('VideoContentPage', { _id: item._id });
       profileModal.present();
     } else {
-      let profileModal = this.modalCtrl.create('ImageContentPage', { userId: 8675309 });
+      let profileModal = this.modalCtrl.create('ImageContentPage', { _id: item._id });
       profileModal.present();
     }
   }
@@ -79,8 +113,8 @@ export class HomePage {
     this.app.getRootNav().push('ProfilePage');
   }
 
-  goHotpriceShop(){
-    this.app.getRootNav().push('ShopPage');    
+  goHotpriceShop() {
+    this.app.getRootNav().push('ShopPage');
   }
 
   goToShop() {

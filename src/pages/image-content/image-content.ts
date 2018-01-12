@@ -3,12 +3,10 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 
 import { ModalController } from 'ionic-angular';
 import { GalleryModal } from 'ionic-gallery-modal';
-/**
- * Generated class for the ImageContentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomeProvider } from '../../providers/home/home';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertProvider } from '../../providers/alert/alert';
+import { ItemAdsModel } from '../../assets/model/home.model';
 
 @IonicPage()
 @Component({
@@ -16,26 +14,47 @@ import { GalleryModal } from 'ionic-gallery-modal';
   templateUrl: 'image-content.html',
 })
 export class ImageContentPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public modalCtrl:ModalController) {
+  adsDetail: ItemAdsModel = new ItemAdsModel();
+  _id: string;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private viewCtrl: ViewController,
+    private modalCtrl: ModalController,
+    private home: HomeProvider,
+    private translate: TranslateService,
+    private alert: AlertProvider
+  ) {
+    this._id = this.navParams.get('_id');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ImageContentPage');
+  ionViewWillEnter() {
+    this.getAdsById(this._id);
   }
 
-  close(){
+  getAdsById(_id) {
+    this.home.getAdsById(_id).then((res) => {
+      this.adsDetail = res;
+    }, (err) => {
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('แจ้งเตือน', 'โหลดข้อมูลผิดพลาด กรุณาลองอีกครั้ง', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Warning', 'Load data error.', 'OK');
+      }
+    });
+  }
+
+  close() {
     this.viewCtrl.dismiss();
   }
 
-  showPhoto(){
+  showPhoto(photo) {
     let modal = this.modalCtrl.create(GalleryModal, {
-      photos:[{ 
-        url: './assets/imgs/ads/ads2.png', 
+      photos: [{
+        url: photo,
         type: '.png',
-      }],
-      // closeIcon: 'Close',
-      // initialSlide: 1,
+      }]
     });
     modal.present();
   }

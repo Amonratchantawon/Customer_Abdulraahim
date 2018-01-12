@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { HighlightPipe } from './highlight/highlight';
 import { FilterPipe } from './filter/filter';
+import { SafePipe } from './safe/safe';
 @NgModule({
 	declarations: [HighlightPipe,
-    FilterPipe],
+    FilterPipe,
+    SafePipe],
 	imports: [],
 	exports: [HighlightPipe,
-    FilterPipe]
+    FilterPipe,
+    SafePipe]
 })
 export class PipesModule {}

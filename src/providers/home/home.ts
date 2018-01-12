@@ -15,9 +15,16 @@ export class HomeProvider {
   constructor(public http: HttpClient) {
   }
 
-  getHomeData(): Promise<HomeModel> {
-    // return this.http.get(this.API_URL + '/api/customer/home')
-    return this.http.get('./assets/json/home.json')
+  getHomeData(location): Promise<HomeModel> {
+    return this.http.get(this.API_URL + '/api/customer/home/' + location.coords.latitude + '/ ' + location.coords.longitude)
+      // return this.http.get('./assets/json/home.json')
+      .toPromise()
+      .then(response => response as HomeModel)
+      .catch(this.handleError);
+  }
+
+  getAdsById(_id) {
+    return this.http.get(this.API_URL + '/api/ads/' + _id)
       .toPromise()
       .then(response => response as HomeModel)
       .catch(this.handleError);

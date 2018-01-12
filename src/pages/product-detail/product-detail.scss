@@ -1,0 +1,36 @@
+page-product-detail {
+    ion-slides {
+        height: auto !important;
+    }
+    .count {
+        margin-top: 50px;
+        .count-radias {
+            border-radius: 1000px;
+            height: 45px;
+            .button-inner {
+                font-size: 25px !important;
+            }
+        }
+        .count-radiascenter {
+            height: 70px;
+            width: 70px;
+            .button-inner {
+                font-size: 25px !important;
+            }
+        }
+    }
+    button.ion-button.outline {
+        border-radius: 941px
+    }
+    .header-md::after {
+        background-image: none !important;
+    }
+    .toolbar-background {
+        background-color: #ff000000 !important
+    }
+    .close-close {
+        .button-inner {
+            font-size: 25px !important;
+        }
+    }
+}

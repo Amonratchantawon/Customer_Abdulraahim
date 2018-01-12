@@ -31,7 +31,8 @@ export class AlertProvider {
       title: title,
       subTitle: massage,
       mode: 'ios',
-      buttons: [button]
+      buttons: [button],
+      enableBackdropDismiss: false      
     });
     alert.present();
   }
@@ -39,7 +40,8 @@ export class AlertProvider {
   onDailyWelcomeAlert(image, title, description, remark, button) {
     let alert = this.alertCtrl.create({
       mode: 'ios',
-      buttons: [button]
+      buttons: [button],
+      enableBackdropDismiss: false
     });
     let message = '<img src="' + image + '"><h2>' + title + '</h2><h6>' + description + '</h6><p>' + remark + '</p>';
     alert.setMessage(message);

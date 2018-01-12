@@ -3,13 +3,9 @@ import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angu
 import { ShopProvider } from '../../providers/shop/shop';
 import { ShopModel } from '../../assets/model/shop.model';
 import { GalleryModal } from 'ionic-gallery-modal';
-
-/**
- * Generated class for the ShopPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LoadingProvider } from '../../providers/loading/loading';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertProvider } from '../../providers/alert/alert';
 
 @IonicPage()
 @Component({
@@ -19,36 +15,51 @@ import { GalleryModal } from 'ionic-gallery-modal';
 export class ShopPage {
 
   shopData: ShopModel = new ShopModel();
-  isO: String;
+  isO: string;
   category: any = 0;
-  index:Number = 0;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public shop: ShopProvider, public modalCtrl: ModalController) {
+  index: number = 0;
+  selectedCateId = '';
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private shop: ShopProvider,
+    private modalCtrl: ModalController,
+    private loading: LoadingProvider,
+    private translate: TranslateService,
+    private alert: AlertProvider
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShopPage');
     this.getShop();
   }
 
   onSelectedConditionCate(index) { // selected category
     this.category = index;
-    console.log(this.category);
   }
 
   getShop() {
-    this.shop.getShopCenter().then((res) => {
+    this.loading.onLoading();
+    this.shop.getShopDetail().then((res) => {
       this.shopData = res;
-      console.log(this.shopData);
       this.checkOpenShop();
+      this.loading.dismiss();
+    }, (err) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('ร้านค้า', 'โหลดข้อมูลร้านค้าล้มเหลว', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Restaurant', 'Error loading restaurant.', 'OK');
+      }
     });
   }
 
   checkOpenShop() {
     if (this.shopData.isopen) {
-      this.isO = 'เปิด';
+      this.isO = 'OPEN';
     } else {
-      this.isO = 'ปิด'
+      this.isO = 'CLOSE'
     }
   }
 
@@ -68,8 +79,8 @@ export class ShopPage {
     modal.present();
   }
 
-  selectCate(i,cate){
+  selectCate(i, cate) {
     this.index = i;
-    console.log(cate._id);
+    this.selectedCateId = cate ? cate._id : '';
   }
 }

@@ -6,6 +6,7 @@
   "CATEGORIES": "ประเภทร้านอาหาร",
   "PROMOTION": "โปรโมชั่น",
   "NEAR_BY": "ร้านใกล้เคียง",
+  "RECOMMEND": "แนะนำ",
   "POPULAR": "ยอดนิยม",
   "FAVORITE": "ที่ชื่นชอบ",
   "PULL_TO_REFRESH": "ดึงเพื่อรีเฟรช",
@@ -87,5 +88,11 @@
   "SEPTEMBER": "กันยายน",
   "OCTOBER": "ตุลาคม",
   "NOVEMBER": "พฤศจิกายน",
-  "DECEMBER": "ธันวาคม"
+  "DECEMBER": "ธันวาคม",
+
+  "OPEN": "เปิด",
+  "CLOSE": "ปิด",
+  "PRODUCT_CATEGORY": "ประเภทอาหาร",
+  "PRODUCT_CATEGORY_ALL": "เมนูทั้งหมด",
+  "THB": "บาท"
 }

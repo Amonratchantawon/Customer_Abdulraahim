@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoadingProvider } from '../../providers/loading/loading';
-// import { AlertProvider } from '../../providers/alert/alert';
+import { AlertProvider } from '../../providers/alert/alert';
 import { TranslateService } from '@ngx-translate/core';
-
-/**
- * Generated class for the RegisterProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -28,7 +21,7 @@ export class RegisterProfilePage {
     private auth: AuthProvider,
     private loading: LoadingProvider,
     private translate: TranslateService,
-    private app: App
+    private alert: AlertProvider
   ) {
     this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
     this.provider = this.navParams.get('provider');
@@ -56,20 +49,20 @@ export class RegisterProfilePage {
   onRegister() {
 
     let date = new Date(this.birthday);
-    // this.user.birthdate = date.getDate().toString();
-    // this.user.birthmonth = (date.getMonth() + 1).toString();
-    // this.user.birthyear = date.getFullYear().toString();
     this.user.dateOfBirth = date;
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
-      this.app.getRootNav().push('RegisterGiftPage', { inApp: this.inApp });
+      this.navCtrl.push('RegisterGiftPage', { inApp: this.inApp });
       this.loading.dismiss();
     }).catch((err) => {
       let language = this.translate.currentLang;
-      if (language === 'th') {
-        // this.alert.onAlert('แจ้งเตือน', 'ชื่อบัญชีนี้มีผู้ใช้งานแล้ว', 'ตกลง');
-      } else if (language === 'en') {
-        // this.alert.onAlert('Wraning', 'Username is already exists.', 'OK');
+
+      if (err.message === 'Please fill a valid email address') {
+        if (language === 'th') {
+          this.alert.onAlert('สมัครสมาชิก', 'อีเมล์ไม่ถูกต้อง กรุณากรอกให้ถูกต้อง', 'ตกลง');
+        } else if (language === 'en') {
+          this.alert.onAlert('Register', 'Please fill a valid email address.', 'OK');
+        }
       }
       this.loading.dismiss();
     });

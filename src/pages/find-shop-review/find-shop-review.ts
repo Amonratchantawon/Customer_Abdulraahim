@@ -44,7 +44,9 @@ export class FindShopReviewPage {
   }
 
   ionViewWillEnter() {
+    this.loading.onLoading();
     this.reviewProvider.getShopNameReviews().then((res) => {
+      this.loading.dismiss();
       this.shops = res;
     });
   }

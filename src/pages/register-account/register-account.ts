@@ -38,6 +38,7 @@ export class RegisterAccountPage {
     this.user.username = this.user.email;
     this.loading.onLoading();
     this.auth.login(this.user).then((res) => {
+      this.loading.dismiss();
       if (this.inApp) {
         // กรณีเข้ามาใน app แล้ว จะ pop กลับไปหน้าที่สั่งให้เปิด
         // this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
@@ -46,9 +47,8 @@ export class RegisterAccountPage {
         // กรณีเข้ามาครั้งแรก ไปหน้าแรก
         this.navCtrl.push('NavtabsPage');
       }
-      this.loading.dismiss();
     }).catch((err) => {
-      if (err.message === 'Invalid password') {
+      if (err.message === 'Invalid password' || err.message === 'User suspended') {
         let language = this.translate.currentLang;
         if (language === 'th') {
           this.alert.onAlert('แจ้งเตือน', 'อีเมล์นี้มีผู้ใช้งานแล้ว', 'ตกลง');

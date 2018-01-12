@@ -35,7 +35,7 @@ export class HotpriceListPage {
     this.hotpriceProvider.getHotpriceData().then((data) => {
       this.hotpriceData = data;
       this.loading.dismiss();
-    }, (error) => {
+    }, (err) => {
       this.loading.dismiss();
     });
   }

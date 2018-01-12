@@ -48,6 +48,8 @@ export class FindShopReviewPage {
     this.reviewProvider.getShopNameReviews().then((res) => {
       this.loading.dismiss();
       this.shops = res;
+    }, (err) => {
+      this.loading.dismiss();
     });
   }
 

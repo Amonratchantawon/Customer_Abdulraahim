@@ -64,7 +64,7 @@ export class ShopSeeAllPage {
     this.shopProvider.getShopsByCondition(this.condition, location).then((data) => {
       this.shopData = data;
       this.loading.dismiss();
-    }, (error) => {
+    }, (err) => {
       this.loading.dismiss();
     });
   }

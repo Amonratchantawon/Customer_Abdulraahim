@@ -34,6 +34,8 @@ export class ProductDetailPage {
       console.log(res);
       this.productData = res;
       this.countPrice();
+    }, (err) => {
+      // this.loading.dismiss();
     });
   }
 

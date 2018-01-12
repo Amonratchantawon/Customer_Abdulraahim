@@ -48,7 +48,8 @@ export class CategoryListPage {
       }, 0);
       console.log();
       this.getCurrentPosition();
-    })
+    }, (err) => {
+    });
   }
 
   getCurrentPosition() {

@@ -71,7 +71,7 @@ export class HomePage {
       this.home.getHomeData(location).then(data => {
         this.homeData = data;
         this.loading.dismiss();
-      }, (error) => {
+      }, (err) => {
         this.loading.dismiss();
       })
     }, 1000);

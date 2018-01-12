@@ -15,6 +15,7 @@ export class RegisterProfilePage {
   birthday: string;
   provider: string;
   user: any = {};
+  isDisabled:boolean = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -40,6 +41,7 @@ export class RegisterProfilePage {
       this.user = this.navParams.get('data');
       this.user.profileImageURL = 'https://eatsyd.herokuapp.com/modules/users/client/img/profile/default.png';
     }
+    this.isDisabled =  this.user.email ? true : false;
   }
 
   ionViewDidLoad() {
@@ -52,7 +54,7 @@ export class RegisterProfilePage {
     this.user.dateOfBirth = date;
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
-      this.navCtrl.push('RegisterGiftPage', { inApp: this.inApp });
+      this.navCtrl.push('RegisterGiftPage', { inApp: this.inApp, user: res });
       this.loading.dismiss();
     }).catch((err) => {
       let language = this.translate.currentLang;

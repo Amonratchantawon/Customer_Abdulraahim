@@ -15,19 +15,10 @@
 <ion-content padding>
 
   <ion-slides pager>
-    <ion-slide>
-      <img src="http://lifestyle.dbs.com.sg/images/reward-icon.png" alt="">
-      <h3>คุณสมัครสมาชิกสำเร็จแล้ว เลื่อนเพื่อดูสิทธิพิเศษสำหรับคุณ</h3>
+    <ion-slide *ngFor="let item of userGif.newregisterreward.items">
+      <img src="{{item.image}}" alt="">
+      <h3>{{item.description}}</h3>
     </ion-slide>
-    <ion-slide>
-      <img src="https://static.werally.com/3.0.11/img/registration/landing/your_rewards.png" alt="">
-      <h3>สม้ครสมาชิกใหม่ รับทันที 20 เหรียญ</h3>
-    </ion-slide>
-    <ion-slide>
-      <img src="https://itchecknow.files.wordpress.com/2016/05/best-hit-reward.png" alt="">
-      <h3>เมื่อสั่งซื้ออาหารครั้งแรก รับเพิ่มทันที 5 เหรียญ</h3>
-    </ion-slide>
-
   </ion-slides>
 
   <button ion-button block color="bite" (click)="registerGift()">สั่งอาหารทันที</button>

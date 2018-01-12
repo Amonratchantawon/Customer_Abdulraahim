@@ -31,7 +31,8 @@ export class ReviewProvider {
   }
 
   getShopNameReviews(): Promise<Array<ItemShopModel>> {
-    return this.http.get(this.API_URL + '/api/getshopsname')
+    let header = this.auth.setHeader();    
+    return this.http.get(this.API_URL + '/api/getshopsname', { headers: header })
       .toPromise()
       .then(response => response as Array<ItemShopModel>)
       .catch(this.handleError);

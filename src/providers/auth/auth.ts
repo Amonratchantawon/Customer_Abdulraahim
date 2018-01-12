@@ -74,16 +74,18 @@ export class AuthProvider {
   private loginSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     window.localStorage.setItem('token', res.loginToken);
-    this.getDailyWelcome();
     return res;
   }
 
   private showDailyWelcome(dailywelcome) {
-    if (this.translate.currentLang === 'th') {
-      this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'ยืนยัน');
-    }else{
-      this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'OK');      
+    if (dailywelcome.title) {
+      if (this.translate.currentLang === 'th') {
+        this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'ยืนยัน');
+      } else {
+        this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'OK');
+      }
     }
+    return;
   }
 
   private registerSuccess(res) {

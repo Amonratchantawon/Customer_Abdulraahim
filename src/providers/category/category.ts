@@ -28,7 +28,7 @@ export class CategoryProvider {
   }
 
   getShopListByCategory(cateId): Promise<Array<CategoryListModel>> {
-    return this.http.get(this.API_URL + '/api/categoryshops/' + cateId)
+    return this.http.get(this.API_URL + '/api/customer/categoryshop/' + cateId)
       .toPromise()
       .then(response => response as Array<CategoryListModel>)
       .catch(this.handleError);

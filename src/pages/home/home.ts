@@ -101,24 +101,23 @@ export class HomePage {
     this.app.getRootNav().push('HotpriceListPage');
   }
 
-  seeAll(cate) {
-    this.app.getRootNav().push('ShopSeeAllPage');
-  }
-
   categoryPage(index, item) {
     this.app.getRootNav().push('CategoryListPage', { index: index, item: item });
   }
 
+  seeAllByCondition(condition) {
+    this.app.getRootNav().push('ShopSeeAllPage', condition);
+  }
   goToProfile() {
     this.app.getRootNav().push('ProfilePage');
   }
 
-  goHotpriceShop() {
-    this.app.getRootNav().push('ShopPage');
+  goHotpriceShop(e) {
+    this.app.getRootNav().push('ShopPage', e.shop);
   }
 
-  goToShop() {
-    this.app.getRootNav().push('ShopPage');
+  goToShop(e) {
+    this.app.getRootNav().push('ShopPage', e._id);
   }
 
 }

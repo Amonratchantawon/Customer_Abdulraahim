@@ -15,6 +15,7 @@ export class CategoryListPage {
   shopByCate: Array<CategoryListModel>;
   pages: any = 0;
   cate: any;
+  _id: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoryProvider: CategoryProvider) {
 
   }
@@ -28,18 +29,18 @@ export class CategoryListPage {
     this.categoryProvider.getCategory().then(res => {
       this.categoryData = res;
       this.cate = this.navParams.get('index');
-      let cateId = this.navParams.get('item')._id;
+      this._id = this.navParams.get('item')._id;
       setTimeout(() => {
         let scroll = document.getElementById('scroll');
         scroll.scrollLeft = 90 * this.cate;
       }, 0);
-      console.log(cateId);
-      this.getShopByCate(cateId);
+      console.log();
+      this.getShopByCate();
     })
   }
 
-  getShopByCate(cateId) {
-    this.categoryProvider.getShopListByCategory(cateId).then(res => {
+  getShopByCate() {
+    this.categoryProvider.getShopListByCategory(this._id).then(res => {
       this.shopByCate = res;
     });
   }
@@ -48,9 +49,10 @@ export class CategoryListPage {
     this.pages = index;
   }
 
-  selectedCategory(index) {
+  selectedCategory(index, item) {
     this.cate = index;
-    this.getShopByCate(index);
+    this._id = item._id;
+    this.getShopByCate();
   }
 
 }

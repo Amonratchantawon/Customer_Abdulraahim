@@ -14,13 +14,13 @@
 
 
 <ion-content>
-  
+
   <search-input></search-input>
-  
+
   <div class="categories">
     <ion-segment mode="md" [(ngModel)]="index" id="scroll">
-      <ion-segment-button *ngFor="let item of categoryData; let i = index;" (click)="selectedCategory(i)">
-        <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories" [ngClass]="{'active-cates' : i == cate}"></preload-image>
+      <ion-segment-button *ngFor="let item of categoryData; let i = index;" (click)="selectedCategory(i,item)">
+        <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="categories" [ngClass]="{'active-cates' : item._id == _id}"></preload-image>
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -28,8 +28,8 @@
   <div class="shops">
     <div no-padding>
       <ion-segment mode="md" [(ngModel)]="pages">
-        <ion-segment-button *ngFor="let segment of shopByCate; let i = index;" [ngClass]="{'active-page' : i == pages}" (click)="onSelectedPage(i)">
-          {{ segment.title | translate }}
+        <ion-segment-button *ngFor="let condition of shopByCate; let i = index;" [ngClass]="{'active-page' : i == pages}" (click)="onSelectedPage(i)">
+          {{ condition.title | translate }}
         </ion-segment-button>
       </ion-segment>
     </div>

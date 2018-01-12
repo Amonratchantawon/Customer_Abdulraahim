@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ItemShopModel, ShopModel } from '../../assets/model/shop.model';
+import { Constants } from '../../app/app.constants';
 
 /*
   Generated class for the ShopProvider provider.
@@ -10,12 +11,12 @@ import { ItemShopModel, ShopModel } from '../../assets/model/shop.model';
 */
 @Injectable()
 export class ShopProvider {
-
+  API_URL: string = Constants.URL;
   constructor(public http: HttpClient) {
   }
 
-  getShopData(): Promise<Array<ItemShopModel>> {
-    return this.http.get('./assets/json/shoplist.json')
+  getShopsByCondition(condition): Promise<Array<ItemShopModel>> {
+    return this.http.get(this.API_URL + '/api/customer/shops/' + condition)
       .toPromise()
       .then(response => response as Array<ItemShopModel>)
       .catch(this.handleError);

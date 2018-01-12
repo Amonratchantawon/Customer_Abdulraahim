@@ -64,6 +64,7 @@ page-home {
         }
         img {
             object-fit: cover;
+            height: 100% !important;
         }
         .shop-desc {
             padding-top: 4px;
@@ -104,7 +105,7 @@ page-home {
         ul {
             padding: 0px;
             position: absolute;
-            margin-top: -20px;
+            margin-top: -18px;
             margin-right: -3px;
             right: 10px;
             &.rating li {

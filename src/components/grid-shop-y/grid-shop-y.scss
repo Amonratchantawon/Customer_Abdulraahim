@@ -6,6 +6,7 @@ grid-shop-y {
         }
         img {
             object-fit: cover;
+            height: 100% !important;
         }
         .shop-desc {
             padding-top: 4px;
@@ -46,15 +47,15 @@ grid-shop-y {
         ul {
             padding: 0px;
             position: absolute;
-            margin-top: -18px;
+            margin-top: -15px;
             margin-right: 0px;
-            right: 10px;
+            right: 8px;
             &.rating li {
                 padding: 0px !important;
                 background: none;
                 color: #ff5566;
                 ion-icon {
-                    margin-right: 0px;
+                    margin-right: -2px;
                     font-size: 14px;
                 }
             }

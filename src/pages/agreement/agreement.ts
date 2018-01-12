@@ -17,8 +17,8 @@ import { Constants } from '../../app/app.constants';
 })
 export class AgreementPage {
   isShowAgreementBtn: boolean = false;
-  isLanguage:boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private translate: TranslateService,) {
+  language: string = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, private translate: TranslateService, ) {
   }
 
   ionViewDidLoad() {
@@ -40,14 +40,8 @@ export class AgreementPage {
     this.navCtrl.push('RegisterPage');
   }
 
-  onLanguage(){
-    let language = this.translate.currentLang
-    console.log(language);
-    if (language === 'en') {
-      this.isLanguage = true;
-    }else if (language === 'en'){
-      this.isLanguage = false;
-    }
+  onLanguage() {
+    this.language = this.translate.currentLang;
   }
 
 }

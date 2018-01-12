@@ -55,4 +55,8 @@ export class ProductDetailPage {
   close(){
     this.viewCtrl.dismiss();
   }
+
+  addToCartSusses(){
+    this.viewCtrl.dismiss();
+  }
 }

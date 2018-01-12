@@ -99,7 +99,7 @@ export class AuthProvider {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     //jigkoh3 change native storage to window.localStorage because just do same my team
     //this.local.set('token', res.loginToken);
-    // window.localStorage.setItem('token', res.loginToken);
+    window.localStorage.setItem('token', res.loginToken);
     return res;
   }
 

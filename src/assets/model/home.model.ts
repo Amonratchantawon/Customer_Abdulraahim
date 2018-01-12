@@ -23,7 +23,10 @@ export class AdsModel {
 export class ItemAdsModel {
     _id: string;
     image: string;
-    videoId: string;
+    name: string;
+    description: string;
+    website: string;
+    videoid: string;
     isvideo: boolean;
 }
 

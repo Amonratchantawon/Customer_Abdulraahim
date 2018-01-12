@@ -29,7 +29,8 @@ export class ShopSeeAllPage {
   }
 
   getShop() {
-    this.shopProvider.getShopData().then((data) => {
+    let condition = this.navParams.data;
+    this.shopProvider.getShopsByCondition(condition).then((data) => {
       this.shopData = data;
     }, (error) => {
 
@@ -37,14 +38,14 @@ export class ShopSeeAllPage {
   }
 
   doRefresh(refresher) {
+    this.getShop();
     setTimeout(() => {
-      this.getShop();
       refresher.complete();
-    }, 2000);
+    }, 500);
   }
 
-  goToDetail(e){
-    console.log(e);
+  goToDetail(e) {
+    this.navCtrl.push('ShopPage', e._id);
   }
 
 }

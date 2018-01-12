@@ -41,8 +41,8 @@ export class HotpriceListPage {
     refresher.complete();
   }
 
-  goHotpriceShop() {
-    this.navCtrl.push('ShopPage');
+  goHotpriceShop(item) {
+    this.navCtrl.push('ShopPage', item._id);
   }
 
 }

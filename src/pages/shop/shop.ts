@@ -39,6 +39,8 @@ export class ShopPage {
   }
 
   getShop() {
+    let _id = this.navParams.data;
+    console.log(_id);
     this.loading.onLoading();
     this.shop.getShopDetail().then((res) => {
       this.shopData = res;

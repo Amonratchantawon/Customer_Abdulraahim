@@ -8,12 +8,12 @@
 
   <ion-navbar>
     <ion-buttons end>
-      <button ion-button color="drak" large (click)="close()" >
+      <button ion-button color="drak" large (click)="close()">
         <ion-icon name="ios-close-circle-outline"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>
-      <h3 text-nowrap>ต้อนรับปีใหม่ 2018 </h3>
+      <h3 text-nowrap *ngIf="adsDetail && adsDetail.name">{{ adsDetail.name }}</h3>
     </ion-title>
   </ion-navbar>
 
@@ -23,18 +23,16 @@
 <ion-content>
   <ion-slides>
     <ion-slide>
-      <img src="./assets/imgs/ads/ads2.png" alt="imgErr" (click)="showPhoto()">
+      <img src="{{adsDetail.image}}" alt="imgErr" (click)="showPhoto(adsDetail.image)">
     </ion-slide>
 
   </ion-slides>
 
-  <h4 padding>ต้อนรับปีใหม่ 2018</h4>
-  <p padding>&nbsp; &nbsp; &nbsp;สยามบราสเซอรี ผสมผสานความลงตัวของรสชาติทั้งแมนูอาหารไทยแท้และอาหารนานาชาติ ด้วยการตกแต่งและศิลปะของการจัดวางอาหารที่จะช่วยให้คุณเพลิดเพลินและเกิดอรรถรสในการรับประทานอาหารที่ร้านของเราแบบไม่เหมือนใคร
-    ด้วยสิ่งแวดล้อม การตกแต่ง และ ธรรมชาติรอบตัว ในบรรยากาศที่สบายและมีความเป็นกันเอง สยามบราสเซอรี พร้อมเปิดให้บริการอาหารนานาชาติ
-    เริ่มตั้งแต่วันที่ 9 ธันวาคม 2560 นี้ เป็นต้นไป</p>
+  <h4 padding *ngIf="adsDetail && adsDetail.name">{{adsDetail.name}}</h4>
+  <p padding *ngIf="adsDetail && adsDetail.description">&nbsp; &nbsp; &nbsp;{{adsDetail.description}}</p>
 
-  <p padding>{{ 'WEBSITE' | translate }} -
-    <a href="https://www.google.co.th/">https://www.google.co.th/</a>
+  <p padding *ngIf="adsDetail && adsDetail.website">{{ 'WEBSITE' | translate }} -
+    <a href="{{adsDetail.website}}">{{adsDetail.website}}</a>
   </p>
 
 </ion-content>

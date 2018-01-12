@@ -1,15 +1,12 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { TranslateService } from '@ngx-translate/core';
 import { CategoryListModel } from '../../assets/model/category-list.model';
 import { ItemCategoriyModel } from '../../assets/model/category-master.model';
 import { CategoryProvider } from '../../providers/category/category';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CategoryListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LoadingProvider } from '../../providers/loading/loading';
+import { AlertProvider } from '../../providers/alert/alert';
 
 @IonicPage()
 @Component({
@@ -22,13 +19,21 @@ export class CategoryListPage {
   shopByCate: Array<CategoryListModel>;
   pages: any = 0;
   cate: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public categoryProvider: CategoryProvider) {
+  _id: string;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private categoryProvider: CategoryProvider,
+    private geolocation: Geolocation,
+    private loading: LoadingProvider,
+    private platform: Platform,
+    private translate: TranslateService,
+    private alert: AlertProvider,
+  ) {
 
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad CategoryListPage');
     this.getCate();
   }
 
@@ -36,19 +41,55 @@ export class CategoryListPage {
     this.categoryProvider.getCategory().then(res => {
       this.categoryData = res;
       this.cate = this.navParams.get('index');
-      let cateId = this.navParams.get('item')._id;
+      this._id = this.navParams.get('item')._id;
       setTimeout(() => {
         let scroll = document.getElementById('scroll');
         scroll.scrollLeft = 90 * this.cate;
       }, 0);
-      console.log(cateId);
-      this.getShopByCate(cateId);
+      console.log();
+      this.getCurrentPosition();
     })
   }
 
-  getShopByCate(cateId) {
-    this.categoryProvider.getShopListByCategory().then(res => {
+  getCurrentPosition() {
+    this.loading.onLoading();
+
+    if (!this.platform.is('cordova')) { // serve test location in lumlukka
+      let location = {
+        coords: {
+          latitude: 13.9323555,
+          longitude: 100.7178317
+        }
+      }
+      this.getShopByCate(location);
+      console.log('Browser debugger');
+      return;
+    }
+
+    this.geolocation.getCurrentPosition().then((location) => {
+      this.getShopByCate(location);
+    }).catch((error) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('ตำแหน่ง', 'ค้นหาตำแหน่งผิดพลาด กรุณาตรวจสอบ GPS', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Location', 'Error! Please check your GPS.', 'OK');
+      }
+    });
+  }
+
+  getShopByCate(location) {
+    this.categoryProvider.getShopListByCategory(this._id, location).then(res => {
       this.shopByCate = res;
+      this.loading.dismiss();
+    }, (err) => {
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('ร้านค้า', 'โหลดข้อมูลผิดพลาด กรุณาลองอีกครั้ง', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Restaurant', 'Load data error.', 'OK');
+      }
     });
   }
 
@@ -56,9 +97,10 @@ export class CategoryListPage {
     this.pages = index;
   }
 
-  selectedCategory(index) {
+  selectedCategory(index, item) {
     this.cate = index;
-    this.getShopByCate(index);
+    this._id = item._id;
+    this.getCurrentPosition();
   }
 
 }

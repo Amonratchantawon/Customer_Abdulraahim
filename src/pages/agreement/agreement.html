@@ -12,7 +12,7 @@
 
   <ion-row class="row-custom2">
     <ion-col col-12>
-      <div *ngIf="!isLanguage">
+      <div *ngIf="language === 'en'">
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Service Provider has respected the privacy of users and has been
           well aware that users intended to receive security in using applications, and the data obtained by the Service
           Provider under the agreed terms and conditions shall be used for the purpose of users only, and the Service Provider
@@ -89,7 +89,7 @@
       </div>
 
 
-      <div *ngIf="isLanguage">
+      <div *ngIf="language === 'th'">
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้ให้บริการเคารพในความเป็นส่วนตัวของผู้ใช้บริการ ผู้ให้บริการทราบดีว่าผู้ใช้บริการมีความประสงค์ที่จะได้รับความปลอดภัยในการใช้งานแอปพลิเคชัน
           ข้อมูลต่างๆที่ผู้ให้บริการได้รับมาโดยข้อตกลงและเงื่อนไขจะถูกใช้เพื่อวัตถุประสงค์ของผู้ใช้บริการเท่านั้น ผู้ให้บริการจะดำเนินงานภายใต้มาตรการการรักษาความปลอดภัยที่เข้มงวด
           รวมทั้งการป้องกันมิให้มีการนำข้อมูลไปใช้โดยมิได้รับอนุญาตจากผู้ใช้งานก่อน

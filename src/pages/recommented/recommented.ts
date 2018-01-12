@@ -90,7 +90,7 @@ export class RecommentedPage {
   doPaging(data) {
 
     this.content.scrollToTop();
-    let maxLength = 5;
+    let maxLength = 15;
     this.dataReviewPaging = [];
     this.dataReview = [];
     if (maxLength > 0) {

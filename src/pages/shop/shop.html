@@ -2,7 +2,7 @@
 
   <ion-navbar color="bite">
     <ion-title>{{shopData.name}}</ion-title>
-    <ion-buttons end>
+    <ion-buttons end (click)="addCart()">
       <button ion-button icon-only class="icon-cart">
         <ion-icon name="cart"></ion-icon>
       </button>

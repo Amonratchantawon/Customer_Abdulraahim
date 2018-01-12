@@ -90,4 +90,8 @@ export class ShopPage {
     let modal1 = this.modalCtrl.create('ProductDetailPage');
     modal1.present();
   }
+
+  addCart(){
+    this.navCtrl.push('CartPage');
+  }
 }

@@ -30,6 +30,7 @@ import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProductdetailProvider } from '../providers/productdetail/productdetail';
+import { CartProvider } from '../providers/cart/cart';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import { ProductdetailProvider } from '../providers/productdetail/productdetail'
     AlertProvider,
     AuthProvider,
     ProductdetailProvider,
+    CartProvider,
   ]
 })
 export class AppModule { }

@@ -40,4 +40,10 @@ page-create-review {
             font-size: 1.6rem !important;
         }
     }
+    ion-avatar {
+        width: 40px !important;
+        .preload-profile-image {
+            border-radius: 100% !important;
+        }
+    }
 }

@@ -35,7 +35,9 @@ export class LoginPage {
   ionViewWillEnter() {
     this.auth.authenticated().then((res) => {
       if (res) {
-        this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+        setTimeout(() => {
+          this.navCtrl.setRoot(window.localStorage.getItem('current_page_for_login'));
+        }, 0);
       }
     });
   }

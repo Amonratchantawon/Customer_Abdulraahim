@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReviewModel } from '../../assets/model/review.model';
 import { ItemShopModel } from '../../assets/model/shop.model';
@@ -23,7 +23,8 @@ export class ReviewProvider {
   }
 
   getReviews(): Promise<Array<ReviewModel>> {
-    return this.http.get(this.API_URL + '/api/getlistreview')
+    let header = this.auth.setHeader();
+    return this.http.get(this.API_URL + '/api/getlistreview', { headers: header })
       .toPromise()
       .then(response => response as Array<ReviewModel>)
       .catch(this.handleError);
@@ -37,14 +38,16 @@ export class ReviewProvider {
   }
 
   postReviews(review): Promise<ReviewModel> {
-    return this.http.post(this.API_URL + '/api/reviews', review)
+    let header = this.auth.setHeader();
+    return this.http.post(this.API_URL + '/api/reviews', review, { headers: header })
       .toPromise()
       .then(response => response as ReviewModel)
       .catch(this.handleError);
   }
 
   like(review_id): Promise<ReviewModel> {
-    return this.http.put(this.API_URL + '/api/islike/' + review_id, null)
+    let header = this.auth.setHeader();    
+    return this.http.put(this.API_URL + '/api/islike/' + review_id, null, { headers: header })
       .toPromise()
       .then(response => response as ReviewModel)
       .catch(this.handleError);

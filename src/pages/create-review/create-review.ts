@@ -5,6 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ReviewProvider } from '../../providers/review/review';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { AlertProvider } from '../../providers/alert/alert';
+import { UserModel } from '../../assets/model/user.model';
+import { Constants } from '../../app/app.constants';
 
 /**
  * Generated class for the CreateReviewPage page.
@@ -23,6 +25,7 @@ export class CreateReviewPage {
   review: any = {};
   maxLengthTitle: number = 30;
   maxLengthDetail: number = 150;
+  user: UserModel = new UserModel();
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -36,7 +39,8 @@ export class CreateReviewPage {
     this.review.description = '';
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
   }
 
   createRevirw() {

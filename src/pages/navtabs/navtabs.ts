@@ -61,13 +61,6 @@ export class NavtabsPage {
     });
   }
 
-  // ionViewWillEnter() {
-  //   let index = window.localStorage.getItem('current_select_tab');
-  //   if (index !== '0') {
-  //     this.tabs.select(parseInt(index));
-  //   }
-  // }
-
   onReword() {
     this.tabs.select(2);
   }
@@ -75,23 +68,18 @@ export class NavtabsPage {
   onSelectChange(e) {
     if (e === '0') {
       window.localStorage.setItem('current_page_for_login', 'HomePage');
-      window.localStorage.setItem('current_select_tab', '0');
       this.color = '#EB3841';
     } else if (e === '1') {
       window.localStorage.setItem('current_page_for_login', 'RecommentedPage');
-      window.localStorage.setItem('current_select_tab', '1');
       this.color = '#EB3841';
     } else if (e === '2') {
       window.localStorage.setItem('current_page_for_login', 'RewardPage');
-      window.localStorage.setItem('current_select_tab', '2');
       this.color = '#b3222f';
     } else if (e === '3') {
       window.localStorage.setItem('current_page_for_login', 'StatusPage');
-      window.localStorage.setItem('current_select_tab', '3');
       this.color = '#EB3841';
     } else if (e === '4') {
       window.localStorage.setItem('current_page_for_login', 'MorePage');
-      window.localStorage.setItem('current_select_tab', '4');
       this.color = '#EB3841';
     }
   }

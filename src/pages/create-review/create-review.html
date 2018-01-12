@@ -18,9 +18,9 @@
   <ion-card>
     <ion-item>
       <ion-avatar item-start>
-        <img src="./assets/imgs/user/user1.png">
+        <preload-image class="preload-profile-image" [ratio]="{w:1, h:1}" [src]="user.profileImageURL" [isIcon]="true"></preload-image>
       </ion-avatar>
-      <h2>MooNoi</h2>
+      <h2>{{user.displayName}}</h2>
     </ion-item>
     <ion-row>
       <ion-col col-12 no-padding>
@@ -57,6 +57,6 @@
 
 <ion-footer class="footer-agreement">
   <ion-toolbar>
-    <button ion-button block color="bite" (click)="createRevirw()">{{ 'REVIEW' | translate}}</button>
+    <button ion-button block color="bite" (click)="createRevirw()" [disabled]="!review.description || review.description === ''">{{ 'REVIEW' | translate}}</button>
   </ion-toolbar>
 </ion-footer>

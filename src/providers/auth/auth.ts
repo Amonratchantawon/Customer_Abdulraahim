@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
@@ -25,6 +25,14 @@ export class AuthProvider {
     private alert: AlertProvider
   ) {
 
+  }
+
+  setHeader() {
+    let header = new HttpHeaders()
+    header = header.append('Content-Type', 'application/json');
+    header = header.append('Accept', 'application/json');
+    header = header.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+    return header;
   }
 
   authenticated(): Promise<any> {

@@ -1,4 +1,4 @@
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -28,7 +28,6 @@ import { AlertProvider } from '../providers/alert/alert';
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { AuthProvider } from '../providers/auth/auth';
-import { TokenInterceptor } from '../providers/auth/token-interceptor';
 
 
 @NgModule({
@@ -69,11 +68,11 @@ import { TokenInterceptor } from '../providers/auth/token-interceptor';
       provide: HAMMER_GESTURE_CONFIG,
       useClass: ionicGalleryModal.GalleryModalHammerConfig,
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // },
     HomeProvider,
     ReviewProvider,
     HotpriceProvider,

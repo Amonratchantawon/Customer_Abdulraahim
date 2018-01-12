@@ -4,13 +4,6 @@ import { CategoryProvider } from '../../providers/category/category';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the CategoryListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-category-list',
@@ -22,7 +15,6 @@ export class CategoryListPage {
   shopByCate: Array<CategoryListModel>;
   pages: any = 0;
   cate: any;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoryProvider: CategoryProvider) {
 
   }
@@ -47,7 +39,7 @@ export class CategoryListPage {
   }
 
   getShopByCate(cateId) {
-    this.categoryProvider.getShopListByCategory().then(res => {
+    this.categoryProvider.getShopListByCategory(cateId).then(res => {
       this.shopByCate = res;
     });
   }

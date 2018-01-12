@@ -1,21 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ItemHotpricesModel } from '../../assets/model/hotprice.model';
+import { AuthProvider } from '../auth/auth';
+import { Constants } from '../../app/app.constants';
 
-/*
-  Generated class for the HotpriceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class HotpriceProvider {
-
-  constructor(public http: HttpClient) {
+  API_URL: string = Constants.URL;
+  constructor(
+    public http: HttpClient,
+    private auth: AuthProvider
+  ) {
   }
 
   getHotpriceData(): Promise<Array<ItemHotpricesModel>> {
-    return this.http.get('./assets/json/hotprice-list.json')
+    let header = this.auth.setHeader();
+    return this.http.get(this.API_URL + '/api/hotprices', { headers: header })
       .toPromise()
       .then(response => response as Array<ItemHotpricesModel>)
       .catch(this.handleError);

@@ -7,13 +7,6 @@ import { ItemShopModel } from '../../assets/model/shop.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { AlertProvider } from '../../providers/alert/alert';
 
-/**
- * Generated class for the ShopSeeAllPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-shop-see-all',
@@ -21,6 +14,7 @@ import { AlertProvider } from '../../providers/alert/alert';
 })
 export class ShopSeeAllPage {
   shopData: Array<ItemShopModel> = [];
+  condition: string = '';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -66,8 +60,8 @@ export class ShopSeeAllPage {
   }
 
   getShop(location) {
-    let condition = this.navParams.data;
-    this.shopProvider.getShopsByCondition(condition, location).then((data) => {
+    this.condition = this.navParams.data;
+    this.shopProvider.getShopsByCondition(this.condition, location).then((data) => {
       this.shopData = data;
       this.loading.dismiss();
     }, (error) => {

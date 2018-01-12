@@ -6,6 +6,7 @@
   "CATEGORIES": "Categories",
   "PROMOTION": "Promotion",
   "NEAR_BY": "Near by",
+  "RECOMMEND": "Recommend",
   "POPULAR": "Popular",
   "FAVORITE": "Favorite",
   "PULL_TO_REFRESH": "Pull to refresh",
@@ -18,7 +19,7 @@
   "LIKES": "Likes",
   "RESTAURANT_NAME": "Restaurant name",
   "WRITE_A_CAPTION": "Write a caption...",
-  "REVIEW_ERROR_NAME": "Restaurant is already exists",
+  "REVIEW_ERROR_NAME": "Restaurant is already exists.",
   "REWARD": "Reward",
 
   "STATUS": "Status",
@@ -87,6 +88,13 @@
   "SEPTEMBER": "September",
   "OCTOBER": "October",
   "NOVEMBER": "November",
-  "DECEMBER": "December"
+  "DECEMBER": "December",
+
+  "OPEN": "Open",
+  "CLOSE": "Close",
+  "PRODUCT_CATEGORY": "Product category",
+  "PRODUCT_CATEGORY_ALL": "All",
+  "THB": "THB"
+
 
 }

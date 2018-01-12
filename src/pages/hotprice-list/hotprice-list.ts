@@ -37,10 +37,12 @@ export class HotpriceListPage {
   }
 
   doRefresh(refresher) {
-    setTimeout(() => {
-      this.getHotprice();
-      refresher.complete();
-    }, 2000);
+    this.getHotprice();
+    refresher.complete();
+  }
+
+  goHotpriceShop() {
+    this.navCtrl.push('ShopPage');
   }
 
 }

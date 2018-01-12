@@ -79,8 +79,12 @@ export class HomePage {
     this.app.getRootNav().push('ProfilePage');
   }
 
-  goToShop(){
-    this.navCtrl.push('ShopPage');
+  goHotpriceShop(){
+    this.app.getRootNav().push('ShopPage');    
+  }
+
+  goToShop() {
+    this.app.getRootNav().push('ShopPage');
   }
 
 }

@@ -22,6 +22,6 @@
   <search-input></search-input>
 
   <div class="content">
-    <preload-image *ngFor="let item of hotpriceData" [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices"></preload-image>
+    <preload-image *ngFor="let item of hotpriceData" [ratio]="{w:19, h:8}" [src]="item.image" title="hotprices" (click)="goHotpriceShop(item)"></preload-image>
   </div>
 </ion-content>

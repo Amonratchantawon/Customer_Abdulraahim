@@ -21,7 +21,7 @@ export class ShopProvider {
       .catch(this.handleError);
   }
 
-  getShopCenter(): Promise<ShopModel> {
+  getShopDetail(): Promise<ShopModel> {
     return this.http.get('./assets/json/shop.json')
       .toPromise()
       .then(response => response as ShopModel)

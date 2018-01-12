@@ -49,23 +49,30 @@ export class LoginPage {
       if (err.message === 'Invalid password') {
         let language = this.translate.currentLang;
         if (language === 'th') {
-          this.alert.onAlert('แจ้งเตือน', 'รหัสผ่านไม่ถูกต้อง', 'ตกลง');
+          this.alert.onAlert('เข้าสู่ระบบ', 'รหัสผ่านไม่ถูกต้อง', 'ตกลง');
         } else if (language === 'en') {
-          this.alert.onAlert('Wraning', 'Invalid password.', 'OK');
+          this.alert.onAlert('Login', 'Invalid password.', 'OK');
         }
       } else if (err.message === 'Unknown user') {
         let language = this.translate.currentLang;
         if (language === 'th') {
-          this.alert.onAlert('แจ้งเตือน', 'อีเมล์ไม่ถูกต้อง', 'ตกลง');
+          this.alert.onAlert('เข้าสู่ระบบ', 'อีเมล์ไม่ถูกต้อง', 'ตกลง');
         } else if (language === 'en') {
-          this.alert.onAlert('Wraning', 'Unknown user.', 'OK');
+          this.alert.onAlert('Login', 'Unknown user.', 'OK');
+        }
+      } else if (err.message === 'User suspended') {
+        let language = this.translate.currentLang;
+        if (language === 'th') {
+          this.alert.onAlert('เข้าสู่ระบบ', 'บัญชีถูกระงับการใช้งาน', 'ตกลง');
+        } else if (language === 'en') {
+          this.alert.onAlert('Login', 'This Account Has Been Suspended.', 'OK');
         }
       } else {
         let language = this.translate.currentLang;
         if (language === 'th') {
-          this.alert.onAlert('แจ้งเตือน', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง', 'ตกลง');
+          this.alert.onAlert('เข้าสู่ระบบ', 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง', 'ตกลง');
         } else if (language === 'en') {
-          this.alert.onAlert('Wraning', 'Error! please try again', 'OK');
+          this.alert.onAlert('Login', 'Error! please try again', 'OK');
         }
       }
       this.loading.dismiss();

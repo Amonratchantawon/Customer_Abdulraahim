@@ -15,8 +15,8 @@ export class ShopProvider {
   constructor(public http: HttpClient) {
   }
 
-  getShopsByCondition(condition): Promise<Array<ItemShopModel>> {
-    return this.http.get(this.API_URL + '/api/customer/shops/' + condition)
+  getShopsByCondition(condition, location): Promise<Array<ItemShopModel>> {
+    return this.http.get(this.API_URL + '/api/customer/shops/' + condition + '/' + location.coords.latitude + '/ ' + location.coords.longitude)
       .toPromise()
       .then(response => response as Array<ItemShopModel>)
       .catch(this.handleError);

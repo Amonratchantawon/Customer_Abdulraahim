@@ -1,9 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-//import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
-// import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/toPromise';
+import { TranslateService } from '@ngx-translate/core';
 import { Constants } from '../../app/app.constants';
 import { AlertProvider } from '../alert/alert';
 
@@ -22,7 +21,8 @@ export class AuthProvider {
 
   constructor(
     public http: HttpClient,
-    private alert: AlertProvider
+    private alert: AlertProvider,
+    private translate: TranslateService
   ) {
 
   }
@@ -37,11 +37,6 @@ export class AuthProvider {
 
   authenticated(): Promise<any> {
     return new Promise((resolve, reject) => {
-      //jigkoh3 change native storage to window.localStorage because just do same my team
-      // this.local.get('token').then((token) => {
-      //   resolve(tokenNotExpired('Bearer', token))
-      // });
-
       let token = window.localStorage.getItem('token');
       resolve(tokenNotExpired('Bearer', token));
     });
@@ -55,13 +50,11 @@ export class AuthProvider {
   }
 
   getDailyWelcome() {
-    let dailywelcome = [{
-      title: 'ยินดีด้วย',
-      description: 'โปรโมชั่นประจำวัน คุณได้รับ 1 เหรียญ',
-      remark: 'หมายเหตุ: 1 วันต่อครั้งเท่านั้น',
-      image: './assets/imgs/Home-Collect.png'
-    }];
-    this.showDailyWelcome(dailywelcome);
+    let header = this.setHeader();
+    return this.http.get(this.API_URL + "/api/customer/todaywelcome", { headers: header })
+      .toPromise()
+      .then(response => this.showDailyWelcome(response))
+      .catch(this.handleError);
   }
 
   signup(credentials) {
@@ -74,31 +67,27 @@ export class AuthProvider {
 
   logout() {
     window.localStorage.removeItem('user@' + this.API_URL);
-    //jigkoh3 change native storage to window.localStorage because just do same my team
-    //this.local.remove('token');
     window.localStorage.removeItem('token');
     console.log('logout');
   }
 
   private loginSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
-    //jigkoh3 change native storage to window.localStorage because just do same my team
-    //this.local.set('token', res.loginToken);
     window.localStorage.setItem('token', res.loginToken);
     this.getDailyWelcome();
     return res;
   }
 
   private showDailyWelcome(dailywelcome) {
-    dailywelcome.forEach(element => {
-      this.alert.onDailyWelcomeAlert(element.image, element.title, element.description, element.remark, 'ยืนยัน');
-    });
+    if (this.translate.currentLang === 'th') {
+      this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'ยืนยัน');
+    }else{
+      this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'OK');      
+    }
   }
 
   private registerSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
-    //jigkoh3 change native storage to window.localStorage because just do same my team
-    //this.local.set('token', res.loginToken);
     window.localStorage.setItem('token', res.loginToken);
     return res;
   }

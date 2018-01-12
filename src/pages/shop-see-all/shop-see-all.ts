@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { TranslateService } from '@ngx-translate/core';
 import { ShopProvider } from '../../providers/shop/shop';
 import { ItemShopModel } from '../../assets/model/shop.model';
+import { LoadingProvider } from '../../providers/loading/loading';
+import { AlertProvider } from '../../providers/alert/alert';
 
 /**
  * Generated class for the ShopSeeAllPage page.
@@ -20,25 +24,59 @@ export class ShopSeeAllPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public shopProvider: ShopProvider
+    private shopProvider: ShopProvider,
+    private loading: LoadingProvider,
+    private geolocation: Geolocation,
+    private translate: TranslateService,
+    private alert: AlertProvider,
+    private platform: Platform
   ) {
   }
 
   ionViewDidLoad() {
-    this.getShop();
+    this.getCurrentPosition();
   }
 
-  getShop() {
-    let condition = this.navParams.data;
-    this.shopProvider.getShopsByCondition(condition).then((data) => {
-      this.shopData = data;
-    }, (error) => {
+  getCurrentPosition() {
+    this.loading.onLoading();
 
+    if (!this.platform.is('cordova')) { // serve test location in lumlukka
+      let location = {
+        coords: {
+          latitude: 13.9323555,
+          longitude: 100.7178317
+        }
+      }
+      this.getShop(location);
+      console.log('Browser debugger');
+      return;
+    }
+
+    this.geolocation.getCurrentPosition().then((location) => {
+      this.getShop(location);
+    }).catch((error) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('ตำแหน่ง', 'ค้นหาตำแหน่งผิดพลาด กรุณาตรวจสอบ GPS', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Location', 'Error! Please check your GPS.', 'OK');
+      }
+    });
+  }
+
+  getShop(location) {
+    let condition = this.navParams.data;
+    this.shopProvider.getShopsByCondition(condition, location).then((data) => {
+      this.shopData = data;
+      this.loading.dismiss();
+    }, (error) => {
+      this.loading.dismiss();
     });
   }
 
   doRefresh(refresher) {
-    this.getShop();
+    this.getCurrentPosition();
     setTimeout(() => {
       refresher.complete();
     }, 500);

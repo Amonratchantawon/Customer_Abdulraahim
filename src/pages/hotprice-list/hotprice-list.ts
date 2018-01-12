@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HotpriceProvider } from '../../providers/hotprice/hotprice';
 import { ItemHotpricesModel } from '../../assets/model/hotprice.model';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the HotpriceListPage page.
@@ -20,7 +21,8 @@ export class HotpriceListPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public hotpriceProvider: HotpriceProvider
+    private hotpriceProvider: HotpriceProvider,
+    private loading: LoadingProvider
   ) {
   }
 
@@ -29,10 +31,12 @@ export class HotpriceListPage {
   }
 
   getHotprice() {
+    this.loading.onLoading();
     this.hotpriceProvider.getHotpriceData().then((data) => {
       this.hotpriceData = data;
+      this.loading.dismiss();
     }, (error) => {
-
+      this.loading.dismiss();
     });
   }
 

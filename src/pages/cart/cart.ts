@@ -18,9 +18,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CartPage {
 
   cartData: CartModel = new CartModel();
-  numberCount: number = 1;
-  totalAmount: number = 0;
-  amount: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public cartProvider: CartProvider) {
   }

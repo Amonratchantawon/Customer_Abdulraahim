@@ -42,13 +42,13 @@ export class HomePage {
     this.loading.onLoading();
 
     if (!this.platform.is('cordova')) { // serve test location in lumlukka
-      let locationd = {
+      let location = {
         coords: {
           latitude: 13.9323555,
           longitude: 100.7178317
         }
       }
-      this.getdata(locationd);
+      this.getdata(location);
       console.log('Browser debugger');
       return;
     }

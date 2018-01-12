@@ -40,4 +40,10 @@ page-image-content {
         margin-left: 24px !important;
     }
 
+    ion-header{
+        // opacity: 0.5;
+        position: fixed;
+        background-color: rgba(70, 44, 44, 0.5);
+    }
+
 }

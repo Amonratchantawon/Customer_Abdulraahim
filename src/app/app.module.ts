@@ -29,6 +29,7 @@ import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { AuthProvider } from '../providers/auth/auth';
 import { TokenInterceptor } from '../providers/auth/token-interceptor';
+import { ProductdetailProvider } from '../providers/productdetail/productdetail';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { TokenInterceptor } from '../providers/auth/token-interceptor';
     LoadingProvider,
     AlertProvider,
     AuthProvider,
+    ProductdetailProvider,
   ]
 })
 export class AppModule { }

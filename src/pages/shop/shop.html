@@ -70,7 +70,7 @@
   </ion-scroll>
 
   <ion-list *ngIf="shopData.products && shopData.products.length">
-    <ion-item *ngFor="let productitem of shopData.products[category].items | filter:{cateid : selectedCateId}">
+    <ion-item *ngFor="let productitem of shopData.products[category].items | filter:{cateid : selectedCateId}" (click)="selectProduct()">
       <ion-thumbnail item-start>
         <preload-image [ratio]="{w:1, h:1}" [src]="productitem.image"></preload-image>
       </ion-thumbnail>

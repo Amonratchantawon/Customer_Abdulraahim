@@ -83,4 +83,9 @@ export class ShopPage {
     this.index = i;
     this.selectedCateId = cate ? cate._id : '';
   }
+
+  selectProduct(){
+    let modal1 = this.modalCtrl.create('ProductDetailPage');
+    modal1.present();
+  }
 }

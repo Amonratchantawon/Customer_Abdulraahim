@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Constants } from '../../app/app.constants';
@@ -16,11 +17,13 @@ import { Constants } from '../../app/app.constants';
 })
 export class AgreementPage {
   isShowAgreementBtn: boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  isLanguage:boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private translate: TranslateService,) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgreementPage');
+    this.onLanguage();
   }
 
   doInfinite(infiniteScroll) {
@@ -35,6 +38,16 @@ export class AgreementPage {
     }
     window.localStorage.setItem('Agreement@' + Constants.URL, JSON.stringify(agr));
     this.navCtrl.push('RegisterPage');
+  }
+
+  onLanguage(){
+    let language = this.translate.currentLang
+    console.log(language);
+    if (language === 'en') {
+      this.isLanguage = true;
+    }else if (language === 'en'){
+      this.isLanguage = false;
+    }
   }
 
 }

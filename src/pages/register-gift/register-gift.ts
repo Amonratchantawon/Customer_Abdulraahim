@@ -1,3 +1,4 @@
+import { RegisterGiftModel } from '../../assets/model/register-gift.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterGiftPage {
   inApp: Boolean = false;
+  userGif:RegisterGiftModel = new RegisterGiftModel();
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams
   ) {
     this.inApp = this.navParams.data ? this.navParams.data.inApp : false;
+    this.userGif = this.navParams.get('user')
+    console.log(this.userGif);
   }
 
   ionViewDidLoad() {

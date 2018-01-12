@@ -26,11 +26,22 @@ page-product-detail {
         background-image: none !important;
     }
     .toolbar-background {
-        background-color: #ff000000 !important
+        background-color: #ff000000 !important;
+        border: none !important;
     }
     .close-close {
         .button-inner {
             font-size: 25px !important;
         }
+    }
+    .bar-button-default-ios {
+        color: #eb3841 !important;
+    }
+    .bar-button-default-md {
+        color: #eb3841 !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: #eb3841 !important;
+        opacity: 1;
     }
 }

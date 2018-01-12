@@ -100,8 +100,7 @@ export class AuthProvider {
     //jigkoh3 change native storage to window.localStorage because just do same my team
     //this.local.set('token', res.loginToken);
     // window.localStorage.setItem('token', res.loginToken);
-    this.login(this._credentials);
-    // return res;
+    return res;
   }
 
   private handleError(error: any): Promise<any> {

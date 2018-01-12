@@ -30,7 +30,9 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
-    this.user.gender = this.user.gender.toUpperCase();
+    if (this.user && this.user.gender) {
+      this.user.gender = this.user.gender.toUpperCase();
+    }
   }
 
   onToAddress() {

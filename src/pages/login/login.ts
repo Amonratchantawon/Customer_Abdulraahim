@@ -42,6 +42,11 @@ export class LoginPage {
     });
   }
 
+  goRegister() {
+    this.app.getRootNav().push('RegisterPage', { inApp: true });
+
+  }
+
   onLogin(credentials) {
     this.loading.onLoading();
     this.auth.login(credentials).then((res) => {
@@ -85,11 +90,9 @@ export class LoginPage {
     this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me?fields=id,first_name,last_name,email,birthday,gender,picture.width(300).height(300)', null).then((user) => {
-          let credentials = {
-            username: user.email,
-            password: 'FB@Pass1234'
-          }
-          this.onLogin(credentials);
+          user.username = user.email;
+          user.password = 'FB@Pass1234';
+          this.authenFB(user);
         })
           .catch(e => {
             if (this.translate.currentLang === 'th') {
@@ -102,10 +105,28 @@ export class LoginPage {
       .catch(e => { });
   }
 
-  goRegister() {
-    // this.navCtrl.push('RegisterPage', { inApp: true });
-    this.app.getRootNav().push('RegisterPage', { inApp: true });
-
+  authenFB(user) {
+    let credentials = {
+      username: user.email,
+      password: 'FB@Pass1234'
+    }
+    this.loading.onLoading();
+    this.auth.login(credentials).then((res) => {
+      this.navCtrl.pop();
+      this.loading.dismiss();
+    }).catch((err) => {
+      if (err.message === 'Invalid password') {
+        let language = this.translate.currentLang;
+        if (language === 'th') {
+          this.alert.onAlert('แจ้งเตือน', 'ชื่อบัญชีนี้มีผู้ใช้งานแล้ว', 'ตกลง');
+        } else if (language === 'en') {
+          this.alert.onAlert('Wraning', 'Username is already exists.', 'OK');
+        }
+      } else {
+        this.app.getRootNav().push('RegisterProfilePage', { provider: 'fb', data: user, inApp: true });
+      }
+      this.loading.dismiss();
+    });
   }
 
 }

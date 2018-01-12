@@ -94,7 +94,8 @@
   "CLOSE": "Close",
   "PRODUCT_CATEGORY": "Product category",
   "PRODUCT_CATEGORY_ALL": "All",
-  "THB": "THB"
+  "THB": "THB",
+  "LOAD_MORE": "Loading more data..."
 
 
 }

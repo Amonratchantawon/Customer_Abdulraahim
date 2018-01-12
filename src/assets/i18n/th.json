@@ -55,7 +55,7 @@
   "LAST_NAME": "สกุล",
   "GENDER": "เพศ",
   "BIRTHDAY": "วันเกิด",
-  "BIRTHDAY_SELECTED":"กรุณาเลือกวันเกิด",
+  "BIRTHDAY_SELECTED": "กรุณาเลือกวันเกิด",
   "E_MAIL": "อีเมล์",
   "WEBSITE": "เว็บไซต์",
   "TEL": "เบอร์โทร",
@@ -94,5 +94,6 @@
   "CLOSE": "ปิด",
   "PRODUCT_CATEGORY": "ประเภทอาหาร",
   "PRODUCT_CATEGORY_ALL": "เมนูทั้งหมด",
-  "THB": "บาท"
+  "THB": "บาท",
+  "LOAD_MORE": "กำลังโหลดข้อมูล..."
 }

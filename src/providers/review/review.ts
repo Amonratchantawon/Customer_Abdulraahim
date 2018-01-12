@@ -1,5 +1,5 @@
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReviewModel } from '../../assets/model/review.model';
 import { ItemShopModel } from '../../assets/model/shop.model';
@@ -46,7 +46,7 @@ export class ReviewProvider {
   }
 
   like(review_id): Promise<ReviewModel> {
-    let header = this.auth.setHeader();    
+    let header = this.auth.setHeader();
     return this.http.put(this.API_URL + '/api/islike/' + review_id, null, { headers: header })
       .toPromise()
       .then(response => response as ReviewModel)

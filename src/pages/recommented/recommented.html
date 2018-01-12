@@ -17,7 +17,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content #content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
@@ -64,5 +64,8 @@
     </ion-row>
 
   </ion-card>
-
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="{{ 'LOAD_MORE' | translate }}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

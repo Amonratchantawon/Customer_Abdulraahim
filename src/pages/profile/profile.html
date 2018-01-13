@@ -56,7 +56,7 @@
     </ion-item>
     <ion-item *ngIf="user.dateOfBirth">
       <ion-label stacked>{{ 'BIRTHDAY' | translate}}</ion-label>
-      <ion-input [disabled]="true" type="text" value="{{ user.dateOfBirth | translate}}"></ion-input>
+      <ion-datetime [disabled]="true" displayFormat="DD MMMM YYYY" [(ngModel)]="user.dateOfBirth"></ion-datetime>
     </ion-item>
   </ion-list>
   <!-- <ion-list>

@@ -24,10 +24,14 @@ page-profile {
     .item {
         color: #607D8B !important;
     }
-    .text-input{
-        color: #607D8B !important;        
+    .text-input {
+        color: #607D8B !important;
     }
-    .text-input[disabled]{
+    .text-input[disabled] {
         opacity: 0.8 !important;
+    }
+    .datetime-disabled,
+    .item-datetime-disabled ion-label {
+        opacity: 0.8;
     }
 }

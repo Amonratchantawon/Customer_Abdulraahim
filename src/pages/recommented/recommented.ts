@@ -81,6 +81,14 @@ export class RecommentedPage {
   }
 
   isLike(item, i) {
+
+    this.dataReview[i].islike = !this.dataReview[i].islike;
+    if (this.dataReview[i].islike) {
+      this.dataReview[i].countlike++;
+    } else {
+      this.dataReview[i].countlike--;
+    }
+
     this.reviewProvider.like(item._id).then((res) => {
       this.dataReview[i].islike = res.islike;
       this.dataReview[i].countlike = res.countlike;
@@ -90,7 +98,7 @@ export class RecommentedPage {
   doPaging(data) {
 
     this.content.scrollToTop();
-    let maxLength = 15;
+    let maxLength = 10;
     this.dataReviewPaging = [];
     this.dataReview = [];
     if (maxLength > 0) {

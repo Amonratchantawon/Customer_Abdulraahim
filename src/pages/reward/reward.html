@@ -20,6 +20,18 @@
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
 
-  <search-input></search-input>
+  <!-- {{rewardData | json}} -->
+
+  
+
+  <div class="container">
+  <img src="{{rewardData.coin.image}}" alt="" class="coin">
+  <!-- <img src="img_fjords_wide.jpg" alt="Norway" style="width:100%;"> -->
+    <div class="centered"><p> {{rewardData.coin.coinnumber}}  </p> </div>
+  </div>
+
+  
+  <img src="{{rewardData.conquest.image}}" alt="">
+  <div class="conquest"><p> {{rewardData.coin.name}} </p> </div>
 
 </ion-content>

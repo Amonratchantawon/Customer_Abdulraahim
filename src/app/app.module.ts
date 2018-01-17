@@ -31,6 +31,7 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProductdetailProvider } from '../providers/productdetail/productdetail';
 import { CartProvider } from '../providers/cart/cart';
+import { RewardProvider } from '../providers/reward/reward';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { CartProvider } from '../providers/cart/cart';
     AuthProvider,
     ProductdetailProvider,
     CartProvider,
+    RewardProvider,
   ]
 })
 export class AppModule { }

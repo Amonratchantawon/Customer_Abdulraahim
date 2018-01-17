@@ -19,11 +19,12 @@
       <p *ngIf="title.length > 0">{{ 'RESTAURANT_NAME' | translate}}</p>
     </ion-col>
     <ion-col col-6 text-right no-padding>
-      <p>{{title.length}}/{{maxLengthTitle}}</p>
+      <p>{{maxLengthTitle > title.length ? title.length : maxLengthTitle}}/{{maxLengthTitle}}</p>
     </ion-col>
   </ion-row>
-  <ion-textarea class="write-review-title" [(ngModel)]="title" rows="1" maxlength="{{maxLengthTitle}}" placeholder="{{ 'RESTAURANT_NAME' | translate}}"
-    (ionChange)="getItems()"></ion-textarea>
+  <!-- <ion-textarea class="write-review-title" [(ngModel)]="title" rows="1" maxlength="{{maxLengthTitle}}" placeholder="{{ 'RESTAURANT_NAME' | translate}}"
+    (ionChange)="getItems()"></ion-textarea> -->
+  <ion-textarea class="write-review-title" [(ngModel)]="title" placeholder="{{ 'RESTAURANT_NAME' | translate}}" (input)="getItems($event)"></ion-textarea>
   <ion-row>
     <ion-col col-12 no-padding>
       <button class="btn-review" ion-button block color="bite" [(disabled)]="title.length === 0 || !isReview" (click)="selectImageReview()">

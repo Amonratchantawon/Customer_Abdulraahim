@@ -53,8 +53,13 @@ export class FindShopReviewPage {
     });
   }
 
-  getItems() {
-    // set val to the value of the searchbar
+  getItems(e) {
+    if (this.title.length > 30) {
+      setTimeout(() => {
+        this.title = this.title.substring(0, 30);
+      }, 0);
+    }
+
     let val = this.title;
 
     // if the value is an empty string don't filter the items
@@ -109,7 +114,7 @@ export class FindShopReviewPage {
   }
 
   onImagePicker() {
-    let options = {
+    const options = {
       maximumImagesCount: 1,
       width: 900,
       quality: 70,
@@ -143,7 +148,8 @@ export class FindShopReviewPage {
 
   onCamera() {
     const options: CameraOptions = {
-      quality: 70,
+      quality: 50,
+      targetWidth: 900,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
